@@ -27,6 +27,7 @@
         "../node_modules/ng2-modal",
         "../node_modules/ng2-loading-animate",
         "../node_modules/angular2-busy/build/style/busy.css",
+        "../node_modules/angular2-flash-messages",
         "Styles/css/bootstrap.css",
         "Styles/css/popuo-box.css",
         "Styles/css/style.css",

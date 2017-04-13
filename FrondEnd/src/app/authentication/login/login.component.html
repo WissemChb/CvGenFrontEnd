@@ -34,9 +34,9 @@
 </div>-->
 
 <div class="w3layoutscontaineragileits">
-  <form action="#" method="post">
-    <input type="text" Name="Userame" placeholder="EMAIL" required="">
-    <input type="password" Name="Password" placeholder="PASSWORD" required="">
+  <form (ngSubmit)="login()" [formGroup]="loginForm">
+    <input type="text" Name="Userame" placeholder="USERNAME" required="Username required" formControlName="username">
+    <input type="password" Name="Password" placeholder="PASSWORD" required="Password required" formControlName="password">
     <ul class="agileinfotickwthree">
       <li>
         <input type="checkbox" id="brand1" value="">
@@ -45,11 +45,13 @@
     </ul>
     <div class="aitssendbuttonw3ls">
       <input type="submit" value="LOGIN">
-      <p><a href="#">REGISTER NEW ACCOUNT <span>→</span></a></p>
+      <p><a [routerLink]="['/signup']">REGISTER NEW ACCOUNT <span>→</span></a></p>
       <div class="clear"></div>
     </div>
   </form>
 </div>
+
+
 
 
 

@@ -4,3 +4,8 @@
 @import "../Styles/css/zoomslider.css";
 @import "../Styles/css/style.css";
 @import "../Styles/css/lightbox.css";
+
+
+.center{
+  vertical-align: middle;
+}

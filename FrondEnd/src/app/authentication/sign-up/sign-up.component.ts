@@ -6,6 +6,8 @@ import {Customer} from "./customer";
 import {SignUpService} from "./sign-up.service";
 import {ModalDirective} from "ng2-bootstrap";
 import {LoadingAnimateService} from "ng2-loading-animate";
+import {FlashMessagesService} from "angular2-flash-messages";
+import {Router} from "@angular/router";
 
 
 
@@ -50,7 +52,9 @@ export class SignUpComponent implements OnInit,AfterViewInit {
 
 
   constructor(private fb: FormBuilder, private signUpService : SignUpService,
-              private _loadingSvc: LoadingAnimateService) {
+              private _loadingSvc: LoadingAnimateService,
+              private _flashMessageService : FlashMessagesService,
+              private router: Router) {
     this.validationMessage = {
       firstName: {
         required: 'First Name is required',
@@ -107,20 +111,34 @@ console.log(this.signUpForm);
   }
 
   save() {
-    this.onShowModal();
-    this.startLoading();
+
     this.addUser();
 
   }
 
   private addUser(){
+    //this.onShowModal();
+    this.startLoading();
       // Copy the form values over the product object values
       let user = Object.assign({}, this.customer, this.signUpForm.value);
-      this.signUpService.addUser(user).subscribe((data) => this.modalMessage = data ,
+      this.signUpService.addUser(user).subscribe(data => {
+        if(data.success)
+        {
+          debugger
+        this._flashMessageService.show("you are now regestered",
+          {cssClass : 'alert-success',timeout : 10000});
+        this.router.navigate(['/login']);
+        this.signUpForm.reset();
+
+      }else{
+        this._flashMessageService.show(data.msg,{cssClass: 'alert-danger'});
+        this.router.navigate(['/signup']);
+      }},
         (error: any) => this.errorMessage = <any>error);
        this.modalMessage = this.errorMessage
-debugger
   }
+
+
 
   public hideModal():void {
     this.autoShownModal.hide();

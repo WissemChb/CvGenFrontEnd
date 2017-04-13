@@ -7,9 +7,7 @@ import {SharedModule} from "../../shared/shared.module";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {ModalModule} from "ng2-bootstrap";
 import {LoadingAnimateModule, LoadingAnimateService} from "ng2-loading-animate";
-
-import {BusyModule} from "angular2-busy";
-
+import {FlashMessagesModule, FlashMessagesService} from "angular2-flash-messages";
 
 @NgModule({
   imports: [
@@ -22,11 +20,11 @@ import {BusyModule} from "angular2-busy";
     ReactiveFormsModule,
     ModalModule.forRoot(),
     LoadingAnimateModule.forRoot(),
-    //BusyModule
+    FlashMessagesModule
 
   ],
   declarations: [SignUpComponent],
-  providers : [SignUpService, LoadingAnimateService],
+  providers : [SignUpService, LoadingAnimateService, FlashMessagesService],
 
 })
 export class SignUpModule { }

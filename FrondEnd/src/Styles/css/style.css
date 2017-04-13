@@ -7,7 +7,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 --*/
 html, body{
     font-size: 100%;
-font-family: 'Open Sans', sans-serif;
+  font-family: 'Open Sans', sans-serif;
 	background:#ffffff;
 	margin:0px!important;
 }
@@ -111,7 +111,7 @@ input[type="submit"],.w3l_header_left ul li a,.related-post-right h4 a,.comments
     position: relative;
     padding-bottom:1em;
 }
-/*-- logo --*/
+/*-- logo--*/
 .navbar-header h1 {
     font-size: 2em;
     display: block;
@@ -132,7 +132,7 @@ h1 span {
 /*-- //logo --*/
 /*-- top-nav --*/
 ul.nav.navbar-nav {
-       margin-left: 21em;
+    margin-left: 10em;
     margin-top: 2em;
 }
 .navbar-default {
@@ -142,8 +142,8 @@ ul.nav.navbar-nav {
     min-height: inherit;
 }
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
-      color: #fff;
-    background: #2baf2b;
+  color: #fff ;
+      background: #2baf2b;
 }
 .navbar-nav > li {
       margin: 0 0.8em;

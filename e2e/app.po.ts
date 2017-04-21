@@ -1,6 +1,6 @@
 import { browser, element, by } from 'protractor';
 
-export class CVGeneratorAppPage {
+export class FrondEndPage {
   navigateTo() {
     return browser.get('/');
   }

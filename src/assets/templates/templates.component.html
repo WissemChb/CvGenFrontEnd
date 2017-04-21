@@ -1,0 +1,14 @@
+<div class="container">
+  <router-outlet></router-outlet>
+      <h1 class="text-center"></h1>
+      <p class="text-center">
+        to be able to use those templates ,just login  .<br>
+        <a href="#"><button  class="btn btn-success" (click)="ClickButton()" >create a cv</button></a><br><br>
+        <a [routerLink] = "['/viewtemplate1']"><img src="../../assets/templates/template1.png"  width="350" height="450"></a>
+        <a [routerLink] = "['/viewtemplate2']"><img src="../../assets/templates/template2.png" width="350" height="450"></a>
+        <a [routerLink] = "['/viewtemplate3']"><img src="../../assets/templates/template3.png" width="350" height="450"></a>
+        <a [routerLink] = "['/viewtemplate4']"><img src="../../assets/templates/tempate4.PNG" width="350" height="450"></a>
+        <a [routerLink] = "['/viewtemplate5']"><img src="../../assets/templates/template5.PNG" width="350" height="450"></a>
+        <a [routerLink] = "['/viewtemplate6']"><img src="../../assets/templates/template6.PNG" width="350" height="450"></a>
+      </p>
+</div>

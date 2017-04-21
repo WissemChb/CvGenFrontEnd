@@ -1,10 +1,10 @@
-import { CVGeneratorAppPage } from './app.po';
+import { FrondEndPage } from './app.po';
 
-describe('cvgenerator-app App', () => {
-  let page: CVGeneratorAppPage;
+describe('frond-end App', () => {
+  let page: FrondEndPage;
 
   beforeEach(() => {
-    page = new CVGeneratorAppPage();
+    page = new FrondEndPage();
   });
 
   it('should display message saying app works', () => {

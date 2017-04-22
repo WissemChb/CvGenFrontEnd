@@ -1,7 +1,7 @@
 import { TestBed, inject } from '@angular/core/testing';
 
 import { LoginService } from './login.service';
-import {Http, BaseRequestOptions, ResponseOptions, Response} from "@angular/http";
+import {Http, BaseRequestOptions, ResponseOptions, Response, RequestOptions} from "@angular/http";
 import {MockBackend, MockConnection} from "@angular/http/testing";
 
 describe('LoginService', () => {
@@ -12,9 +12,10 @@ describe('LoginService', () => {
     password : 'wissem'
   }
 
-  beforeEach(inject([LoginService] , (loginService : LoginService) => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [LoginService,
+        Http,
         MockBackend,
         BaseRequestOptions,
         {
@@ -26,8 +27,12 @@ describe('LoginService', () => {
           ]
     });
     backend = new MockBackend();
-    subject = loginService;
-  }));
+
+  });
+
+beforeEach(inject([LoginService] , (loginService : LoginService)=>{
+  subject = loginService;
+}));
 
   it('should be created', () => {
     expect(subject).toBeTruthy();
@@ -56,7 +61,7 @@ describe('LoginService', () => {
       });
       connection.mockRespond(new Response(options));
     });
-    subject.addUser(user)
+    subject.login(user)
       .subscribe((response) => {
         expect(response.json()).toEqual({success : true});
       })

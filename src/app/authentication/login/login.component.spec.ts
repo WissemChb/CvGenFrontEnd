@@ -6,6 +6,10 @@ import {DebugElement} from "@angular/core";
 import {ReactiveFormsModule, FormsModule} from "@angular/forms";
 import {FlashMessagesModule, FlashMessagesService} from "angular2-flash-messages";
 import {LoginService} from "./login.service";
+import {Http, ConnectionBackend, BaseRequestOptions, RequestOptions, HttpModule} from "@angular/http";
+import {MockBackend} from "@angular/http/testing";
+import {Router} from "@angular/router";
+import {RouterTestingModule} from "@angular/router/testing";
 
 
 
@@ -23,7 +27,7 @@ describe('LoginComponent Tests :', () => {
         RouterOutletStubComponent ],
       imports : [
         ReactiveFormsModule, FormsModule, BrowserModule,
-        FlashMessagesModule
+        FlashMessagesModule,HttpModule,RouterTestingModule,HttpModule
       ],
       providers : [FlashMessagesService,LoginService]
     })
@@ -77,7 +81,7 @@ describe('LoginComponent Tests :', () => {
 
   describe('password Test: ', () => {
     it(' password field  validity  ', () => {
-      let password = component.loginForm.get('passwordMatch').get('password');
+      let password = component.loginForm.get('password');
       expect(password.valid).toBeFalsy('should be initially invalid');
       let errors = password.errors || {}
       expect(errors['required']).toBeTruthy(' should be required');

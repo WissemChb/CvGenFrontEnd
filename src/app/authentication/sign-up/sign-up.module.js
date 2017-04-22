@@ -8,9 +8,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
 var router_1 = require("@angular/router");
-var sign_up_component_1 = require("./sign-up.component.ts");
-var sign_up_service_1 = require("./sign-up.service.ts");
-var shared_module_1 = require("../../shared/shared.module.ts");
+var sign_up_component_1 = require("./sign-up.component");
+var sign_up_service_1 = require("./sign-up.service");
+var shared_module_1 = require("../../shared/shared.module");
 var SignUpModule = (function () {
     function SignUpModule() {
     }

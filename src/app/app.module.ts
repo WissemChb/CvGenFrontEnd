@@ -12,6 +12,7 @@ import {TemplatesComponent} from "./templates/templates.component";
 import {LoginModule} from "./authentication/login/login.module";
 import {AboutModule} from "./about/about.module";
 import {FlashMessagesModule, FlashMessagesService} from "angular2-flash-messages";
+import {DashboardModule} from "./dashboard/dashboard.module";
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import {FlashMessagesModule, FlashMessagesService} from "angular2-flash-messages
     ModalModule,
     LoginModule,
     AboutModule,
-    FlashMessagesModule
+    FlashMessagesModule,
+    DashboardModule
   ],
   providers: [FlashMessagesService],
   bootstrap: [AppComponent]

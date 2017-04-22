@@ -6,6 +6,7 @@ import {ReactiveFormsModule, FormsModule, FormBuilder} from "@angular/forms";
 import {BrowserModule} from "@angular/platform-browser";
 import {LoginService} from "./login.service";
 import {FlashMessagesModule} from "angular2-flash-messages";
+import {Http, RequestOptions, HttpModule, ConnectionBackend} from "@angular/http";
 
 @NgModule({
   imports: [
@@ -16,7 +17,8 @@ import {FlashMessagesModule} from "angular2-flash-messages";
     ReactiveFormsModule,
     FormsModule,
     BrowserModule,
-    FlashMessagesModule
+    FlashMessagesModule,
+    HttpModule
   ],
   declarations: [LoginComponent],
   providers : [LoginService, FormBuilder]

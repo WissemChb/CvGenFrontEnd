@@ -7,6 +7,7 @@ import {Observable} from "rxjs";
 export class LoginService {
   constructor(private http : Http){}
   user : Login;
+  authToken : any;
   url : string = "http://localhost:5000/auth/login";
   login (user : Login){
     let headers = new Headers({ 'Content-Type': 'application/json' });
@@ -23,5 +24,18 @@ export class LoginService {
     let body = response.json();
     console.log(body.success);
     return body || {};
+  }
+
+  saveLocalAuthentication(token, user){
+    localStorage.setItem('id_token',token);
+    localStorage.setItem('user',JSON.stringify(user));
+    this.authToken = token;
+    this.user = user;
+
+  }
+  logout(){
+    this.authToken = null;
+    this.user = null;
+    localStorage.clear();
   }
 }

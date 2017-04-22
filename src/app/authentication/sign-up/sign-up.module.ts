@@ -20,7 +20,7 @@ import {FlashMessagesModule, FlashMessagesService} from "angular2-flash-messages
     ReactiveFormsModule,
     ModalModule.forRoot(),
     LoadingAnimateModule.forRoot(),
-    FlashMessagesModule
+    FlashMessagesModule,
 
   ],
   declarations: [SignUpComponent],

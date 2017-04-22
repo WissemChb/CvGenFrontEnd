@@ -11,6 +11,9 @@ import {Router} from "@angular/router";
 
 
 
+
+
+
 function passwordMatcher(c: AbstractControl): {[key: string]: boolean} | null {
   let passwordControl = c.get('password');
   let confirmPasswordControl = c.get('confirmPassword');
@@ -111,34 +114,35 @@ console.log(this.signUpForm);
   }
 
   save() {
-
     this.addUser();
-
   }
 
   private addUser(){
     //this.onShowModal();
-    this.startLoading();
+    //this.startLoading();
+    if(this.signUpForm.invalid){
+      this._flashMessageService.show(" Fields are required",{cssClass : 'alert-danger',timout : 2000});
+      window.scrollTo(0,0);
+    }else{
       // Copy the form values over the product object values
       let user = Object.assign({}, this.customer, this.signUpForm.value);
       this.signUpService.addUser(user).subscribe(data => {
-        if(data.success)
-        {
-          debugger
-        this._flashMessageService.show("you are now regestered",
-          {cssClass : 'alert-success',timeout : 10000});
-        this.router.navigate(['/login']);
-        this.signUpForm.reset();
+          if(data.success)
+          {
+            this._flashMessageService.show("you are now regestered",
+              {cssClass : 'alert-success',timeout : 10000});
+            this.router.navigate(['/login']);
+            this.signUpForm.reset();
 
-      }else{
-        this._flashMessageService.show(data.msg,{cssClass: 'alert-danger'});
-        this.router.navigate(['/signup']);
-      }},
+          }else{
+            this._flashMessageService.show(data.msg,{cssClass: 'alert-danger'});
+            this.router.navigate(['/signup']);
+          }},
         (error: any) => this.errorMessage = <any>error);
-       this.modalMessage = this.errorMessage
+      this.modalMessage = this.errorMessage
+    }
+
   }
-
-
 
   public hideModal():void {
     this.autoShownModal.hide();

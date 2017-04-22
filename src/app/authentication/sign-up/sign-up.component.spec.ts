@@ -12,6 +12,7 @@ import {Http, HttpModule, ConnectionBackend} from "@angular/http";
 import any = jasmine.any;
 import {LoadingAnimateModule, LoadingAnimateService} from "ng2-loading-animate";
 import {FlashMessagesModule, FlashMessagesService} from "angular2-flash-messages";
+import {RouterTestingModule} from "@angular/router/testing";
 
 
 
@@ -26,9 +27,9 @@ describe('SignUpComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ SignUpComponent],
-      imports: [FormsModule, BrowserModule, ReactiveFormsModule,
+      imports: [FormsModule, BrowserModule, ReactiveFormsModule,RouterTestingModule,HttpModule,
       ModalModule.forRoot(),HttpModule, LoadingAnimateModule.forRoot(), FlashMessagesModule],
-      providers : [SignUpService, Http, ConnectionBackend,LoadingAnimateService,FlashMessagesService]
+      providers : [SignUpService,LoadingAnimateService,FlashMessagesService]
     })
     .compileComponents();
   }));

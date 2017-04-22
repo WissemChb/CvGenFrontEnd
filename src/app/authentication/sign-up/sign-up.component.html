@@ -1,6 +1,6 @@
-<div class="signup-form-container">
 
-  <!-- form start -->
+
+  <!-- form start
   <form role="form" id="register-form" [formGroup]="signUpForm" novalidate (ngSubmit)="save()">
 
     <div class="form-header">
@@ -95,9 +95,69 @@
       </button>
     </div>
   </form>
-</div>
+</div>-->
+
+  <div class="w3layouts-main2">
+    <h3>Register Now</h3>
+    <small>
+      <flash-messages></flash-messages>
+    </small>
+    <form [formGroup]="signUpForm" novalidate (ngSubmit)="save()">
+      <div class="form-group" [ngClass]="{'has-error': displayeErrorMessage.firstName}" >
+        <!-- <span class="icons i3"><i class="fa fa-user" aria-hidden="true"></i></span>-->
+        <input placeholder="FIRST NAME" name="Name" type="text" formControlName="firstName" >
+        <small class="help-block" id="errorname" *ngIf="displayeErrorMessage.firstName">
+          <i>{{displayeErrorMessage.firstName}}</i>
+        </small>
+      </div>
+
+      <div class="form-group" [ngClass]="{'has-error': displayeErrorMessage.secondName}">
+        <!-- <span class="icons i3"><i class="fa fa-user" aria-hidden="true"></i></span>-->
+        <input placeholder="SECOND NAME" name="Name" type="text" formControlName="secondName" >
+        <small class="help-block"  *ngIf="displayeErrorMessage.secondName">
+          <i> {{displayeErrorMessage.secondName}}</i>
+        </small>
+      </div>
+
+      <div  class="form-group" [ngClass]="{'has-error': displayeErrorMessage.username}">
+        <!-- <span class="icons i3"><i class="fa fa-user" aria-hidden="true"></i></span>-->
+        <input placeholder="USER NAME" name="Name" type="text" formControlName="username" >
+        <small class="help-block" id="errorusername" *ngIf="displayeErrorMessage.username">
+          <i>{{displayeErrorMessage.username}}</i>
+        </small>
+      </div>
+
+      <div class="form-group" [ngClass]="{'has-error': displayeErrorMessage.email}">
+        <input placeholder="E-MAIL" name="Email" type="email" formControlName="email">
+        <!--<span class="icons i4"><i class="fa fa-envelope-o" aria-hidden="true"></i></span>-->
+        <small class="help-block" id="erroremail" *ngIf="displayeErrorMessage.email">
+          <i>{{displayeErrorMessage.email}}</i>
+        </small>
+      </div>
+
+      <div formGroupName="passwordMatch">
+        <div class="form-group" [ngClass]="{'has-error': displayeErrorMessage.password}">
+          <input placeholder="PASSWORD" name="Password" type="password" formControlName="password">
+          <!--<span class="icons i5"><i class="fa fa-key" aria-hidden="true"></i></span>-->
+          <small class="help-block" id="errorpassword" *ngIf="displayeErrorMessage.password">
+            <i>{{displayeErrorMessage.password}}</i>
+          </small>
+        </div>
+
+        <div class="form-group" [ngClass]="{'has-error': displayeErrorMessage.confirmPassword}">
+          <input placeholder="CONFIRM PASSWORD" name="Password" type="password" formControlName="confirmPassword">
+          <!--<span class="icons i6"><i class="fa fa-key" aria-hidden="true"></i></span>-->
+          <small class="help-block" id="errorcpassword1" *ngIf="displayeErrorMessage.confirmPassword">
+            <i>{{displayeErrorMessage.confirmPassword}}</i>
+          </small>
+        </div>
+      </div>
 
 
+      <input type="submit" value="Register" name="register">
+    </form>
+  </div>
+  <div class="clear"></div>
 
 <!-- Auto show Modal -->
 
@@ -120,3 +180,4 @@
   </div>
 </div>
 </div>
+

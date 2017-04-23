@@ -3,12 +3,12 @@
  */
 
 //import { Component} from '@angular/core';
-import {ModalDirective} from "ng2-bootstrap";
-import {LoadingAnimateService} from "ng2-loading-animate";
+import {ModalDirective} from "ng2-bootstrap/ng2-bootstrap";
+import {Component, ViewChild, ViewContainerRef, AfterViewInit, ElementRef} from '@angular/core';
+import {TemplateModalComponent} from "../shared/modal/templateModal.component";
+import {any} from "codelyzer/util/function";
+import {By} from "@angular/platform-browser";
 
-import {Component, OnInit, ElementRef, AfterViewInit, ViewChildren, ViewChild} from '@angular/core';
-import {FormGroup, FormBuilder, Validators, FormControlName, AbstractControl, FormControl} from "@angular/forms";
-import {Subscription, Observable} from "rxjs";
 
 
 
@@ -19,18 +19,27 @@ import {Subscription, Observable} from "rxjs";
   styleUrls : ['templates.component.css'],
 })
 
-export class TemplatesComponent   {
+export class TemplatesComponent{
 
-  //@ViewChildren(FormControlName, {read: ElementRef}) formInputElements: ElementRef[];
-  //@ViewChild('autoShownModal') public autoShownModal:ModalDirective;
+  @ViewChild('childModal') childModal :TemplateModalComponent;
 
   pageTitle : string = 'Templates';
+  value : any;
+  idAttr : any;
 
 
+  constructor( private viewContainerRef: ViewContainerRef) {}
 
-  //constructor( private _loadingSvc: LoadingAnimateService) {}
+  Onclick(event){
+    var target = event.target || event.srcElement || event.currentTarget;
+    this.idAttr = target.attributes.id.value;
+    console.log(this.idAttr);
+    debugger
+    this.value = document.getElementById(this.idAttr).getAttribute('src');
+    debugger
+    this.childModal.show();
 
-
+  }
 }
 
 

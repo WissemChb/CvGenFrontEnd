@@ -9,6 +9,7 @@ import {Login} from "./Login";
 import {LoginService} from "./login.service";
 import {FlashMessagesService} from "angular2-flash-messages";
 import {Router} from "@angular/router";
+import {Customer} from "../../shared/classes/customer";
 
 
 @Component({
@@ -18,7 +19,7 @@ import {Router} from "@angular/router";
 })
 export class LoginComponent implements OnInit{
     pageTitle :string = "Login";
-    user : Login = new Login();
+    user : Customer = new Customer();
     loginForm : FormGroup;
     errorMessage : String;
     modalMessage : String;
@@ -48,6 +49,8 @@ export class LoginComponent implements OnInit{
     this.loginService.login(user).subscribe(data =>  {
         if(data.success){
           this._flashMessage.show('welcome to My CV Generator App', {cssClass : 'alert-success',timeout: 5000});
+          debugger
+          this.loginService.saveLocalAuthentication(data.token, data.user)
           this.router.navigate(['/dashboard']);
         }else {
           this._flashMessage.show(data.msg, {cssClass : 'alert-danger', timeout : 5000});

@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import {Customer} from "./customer";
+import {Customer} from "../../shared/classes/customer";
 import {Headers, RequestOptions, Http, Response} from "@angular/http";
 import {Observable, Subscription} from "rxjs";
 import 'rxjs/add/operator/do';

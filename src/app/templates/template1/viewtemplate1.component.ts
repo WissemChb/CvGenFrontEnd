@@ -6,6 +6,7 @@
 import {Component} from "@angular/core";
 
 
+
 @Component({
   selector :   'app-viewtemplate1',
   templateUrl :'viewtemplate1.component.html',
@@ -13,6 +14,7 @@ import {Component} from "@angular/core";
 })
 
 export class Viewtemplate1Component {
-  pageTitle : string = 'viewtemplate1'
+  pageTitle : string = 'viewtemplate1';
+
 }
 

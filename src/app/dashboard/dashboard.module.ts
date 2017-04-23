@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './dashboard.component';
 import {RouterModule} from "@angular/router";
 import {ProgressbarModule} from "ngx-bootstrap";
+import {DashboardService} from "./dashboard.service";
 
 @NgModule({
   imports: [
@@ -12,6 +13,7 @@ import {ProgressbarModule} from "ngx-bootstrap";
       {path : 'dashboard' , component: DashboardComponent}
     ])
   ],
-  declarations: [DashboardComponent]
+  declarations: [DashboardComponent],
+  providers:[DashboardService]
 })
 export class DashboardModule { }

@@ -13,18 +13,20 @@ import {LoginModule} from "./authentication/login/login.module";
 import {AboutModule} from "./about/about.module";
 import {FlashMessagesModule, FlashMessagesService} from "angular2-flash-messages";
 import {DashboardModule} from "./dashboard/dashboard.module";
+import { CreateCVComponent } from './CreateCV/create-cv.component';
+import {CreateCVModule} from "./CreateCV/create-cv.module";
+import {TemplatesModule} from "./templates/templates.module";
 
 
 @NgModule({
   declarations: [
-    AppComponent,HomeComponent, TemplatesComponent
+    AppComponent,HomeComponent ,CreateCVComponent
   ],
   imports: [
     RouterModule.forRoot([
       {path : 'home' , component : HomeComponent },
       { path: '', redirectTo: 'welcome', pathMatch: 'full' },
-      { path: '**', redirectTo: 'welcome', pathMatch: 'full' },
-      {path : 'templates' , component : TemplatesComponent }
+      { path: '**', redirectTo: 'welcome', pathMatch: 'full' }
     ]) ,
     BrowserModule,
     SignUpModule,
@@ -33,7 +35,9 @@ import {DashboardModule} from "./dashboard/dashboard.module";
     LoginModule,
     AboutModule,
     FlashMessagesModule,
-    DashboardModule
+    DashboardModule,
+    CreateCVModule,
+    TemplatesModule
   ],
   providers: [FlashMessagesService],
   bootstrap: [AppComponent]

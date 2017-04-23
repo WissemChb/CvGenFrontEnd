@@ -1,14 +1,31 @@
 <div class="container">
   <router-outlet></router-outlet>
-      <h1 class="text-center"></h1>
-      <p class="text-center">
-        to be able to use those templates ,just login  .<br>
-        <a href="#"><button  class="btn btn-success" (click)="ClickButton()" >create a cv</button></a><br><br>
-        <a [routerLink] = "['/viewtemplate1']"><img src="../../assets/templates/template1.png"  width="350" height="450"></a>
-        <a [routerLink] = "['/viewtemplate2']"><img src="../../assets/templates/template2.png" width="350" height="450"></a>
-        <a [routerLink] = "['/viewtemplate3']"><img src="../../assets/templates/template3.png" width="350" height="450"></a>
-        <a [routerLink] = "['/viewtemplate4']"><img src="../../assets/templates/tempate4.PNG" width="350" height="450"></a>
-        <a [routerLink] = "['/viewtemplate5']"><img src="../../assets/templates/template5.PNG" width="350" height="450"></a>
-        <a [routerLink] = "['/viewtemplate6']"><img src="../../assets/templates/template6.PNG" width="350" height="450"></a>
-      </p>
+  <div class="row">
+    <div class="col-md-2">
+      <button (click)="Onclick($event)" id="but1"><img src="../../assets/images/templates/template1.png" class="img-responsive" id="temp1 "></button>
+    </div>
+    <div class="col-md-2">
+      <button (click)="Onclick($event)" id="but2"><img src="../../assets/images/templates/template2.png" class="img-responsive" id="temp2"></button>
+    </div>
+    <div class="col-md-2">
+      <button (click)="Onclick($event)" id="but3"><img src="../../assets/images/templates/template3.png" class="img-responsive" id="temp3"></button>
+    </div>
+    <div class="col-md-2">
+      <button (click)="Onclick($event)" id="but4"><img src="../../assets/images/templates/tempate4.PNG" class="img-responsive" id="temp4"></button>
+    </div>
+    <div class="col-md-2">
+      <button (click)="Onclick($event)" id="but5"><img src="../../assets/images/templates/template5.PNG" class="img-responsive" id="temp5"></button>
+    </div>
+    <div class="col-md-2">
+      <button (click)="Onclick($event)" id="but6"><img src="../../assets/images/templates/template6.PNG" class="img-responsive" id="temp6"></button>
+    </div>
+
+  </div>
 </div>
+
+
+<common-modal  #childModal>
+  <div class="modal-body">
+    <img src="{{value}}" id="imgViewer">
+  </div>
+</common-modal>

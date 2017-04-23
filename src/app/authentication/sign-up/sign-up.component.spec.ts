@@ -7,7 +7,7 @@ import {BrowserModule, By} from "@angular/platform-browser";
 import {DebugElement, ElementRef, ViewChildren, Input} from "@angular/core";
 import {ModalModule} from "ng2-bootstrap";
 import {SignUpService} from "./sign-up.service";
-import {Customer} from "./customer";
+import {Customer} from "../../shared/classes/customer";
 import {Http, HttpModule, ConnectionBackend} from "@angular/http";
 import any = jasmine.any;
 import {LoadingAnimateModule, LoadingAnimateService} from "ng2-loading-animate";

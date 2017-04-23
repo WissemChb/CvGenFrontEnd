@@ -32,7 +32,8 @@
         "Styles/css/popuo-box.css",
         "Styles/css/style.css",
         "Styles/css/zoomslider.css",
-        "../node_modules/bootstrap/dist/js/bootstrap.js"
+        "../node_modules/bootstrap/dist/js/bootstrap.js",
+        "../node_modules/ngx-bootstrap"
 
 
 

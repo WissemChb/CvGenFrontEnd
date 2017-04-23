@@ -2,7 +2,7 @@ import {Component, OnInit, ElementRef, AfterViewInit, ViewChildren, ViewChild} f
 import {FormGroup, FormBuilder, Validators, FormControlName, AbstractControl, FormControl} from "@angular/forms";
 import {Subscription, Observable} from "rxjs";
 import { FormValidator} from "../../shared/form-control";
-import {Customer} from "./customer";
+import {Customer} from "../../shared/classes/customer";
 import {SignUpService} from "./sign-up.service";
 import {ModalDirective} from "ng2-bootstrap";
 import {LoadingAnimateService} from "ng2-loading-animate";

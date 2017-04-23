@@ -556,14 +556,7 @@ h3.tittle.two {
 .w3l-special-grid {
     padding: 0;
 }
-.w3ls-special-img {
-    padding: 0;
-    background:#000 url(../images/sp1.jpg) no-repeat 0px 0px;
-    min-height: 235px;
-    background-size: cover;
-    text-align: center;
-    position: relative;
-}
+
 .w3ls-special-img img{
 	width:100%;
 }
@@ -594,22 +587,7 @@ h3.tittle.two {
     line-height:2em;
     margin: 1.5em 0 0 0;
 }
-.wthree-img1{
-       background:#000 url(../images/sp2.jpg) no-repeat 0px 0px;
-    background-size: cover;
-}
-.wthree-img2{
-        background:#000 url(../images/sp3.jpg) no-repeat 0px 0px;
-    background-size: cover;
-}
-.wthree-img3{
-       background:#000 url(../images/sp4.jpg) no-repeat 0px 0px;
-    background-size: cover;
-}
-.wthree-img4{
-       background:#000 url(../images/sp3.jpg) no-repeat 0px 0px;
-    background-size: cover;
-}
+
 .w3ls-special-text h4 {
     color: #FFF;
     font-size: 1.8em;

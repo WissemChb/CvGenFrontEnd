@@ -5,11 +5,13 @@ import {RouterModule} from "@angular/router";
 import {ProgressbarModule} from "ngx-bootstrap";
 import {DashboardService} from "./dashboard.service";
 import {CreateModalComponent} from "../shared/modal/createModal/createModal.component";
+import {ModalModule} from "ng2-bootstrap";
 
 @NgModule({
   imports: [
     CommonModule,
     ProgressbarModule.forRoot(),
+    ModalModule.forRoot(),
     RouterModule.forRoot([
       {path : 'dashboard' , component: DashboardComponent}
     ])

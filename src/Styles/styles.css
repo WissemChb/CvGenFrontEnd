@@ -1,5 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 
+@import "../Styles/css/bootstrap.css";
+@import "../Styles/css/popuo-box.css";
+@import "../Styles/css/font-awesome.css";
+@import "../Styles/css/zoomslider.css";
+@import "../Styles/css/style.css";
+@import "../Styles/css/lightbox.css";
+
 .spinner {
   margin: 100px auto;
   width: 40px;

@@ -5,7 +5,7 @@
 //import { Component} from '@angular/core';
 import {ModalDirective} from "ng2-bootstrap/ng2-bootstrap";
 import {Component, ViewChild, ViewContainerRef, AfterViewInit, ElementRef} from '@angular/core';
-import {TemplateModalComponent} from "../shared/modal/templateModal.component";
+import {TemplateModalComponent} from "../shared/modal/templateModal/templateModal.component";
 import {any} from "codelyzer/util/function";
 import {By} from "@angular/platform-browser";
 

@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {DashboardService} from "./dashboard.service";
 import {Router} from "@angular/router";
+import {CreateModalComponent} from "../shared/modal/createModal/createModal.component";
 //import {Customer} from "../shared/classes/customer";
 
 @Component({
@@ -9,7 +10,7 @@ import {Router} from "@angular/router";
   styleUrls: ['dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-
+  @ViewChild('childModal') childModal : CreateModalComponent
   constructor(private dashService : DashboardService , private router : Router) { }
   user: Object;
   ngOnInit() {
@@ -22,6 +23,13 @@ export class DashboardComponent implements OnInit {
     })*/
    this.user=localStorage.getItem('user');
    console.log(this.user);
+  }
+
+
+  Onclick(event){
+    var target = event.target || event.srcElement || event.currentTarget;
+    this.childModal.show();
+
   }
 
 }

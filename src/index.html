@@ -7,6 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -55,7 +57,7 @@
     </div>
   </app-root>
 
- <script type="text/javascript" src="Styles/js/bootstrap.js"></script>
+ <!--<script type="text/javascript" src="Styles/js/bootstrap.js"></script>
   <script type="text/javascript" src="Styles/js/jquery.zoomslider.min.js"></script>
   <script type="text/javascript" src="Styles/js/jquery.magnific-popup.js"></script>
   <script type="text/javascript" src="Styles/js/classie.js"></script>
@@ -84,6 +86,62 @@
   <script type="text/javascript" src="./Styles/js/lightbox-plus-jquery.min.js"></script>
   <script type="text/javascript" src="./Styles/js/numscroller-1.0.js"></script>
   <script type="text/javascript" src="./Styles/js/move-top.js"></script>
-  <script type="text/javascript" src="./Styles/js/easing.js"></script>
+  <script type="text/javascript" src="./Styles/js/easing.js"></script>-->
+
+  <script src="js/bootstrap.js"></script>
+  <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+  <!-- Dropdown-Menu-JavaScript -->
+  <script>
+    $(document).ready(function(){
+      $(".dropdown").hover(
+        function() {
+          $('.dropdown-menu', this).stop( true, true ).slideDown("fast");
+          $(this).toggleClass('open');
+        },
+        function() {
+          $('.dropdown-menu', this).stop( true, true ).slideUp("fast");
+          $(this).toggleClass('open');
+        }
+      );
+    });
+  </script>
+  <!-- //Dropdown-Menu-JavaScript -->
+
+
+  <script type="text/javascript" src="js/jquery.zoomslider.min.js"></script>
+  <!-- search-jQuery -->
+  <script src="js/main.js"></script>
+
+  <script type="text/javascript" src="js/move-top.js"></script>
+  <script type="text/javascript" src="js/easing.js"></script>
+
+  <script type="text/javascript">
+    jQuery(document).ready(function($) {
+      $(".scroll").click(function(event){
+        event.preventDefault();
+        $('html,body').animate({scrollTop:$(this.hash).offset().top},900);
+      });
+    });
+  </script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      /*
+       var defaults = {
+       containerID: 'toTop', // fading element id
+       containerHoverID: 'toTopHover', // fading element hover id
+       scrollSpeed: 1200,
+       easingType: 'linear'
+       };
+       */
+
+      $().UItoTop({ easingType: 'easeOutQuart' });
+
+    });
+  </script>
+  <!--end-smooth-scrolling-->
+  <!--js for bootstrap working-->
+  <script src="js/bootstrap.js"></script>
+  <!-- //for bootstrap working -->
+
 </body>
 </html>

@@ -3,7 +3,7 @@
   <img src= "../../assets/icons/person.png" class="img-circle img-responsive" id="imgUser">
   <a>wiss013</a>
   <div id =menu>
-    <a><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Create new</a>
+    <a><i (click)="Onclick($event)" class="fa fa-pencil-square-o" aria-hidden="true"></i>Create new</a>
     <a><i class="fa fa-pencil-square" aria-hidden="true"></i>Update CV</a>
     <a><i class="fa fa-fw fa-clipboard"></i>Templates</a>
   </div>
@@ -30,4 +30,10 @@
     </div>
 
   </div>
+
+  <common-modal  #childModal>
+    <div class="modal-body">
+
+    </div>
+  </common-modal>
 </div>

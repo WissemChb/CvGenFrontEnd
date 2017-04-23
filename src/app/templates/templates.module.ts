@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {TemplatesComponent} from "./templates.component";
 import {ModalModule} from "ng2-bootstrap";
-import { TemplateModalComponent} from "../shared/modal/templateModal.component";
+import { TemplateModalComponent} from "../shared/modal/templateModal/templateModal.component";
 import {RouterModule} from "@angular/router";
 
 @NgModule({

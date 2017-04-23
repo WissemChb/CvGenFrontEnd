@@ -34,7 +34,7 @@ import { ModalDirective } from 'ng2-bootstrap';
 </div>
   `,
 
-  styleUrls : ['./modal.component.css']
+  styleUrls : ['modal.component.css']
 })
 export class TemplateModalComponent {
   @ViewChild('childModal') public childModal:ModalDirective;

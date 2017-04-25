@@ -5,11 +5,10 @@ import {RouterModule} from "@angular/router";
 import {ProgressbarModule} from "ngx-bootstrap";
 import {DashboardService} from "./dashboard.service";
 import {CreateModalComponent} from "./createModal/createModal.component";
-import {ModalModule, ComponentLoaderFactory} from "ng2-bootstrap";
+import {ModalModule} from "ng2-bootstrap";
 import {Viewtemplate2Component} from "../templates/template2/viewtemplate2.component";
 import {BrowserModule} from "@angular/platform-browser";
 import {Viewtemplate1Component} from "../templates/template1/viewtemplate1.component";
-import {Ng2PageScrollModule} from "ng2-page-scroll";
 import { EducationComponent } from './createCvComponent/education/education.component';
 import { ExperienceComponent } from './createCvComponent/experience/experience.component';
 import { SkillComponent } from './createCvComponent/skill/skill.component';
@@ -23,7 +22,6 @@ import { LanguageComponent } from './createCvComponent/language/language.compone
     BrowserModule,
     ProgressbarModule.forRoot(),
     ModalModule.forRoot(),
-    Ng2PageScrollModule.forRoot(),
     RouterModule.forRoot([
       {path : 'dashboard' , component: DashboardComponent, children : [
         {path : 'temp1' , component: Viewtemplate1Component, outlet : 'routertemp1'},
@@ -39,6 +37,6 @@ import { LanguageComponent } from './createCvComponent/language/language.compone
   declarations: [DashboardComponent,CreateModalComponent,Viewtemplate1Component, Viewtemplate2Component,
     EducationComponent, ExperienceComponent, SkillComponent, InformationComponent,
     LeisureComponent, LanguageComponent],
-  providers:[DashboardService,ComponentLoaderFactory]
+  providers:[DashboardService]
 })
 export class DashboardModule { }

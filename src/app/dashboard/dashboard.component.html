@@ -12,13 +12,13 @@
 <div id="mySidenav2" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav2()">&times;</a>
   <div id =menu1>
-    <button pageScroll (click) ="Onclick($event)" id="infos"><i class="fa fa-info-circle" aria-hidden="true"></i>Information</button>
-    <button pageScroll (click) ="Onclick($event)" id="education"><i class="fa fa-graduation-cap" aria-hidden="true"></i>Education</button>
-    <button pageScroll (click) ="Onclick($event)" id="experience"><i class="fa fa-signal" aria-hidden="true"></i>Experience</button>
-    <button pageScroll (click) ="Onclick($event)" id="skill"><i class="fa fa-certificate" aria-hidden="true"></i>Skill</button>
+    <button (click) ="Onclick($event)" id="infos"><i class="fa fa-info-circle" aria-hidden="true"></i>Information</button>
+    <button (click) ="Onclick($event)" id="education"><i class="fa fa-graduation-cap" aria-hidden="true"></i>Education</button>
+    <button (click) ="Onclick($event)" id="experience"><i class="fa fa-signal" aria-hidden="true"></i>Experience</button>
+    <button (click) ="Onclick($event)" id="skill"><i class="fa fa-certificate" aria-hidden="true"></i>Skill</button>
     <br>
-    <button pageScroll (click) ="Onclick($event)" id="leisure"><i class="fa fa-child" aria-hidden="true"></i>Leisure</button>
-    <button pageScroll (click) ="Onclick($event)" id="language"><i class="fa fa-language" aria-hidden="true"></i>Language</button>
+    <button (click) ="Onclick($event)" id="leisure"><i class="fa fa-child" aria-hidden="true"></i>Leisure</button>
+    <button (click) ="Onclick($event)" id="language"><i class="fa fa-language" aria-hidden="true"></i>Language</button>
   </div>
 </div>
 
@@ -40,13 +40,13 @@
 
   <common-modal  #childModal>
     <div class="modal-body">
-      <div #container>
-        <router-outlet id="skillPage" name="routerSkill"></router-outlet>
-        <router-outlet id="educationPage" name="routerEduc"></router-outlet>
-        <router-outlet id="experiencePage " name="routerExp"></router-outlet>
-        <router-outlet id="infosPage" name="routerInfos"></router-outlet>
-        <router-outlet id="leisurePage " name="routerLeisure"></router-outlet>
-        <router-outlet id="languagePage" name="routerLanguage"></router-outlet>
+      <div>
+        <router-outlet *ngIf="routeOutlet === 'skill'" name="routerSkill"></router-outlet>
+        <router-outlet *ngIf="routeOutlet === 'education'" name="routerEduc"></router-outlet>
+        <router-outlet *ngIf="routeOutlet === 'experience'"  name="routerExp"></router-outlet>
+        <router-outlet *ngIf="routeOutlet === 'infos'" name="routerInfos"></router-outlet>
+        <router-outlet *ngIf="routeOutlet === 'leisure'"  name="routerLeisure"></router-outlet>
+        <router-outlet *ngIf="routeOutlet === 'language'" name="routerLanguage"></router-outlet>
       </div>
 
     </div>

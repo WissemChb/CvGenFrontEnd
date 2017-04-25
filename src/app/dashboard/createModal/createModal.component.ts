@@ -2,10 +2,8 @@
  * Created by Dhouha on 4/23/2017.
  */
 
-import {Component, Input, ViewChild, ElementRef, Inject} from '@angular/core';
+import {Component, Input, ViewChild} from '@angular/core';
 import { ModalDirective } from 'ng2-bootstrap';
-import {PageScrollService, PageScrollInstance} from "ng2-page-scroll";
-import {DOCUMENT} from "@angular/platform-browser";
 
 @Component({
   selector: 'common-modal',
@@ -40,15 +38,8 @@ import {DOCUMENT} from "@angular/platform-browser";
 })
 export class CreateModalComponent {
   @ViewChild('childModal') public childModal:ModalDirective;
-  @ViewChild('container')  private container : ElementRef;
   @Input() title:string;
 
-  constructor(private pageScrollService: PageScrollService, @Inject(DOCUMENT) private document: any) {}
-
-  public scrollSomewhereHorizontally(): void {
-    let pageScrollInstance: PageScrollInstance = PageScrollInstance.newInstance({document: this.document, scrollTarget: '#skillPage', verticalScrolling: false});
-    this.pageScrollService.start(pageScrollInstance);
-  };
   show(){
     this.childModal.show();
   }

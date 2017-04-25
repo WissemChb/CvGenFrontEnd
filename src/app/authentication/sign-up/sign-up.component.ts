@@ -121,7 +121,11 @@ console.log(this.signUpForm);
     //this.onShowModal();
     //this.startLoading();
     if(this.signUpForm.invalid){
-      this._flashMessageService.show(" Fields are required",{cssClass : 'alert-danger',timout : 2000});
+      if(this.signUpForm.get('passwordMatch').get('password').value !== this.signUpForm.get('passwordMatch').get('confirmPassword').value){
+        this._flashMessageService.show(" password doesn't match",{cssClass : 'alert-danger',timout : 2000});
+      }else{
+        this._flashMessageService.show(" Fields are required",{cssClass : 'alert-danger',timout : 2000});
+      }
       window.scrollTo(0,0);
     }else{
       // Copy the form values over the product object values

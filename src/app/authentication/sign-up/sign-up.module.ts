@@ -13,7 +13,7 @@ import {FlashMessagesModule, FlashMessagesService} from "angular2-flash-messages
   imports: [
     CommonModule,
     RouterModule.forChild([
-      {path : 'signup', component : SignUpComponent}
+      {path : 'signup',component : SignUpComponent}
     ]),
     SharedModule,
     FormsModule,

@@ -2,19 +2,18 @@
 import {async, ComponentFixture, TestBed, inject, fakeAsync} from '@angular/core/testing';
 
 import { SignUpComponent } from './sign-up.component';
-import {FormsModule, ReactiveFormsModule, FormControlName} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {BrowserModule, By} from "@angular/platform-browser";
-import {DebugElement, ElementRef, ViewChildren, Input} from "@angular/core";
+import {DebugElement} from "@angular/core";
 import {ModalModule} from "ng2-bootstrap";
 import {SignUpService} from "./sign-up.service";
 import {Customer} from "../../shared/classes/customer";
-import {Http, HttpModule, ConnectionBackend} from "@angular/http";
-import any = jasmine.any;
+import { HttpModule} from "@angular/http";
 import {LoadingAnimateModule, LoadingAnimateService} from "ng2-loading-animate";
 import {FlashMessagesModule, FlashMessagesService} from "angular2-flash-messages";
 import {RouterTestingModule} from "@angular/router/testing";
-
-
+import {Router} from "@angular/router";
+import {RouterOutletStubComponent, RouterLinkStubDirective} from "../../testing/router-stubs";
 
 describe('SignUpComponent', () => {
   let component: SignUpComponent;
@@ -22,9 +21,10 @@ describe('SignUpComponent', () => {
   let  debugHelpblck : DebugElement[];
   let user : Customer;
   let  debugSubmitButtun :DebugElement;
-  let userService : any;
+  let router :any;
 
   beforeEach(async(() => {
+
     TestBed.configureTestingModule({
       declarations: [ SignUpComponent],
       imports: [FormsModule, BrowserModule, ReactiveFormsModule,RouterTestingModule,HttpModule,
@@ -38,10 +38,13 @@ describe('SignUpComponent', () => {
     fixture = TestBed.createComponent(SignUpComponent);
     component = fixture.componentInstance;
     debugHelpblck = fixture.debugElement.queryAll(By.css('.help-block'));
+    debugSubmitButtun = fixture.debugElement.query(By.css('input[type=submit]'))
     component.ngOnInit();
     //component.ngAfterViewInit();
+    router = {
+      navigate: jasmine.createSpy('navigate')
+  };
     fixture.detectChanges();
-
   });
 
   it('should be  created', () => {
@@ -137,8 +140,7 @@ describe('SignUpComponent', () => {
         expect(signup.valid).toBeTruthy();
       });
 
-     /*it('should save the user submetted',inject([SignUpService], (signUpService : SignUpService) => {
-       component.save();
+      /* it('should save the user and go to login page',() => {
        let signup = component.signUpForm;
        signup.get('firstName').setValue('BEN CHAABEN');
        signup.get('secondName').setValue('wissem');
@@ -146,9 +148,8 @@ describe('SignUpComponent', () => {
        signup.get('email').setValue('xz@gmail.com');
        signup.get('passwordMatch').get('password').setValue('wissem');
        signup.get('passwordMatch').get('confirmPassword').setValue('wissem');
-       let show = component.showModal;
-       expect(show).toBeTruthy();
-     }));*/
+       expect(router.navigate).toHaveBeenCalledWith(['/login']);
+     });*/
     });
 
 

@@ -3,13 +3,24 @@
   <img src= "../../assets/icons/person.png" class="img-circle img-responsive" id="imgUser">
   <a>wiss013</a>
   <div id =menu>
-    <a><i (click)="Onclick($event)" class="fa fa-pencil-square-o" aria-hidden="true"></i>Create new</a>
-    <a><i class="fa fa-pencil-square" aria-hidden="true"></i>Update CV</a>
-    <a><i class="fa fa-fw fa-clipboard"></i>Templates</a>
+    <button onclick="openNav2()" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Create new</button>
+    <button><i class="fa fa-pencil-square" aria-hidden="true"></i>Update CV</button>
+    <button><i class="fa fa-fw fa-clipboard"></i>Templates</button>
   </div>
 </div>
 
-
+<div id="mySidenav2" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav2()">&times;</a>
+  <div id =menu1>
+    <button pageScroll (click) ="Onclick($event)" id="infos"><i class="fa fa-info-circle" aria-hidden="true"></i>Information</button>
+    <button pageScroll (click) ="Onclick($event)" id="education"><i class="fa fa-graduation-cap" aria-hidden="true"></i>Education</button>
+    <button pageScroll (click) ="Onclick($event)" id="experience"><i class="fa fa-signal" aria-hidden="true"></i>Experience</button>
+    <button pageScroll (click) ="Onclick($event)" id="skill"><i class="fa fa-certificate" aria-hidden="true"></i>Skill</button>
+    <br>
+    <button pageScroll (click) ="Onclick($event)" id="leisure"><i class="fa fa-child" aria-hidden="true"></i>Leisure</button>
+    <button pageScroll (click) ="Onclick($event)" id="language"><i class="fa fa-language" aria-hidden="true"></i>Language</button>
+  </div>
+</div>
 
 <!-- Use any element to open the sidenav -->
 
@@ -24,16 +35,21 @@
       <progressbar value="55" type="success">55% Completed</progressbar>
     </div>
   </div>
-  <div class="row">
-    <div class="col-md-8">
-      <h1>{{user.firstName}}</h1>
-    </div>
 
-  </div>
+  <!--  CV VIEW MODAL  -->
 
   <common-modal  #childModal>
     <div class="modal-body">
+      <div #container>
+        <router-outlet id="skillPage" name="routerSkill"></router-outlet>
+        <router-outlet id="educationPage" name="routerEduc"></router-outlet>
+        <router-outlet id="experiencePage " name="routerExp"></router-outlet>
+        <router-outlet id="infosPage" name="routerInfos"></router-outlet>
+        <router-outlet id="leisurePage " name="routerLeisure"></router-outlet>
+        <router-outlet id="languagePage" name="routerLanguage"></router-outlet>
+      </div>
 
     </div>
   </common-modal>
+  <router-outlet name="routertemp1"></router-outlet>
 </div>

@@ -1,13 +1,11 @@
 import { Injectable } from '@angular/core';
-import {Customer} from "../shared/classes/customer";
-import {Headers, RequestOptions, Response, Http} from "@angular/http";
-import {Observable} from "rxjs";
+
+
 
 @Injectable()
 export class DashboardService {
 
-  authToken : any;
-  constructor(private http : Http) { }
+  constructor() { }
 
   /*url : string = "http://localhost:5000/user/user";
   getUser (){

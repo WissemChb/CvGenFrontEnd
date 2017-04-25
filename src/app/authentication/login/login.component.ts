@@ -49,9 +49,8 @@ export class LoginComponent implements OnInit{
     this.loginService.login(user).subscribe(data =>  {
         if(data.success){
           this._flashMessage.show('welcome to My CV Generator App', {cssClass : 'alert-success',timeout: 5000});
-          debugger
           this.loginService.saveLocalAuthentication(data.token, data.user)
-          this.router.navigate(['/dashboard']);
+          this.router.navigate(['/dashboard',{outlets: {routertemp1: ['temp1']}}]);
         }else {
           this._flashMessage.show(data.msg, {cssClass : 'alert-danger', timeout : 5000});
           this.router.navigate(['/login']);

@@ -20,7 +20,7 @@ import {TemplatesModule} from "./templates/templates.module";
 
 @NgModule({
   declarations: [
-    AppComponent,HomeComponent ,CreateCVComponent
+    AppComponent,HomeComponent
   ],
   imports: [
     RouterModule.forRoot([
@@ -36,7 +36,6 @@ import {TemplatesModule} from "./templates/templates.module";
     AboutModule,
     FlashMessagesModule,
     DashboardModule,
-    CreateCVModule,
     TemplatesModule
   ],
   providers: [FlashMessagesService],

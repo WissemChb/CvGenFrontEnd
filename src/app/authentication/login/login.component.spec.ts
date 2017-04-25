@@ -6,9 +6,7 @@ import {DebugElement} from "@angular/core";
 import {ReactiveFormsModule, FormsModule} from "@angular/forms";
 import {FlashMessagesModule, FlashMessagesService} from "angular2-flash-messages";
 import {LoginService} from "./login.service";
-import {Http, ConnectionBackend, BaseRequestOptions, RequestOptions, HttpModule} from "@angular/http";
-import {MockBackend} from "@angular/http/testing";
-import {Router} from "@angular/router";
+import {HttpModule} from "@angular/http";
 import {RouterTestingModule} from "@angular/router/testing";
 
 

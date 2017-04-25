@@ -2,8 +2,12 @@
  * Created by wissem on 4/22/17.
  */
 
-import {Component,Input, ViewChild} from '@angular/core';
+import {Component, Input, ViewChild} from '@angular/core';
 import { ModalDirective } from 'ng2-bootstrap';
+import {Router} from "@angular/router";
+import {IdImage} from "../id-image";
+
+
 
 @Component({
   selector: 'common-modal',
@@ -26,7 +30,7 @@ import { ModalDirective } from 'ng2-bootstrap';
           <input type="button" value="Cancel" name="cancel">
         </div>-->
         <div class="pull-rigth">
-           <input type="button" value="Choose" name="choose">
+           <input type="button" (click)="onclickTemp()" value="Choose" name="choose">
         </div>
       </div>
     </div>
@@ -39,12 +43,24 @@ import { ModalDirective } from 'ng2-bootstrap';
 export class TemplateModalComponent {
   @ViewChild('childModal') public childModal:ModalDirective;
   @Input() title:string;
-  constructor() {
-  }
+
+  constructor(private  router : Router){}
+  idimg : IdImage;
+
+
+
+
+
   show(){
     this.childModal.show();
   }
   hide(){
     this.childModal.hide();
+  }
+
+  onclickTemp() {
+    debugger
+      this.router.navigate(['/dashboard', {outlets: {routertemp1: ['temp1']}}]);
+
   }
 }

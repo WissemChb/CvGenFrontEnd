@@ -117,3 +117,17 @@ button{
   height: 100%;
   width: 100%;
 }
+button > img{
+  position:relative ;
+  opacity: 0.8;
+}
+button > img[src*='template']:hover{
+  transform: scale(1.5, 1.5); /** default is 1, scale it to 1.5 */
+  opacity: 1;
+  z-index: 9999;
+  border: solid ;
+}
+
+#container{
+  width: 80%;
+}

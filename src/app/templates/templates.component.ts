@@ -3,14 +3,11 @@
  */
 
 //import { Component} from '@angular/core';
-import {ModalDirective} from "ng2-bootstrap/ng2-bootstrap";
-import {Component, ViewChild, ViewContainerRef, AfterViewInit, ElementRef} from '@angular/core';
-import {TemplateModalComponent} from "../shared/modal/templateModal/templateModal.component";
-import {any} from "codelyzer/util/function";
-import {By} from "@angular/platform-browser";
 
-
-
+import {Component, ViewChild} from '@angular/core';
+import {TemplateModalComponent} from "./templateModal/templateModal.component";
+import {Router} from "@angular/router";
+import {IdImage} from "./id-image";
 
 
 @Component({
@@ -23,23 +20,26 @@ export class TemplatesComponent{
 
   @ViewChild('childModal') childModal :TemplateModalComponent;
 
+  constructor(private  router : Router){}
+
   pageTitle : string = 'Templates';
   value : any;
   idAttr : any;
+  val : any;
+  idImage : IdImage;
 
 
-  constructor( private viewContainerRef: ViewContainerRef) {}
+  //constructor( private viewContainerRef: ViewContainerRef) {}
 
   Onclick(event){
     var target = event.target || event.srcElement || event.currentTarget;
     this.idAttr = target.attributes.id.value;
-    console.log(this.idAttr);
-    debugger
     this.value = document.getElementById(this.idAttr).getAttribute('src');
-    debugger
     this.childModal.show();
+    this.idImage = new IdImage(this.idAttr);
 
   }
+
 }
 
 

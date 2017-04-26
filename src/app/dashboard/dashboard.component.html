@@ -40,16 +40,10 @@
 
   <common-modal  #childModal>
     <div class="modal-body">
-      <div>
-        <router-outlet *ngIf="routeOutlet === 'skill'" name="routerSkill"></router-outlet>
-        <router-outlet *ngIf="routeOutlet === 'education'" name="routerEduc"></router-outlet>
-        <router-outlet *ngIf="routeOutlet === 'experience'"  name="routerExp"></router-outlet>
-        <router-outlet *ngIf="routeOutlet === 'infos'" name="routerInfos"></router-outlet>
-        <router-outlet *ngIf="routeOutlet === 'leisure'"  name="routerLeisure"></router-outlet>
-        <router-outlet *ngIf="routeOutlet === 'language'" name="routerLanguage"></router-outlet>
-      </div>
-
+      <router-outlet  name="routerCV"></router-outlet>
     </div>
   </common-modal>
   <router-outlet name="routertemp1"></router-outlet>
+
+
 </div>

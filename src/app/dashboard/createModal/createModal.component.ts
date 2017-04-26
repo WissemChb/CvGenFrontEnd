@@ -22,11 +22,11 @@ import { ModalDirective } from 'ng2-bootstrap';
       </div>
 
       <div class="modal-footer">
-        <!--<div class="pull-left">
+        <div class="pull-left">
           <input type="button" value="Cancel" name="cancel">
-        </div>-->
+        </div>
         <div class="pull-rigth">
-           <input type="button" value="Choose" name="choose">
+           <input type="button" value="Save" name="save">
         </div>
       </div>
     </div>
@@ -39,12 +39,13 @@ import { ModalDirective } from 'ng2-bootstrap';
 export class CreateModalComponent {
   @ViewChild('childModal') public childModal:ModalDirective;
   @Input() title:string;
-
   show(){
     this.childModal.show();
+    this.childModal.isAnimated
   }
   hide(){
     this.childModal.hide();
   }
+
 }
 

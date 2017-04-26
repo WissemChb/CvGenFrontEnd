@@ -1,8 +1,7 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild, ViewContainerRef, Directive} from '@angular/core';
 import {DashboardService} from "./dashboard.service";
 import {Router} from "@angular/router";
 import {CreateModalComponent} from "./createModal/createModal.component";
-
 
 @Component({
   selector: 'app-dashboard',
@@ -11,10 +10,10 @@ import {CreateModalComponent} from "./createModal/createModal.component";
 })
 export class DashboardComponent implements OnInit {
   @ViewChild('childModal') childModal : CreateModalComponent;
-  constructor(private dashService : DashboardService , private router : Router) { }
+  constructor(private dashService : DashboardService , private router : Router, private viewContainer : ViewContainerRef) { }
   user: Object;
   idAttr : string;
-  routeOutlet : String;
+
   ngOnInit() {
 
     /*this.user=localStorage.getItem('user');
@@ -26,29 +25,22 @@ export class DashboardComponent implements OnInit {
     var target = event.target || event.srcElement || event.currentTarget;
     this.idAttr = target.attributes.id.value;
     if(this.idAttr === 'infos'){
-      this.router.navigate(['/dashboard', {outlets: {'routerInfos': ['infos']}}]);
-      this.routeOutlet = 'infos';
-
+      this.router.navigate(['/dashboard', {outlets: {routerCV: ['infos']}}]);
     }
     if(this.idAttr === 'education'){
-      this.router.navigate(['/dashboard', {outlets: {'routerEduc': ['education']}}]);
-      this.routeOutlet = 'education';
+      this.router.navigate(['/dashboard', {outlets: {routerCV: ['education']}}]);
     }
     if(this.idAttr === 'experience'){
-      this.router.navigate(['/dashboard', {outlets: {'routerExp': ['experience']}}]);
-      this.routeOutlet = 'experience';
+      this.router.navigate(['/dashboard', {outlets: {routerCV: ['experience']}}]);
     }
     if(this.idAttr === 'skill'){
-      this.router.navigate(['/dashboard', {outlets: {'routerSkill': ['skill']}}]);
-      this.routeOutlet = 'skill';
+      this.router.navigate(['/dashboard', {outlets: {routerCV: ['skill']}}]);
     }
     if(this.idAttr === 'leisure'){
-      this.router.navigate(['/dashboard', {outlets: {'routerLeisure': ['leisure']}}]);
-      this.routeOutlet = 'leisure';
+      this.router.navigate(['/dashboard', {outlets: {routerCV: ['leisure']}}]);
     }
     if(this.idAttr === 'language'){
-      this.router.navigate(['/dashboard', {outlets: {'routerLanguage': ['language']}}]);
-      this.routeOutlet = 'language';
+      this.router.navigate(['/dashboard', {outlets: {routerCV: ['language']}}]);
     }
     this.childModal.show();
   }

@@ -25,12 +25,12 @@ import { LanguageComponent } from './createCvComponent/language/language.compone
     RouterModule.forRoot([
       {path : 'dashboard' , component: DashboardComponent, children : [
         {path : 'temp1' , component: Viewtemplate1Component, outlet : 'routertemp1'},
-        {path : 'education', component : EducationComponent , outlet : 'routerEduc'},
-        {path : 'skill', component : SkillComponent , outlet : 'routerSkill'},
-        {path : 'experience', component : ExperienceComponent , outlet : 'routerExp'},
-        {path : 'leisure', component : LeisureComponent, outlet : 'routerLeisure'},
-        {path : 'infos', component : InformationComponent , outlet : 'routerInfos'},
-        {path : 'language', component : LanguageComponent , outlet : 'routerLanguage'},
+        {path : 'education', component : EducationComponent , outlet : 'routerCV'},
+        {path : 'skill', component : SkillComponent , outlet : 'routerCV'},
+        {path : 'experience', component : ExperienceComponent , outlet : 'routerCV'},
+        {path : 'leisure', component : LeisureComponent, outlet : 'routerCV'},
+        {path : 'infos', component : InformationComponent , outlet : 'routerCV'},
+        {path : 'language', component : LanguageComponent , outlet : 'routerCV'},
       ]}
     ]),
   ],

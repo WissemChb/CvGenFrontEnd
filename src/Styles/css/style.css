@@ -437,7 +437,7 @@ p.s-log {
 /*--//header-w3-agileits --*/
 /*-- /banner --*/
 .baner-info{
-   padding-top: 15em;
+   padding-top: 5em;
    margin: 0 auto;
    text-align: center;
 }
@@ -529,7 +529,8 @@ a.w3_play_icon1:hover {
     background: #f5f5f5;
 }
 h3.tittle,h2.w3l-inner-h-title,h3.w3l-inner-h-title{
-      color: #e83f3f;
+      /*color: #e83f3f; */
+  color: #080808;
     font-size:2.5em;
     margin: 0;
     text-align: center;
@@ -701,7 +702,8 @@ h3.tittle.fea {
     margin-bottom: 2em;
 }
 .featured,.team-section {
-    background: #f5f5f5;
+    background: transparent;
+  fill-opacity: 10;
 }
 .spa-grid:hover i {
         color: #e83f3f;
@@ -776,13 +778,35 @@ h4.side-t-w3l-agile {
 }
 /*-- /welcome --*/
 .welcome-section-wthree {
-  background: url(../images/3.jpg) no-repeat 0px 0px;
+  background: url(../images/i.png) no-repeat 0px 0px;
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    min-height: 450px;
+    min-height: 700px;
     padding-top: 4em;
+}
+
+
+.welcome-section-three {
+/*  background: url(../images/.jpg) no-repeat 0px 0px;*/
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  min-height: 400px;
+  padding-top: 4em;
+}
+
+.welcome-section-three1 {
+  /*  background: url(../images/.jpg) no-repeat 0px 0px;*/
+  background: transparent;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  min-height: 400px;
+  padding-top: 4em;
 }
 .welcome-agileinfo {
     text-align: center;
@@ -1517,7 +1541,7 @@ figure.effect-apollo:hover p {
     display: block;
 }
 .price-selet a {
-	font-size: 0.9em;
+	font-size: 10em;
     color: #ffffff;
     display: inline-block;
     padding: 0.5em 2em;
@@ -1960,11 +1984,21 @@ ul.top-links li a i.fa:hover {
 /*-- //single --*/
 .w3agile_footer_copy {
     text-align: center;
-    background: #00acee;
+  background: rgba(17, 17, 17, 0.6);
+  opacity: 10;
     padding: 1em 0;
 }
 .w3agile_footer_copy p {
-    color: #fff;
+    color: #FFF;
+
+}
+.home {
+  text-align: center;
+  background: rgba(17, 17, 17, 0.6);
+  opacity: 10;
+  padding: 1em 0;
+  length : 50%;
+  width: 100%;
 }
 /*-- Footer --*/
 .w3l-footer {
@@ -2403,7 +2437,8 @@ a.icon.gp {
       font-size: 2.5em;
 	}
 	.welcome-section-wthree {
-		min-height: 557px;
+		/*min-height: 557px;*/
+    min-height: 1000px;
 		padding-top: 4em;
 	}
 	.price-grid {

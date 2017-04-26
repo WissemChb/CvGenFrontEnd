@@ -8,13 +8,13 @@ import {Component} from "@angular/core";
 
 
 @Component({
-  selector :   'app-viewtemplate1',
+  selector :   'app-viewtemplate8',
   templateUrl :'viewtemplate8.component.html',
   styleUrls : ['viewtemplate8.component.css']
 })
 
 export class Viewtemplate1Component {
-  pageTitle : string = 'viewtemplate1';
+  pageTitle : string = 'viewtemplate8';
 
 }
 

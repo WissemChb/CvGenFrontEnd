@@ -8,7 +8,6 @@ import  {HomeComponent} from  "./home/home.component";
 import {SignUpModule} from "./authentication/sign-up/sign-up.module";
 import {DropdownModule} from "ng2-dropdown";
 import {ModalModule} from "ng2-modal";
-import {TemplatesComponent} from "./templates/templates.component";
 import {LoginModule} from "./authentication/login/login.module";
 import {AboutModule} from "./about/about.module";
 import {FlashMessagesModule, FlashMessagesService} from "angular2-flash-messages";
@@ -26,7 +25,7 @@ import {TemplatesModule} from "./templates/templates.module";
     RouterModule.forRoot([
       {path : 'home' , component : HomeComponent },
       { path: '', redirectTo: 'welcome', pathMatch: 'full' },
-      { path: '**', redirectTo: 'welcome', pathMatch: 'full' }
+      { path: '**', redirectTo: 'welcome', pathMatch: 'full' },
     ]) ,
     BrowserModule,
     SignUpModule,

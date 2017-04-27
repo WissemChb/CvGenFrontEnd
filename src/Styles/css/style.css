@@ -16,7 +16,8 @@ p{
 	font-size:14px;
 }
 h1,h2,h3,h4,h5,h6{
-   font-family: 'Open Sans', sans-serif;
+   font-family: 'Open Sans',sans-serif ;
+
    margin:0;
 }
 ul,label{
@@ -105,7 +106,7 @@ input[type="submit"],.w3l_header_left ul li a,.related-post-right h4 a,.comments
 .inner-header-agile {
     padding: 0 5em;
     position: relative;
-    background: rgba(17, 17, 17, 0.6);
+    background: rgba(17, 17, 17, 0.2);
 }
 .inner-header-agile.part2 {
     position: relative;
@@ -1994,10 +1995,20 @@ ul.top-links li a i.fa:hover {
 }
 .home {
   text-align: center;
-  background: rgba(17, 17, 17, 0.6);
-  opacity: 10;
+  background: rgba(10, 10, 10, 0.1);
+  opacity:1;
   padding: 1em 0;
   length : 50%;
+  width: 100%;
+}
+
+
+.home2 {
+  text-align: center;
+  background: rgba(10, 10, 10, 0.9);
+  opacity:1;
+  padding: 1em 0;
+  length : 70%;
   width: 100%;
 }
 /*-- Footer --*/
@@ -2046,8 +2057,8 @@ a.mail:hover {
 /*-- Newsletter --*/
 .footer-info-agile p {
 	    color: #EEE;
-    line-height: 2em;
-    margin-bottom: 27px;
+    line-height: 0em;
+    margin-bottom: 2px;
     text-align: left;
 }
 .newsletter {
@@ -2754,7 +2765,7 @@ a.icon.gp {
 	.baner-info h4 {
 		font-size: 0.8em;
 		margin: 1.5em 0 2em 0;
-		letter-spacing: 4px;
+		letter-spacing: 0px;
 	}
 	a.w3_play_icon1 {
 		background: #00acee;
@@ -2766,7 +2777,7 @@ a.icon.gp {
 		font-size: 1.5em;
 		margin: 0;
 		font-weight: 300;
-		letter-spacing: 7px;
+		letter-spacing: 0px;
 		padding-top: 4.5em;
 	}
 	.section-grid-wthree {
@@ -3303,3 +3314,9 @@ a.icon.gp {
 	}
 }
 /*-- //responsive --*/
+.img-circular{
+border-radius:50%;
+  background-size: cover;
+  display: block;
+
+}

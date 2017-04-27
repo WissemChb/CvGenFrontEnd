@@ -9,8 +9,8 @@ import {Component} from "@angular/core";
 
 @Component({
   selector :   'app-viewtemplate1',
-  templateUrl :'viewtemplate8.component.html',
-  styleUrls : ['viewtemplate8.component.css']
+  templateUrl :'viewtemplate1.component.html',
+  styleUrls : ['viewtemplate1.component.css']
 })
 
 export class Viewtemplate1Component {

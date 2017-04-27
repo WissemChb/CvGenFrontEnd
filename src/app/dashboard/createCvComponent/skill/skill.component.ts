@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {FormGroup , FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-skill',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SkillComponent implements OnInit {
 
-  constructor() { }
+  constructor(private fb : FormBuilder) { }
 
-  ngOnInit() {
+  ngOnInit()  {
+
   }
+
+
 
 }

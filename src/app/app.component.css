@@ -13,3 +13,8 @@
 #demo-1{
   background-color: transparent;
 }
+a[disabled]{
+  cursor: default;
+  pointer-events: none;
+  display: inline-block;
+}

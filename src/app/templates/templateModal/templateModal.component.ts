@@ -6,6 +6,7 @@ import {Component, Input, ViewChild} from '@angular/core';
 import { ModalDirective } from 'ng2-bootstrap';
 import {Router} from "@angular/router";
 import {IdImage} from "../id-image";
+import {FlashMessagesService} from "angular2-flash-messages";
 
 
 
@@ -44,8 +45,9 @@ export class TemplateModalComponent {
   @ViewChild('childModal') public childModal:ModalDirective;
   @Input() title:string;
 
-  constructor(private  router : Router){}
-  idimg : IdImage;
+  constructor(private  router : Router, private flashmessage : FlashMessagesService){}
+
+
 
 
 
@@ -59,8 +61,13 @@ export class TemplateModalComponent {
   }
 
   onclickTemp() {
-    debugger
+    if(localStorage.getItem('id_token')){
       this.router.navigate(['/dashboard', {outlets: {routertemp1: ['temp1']}}]);
+    }else{
+      this.router.navigate(['/login']);
+      this.flashmessage.show('You should login first', {cssClass : 'alert-info' , timeout : 3000});
+    }
+
 
   }
 }

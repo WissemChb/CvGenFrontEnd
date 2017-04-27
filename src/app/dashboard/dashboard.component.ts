@@ -16,10 +16,6 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
 
-    /*this.user=localStorage.getItem('user');
-     console.log(this.user);
-     }*/
-
   }
   Onclick(event) {
     var target = event.target || event.srcElement || event.currentTarget;
@@ -44,4 +40,6 @@ export class DashboardComponent implements OnInit {
     }
     this.childModal.show();
   }
+
+
 }

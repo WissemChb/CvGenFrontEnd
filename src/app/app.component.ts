@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector : 'app-root',
@@ -8,4 +9,18 @@ import { Component } from '@angular/core';
 export class AppComponent {
   pageTitle = 'My CV';
 
+  constructor( private router : Router){}
+
+  key = localStorage.getItem('id_token');
+  user = JSON.parse(localStorage.getItem('user'));
+
+  logout(){
+    debugger
+    localStorage.setItem('id_token',null);
+    localStorage.setItem('user',null);
+    localStorage.clear();
+    this.router.navigate(['/home']);
+    location.reload();
+
+  }
 }

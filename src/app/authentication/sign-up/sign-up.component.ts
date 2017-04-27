@@ -1,5 +1,5 @@
 import {Component, OnInit, ElementRef, AfterViewInit, ViewChildren, ViewChild} from '@angular/core';
-import {FormGroup, FormBuilder, Validators, FormControlName, AbstractControl, FormControl} from "@angular/forms";
+import {FormGroup, FormBuilder, Validators, FormControlName, AbstractControl} from "@angular/forms";
 import {Subscription, Observable} from "rxjs";
 import { FormValidator} from "../../shared/form-control";
 import {Customer} from "../../shared/classes/customer";
@@ -8,10 +8,6 @@ import {ModalDirective} from "ng2-bootstrap";
 import {LoadingAnimateService} from "ng2-loading-animate";
 import {FlashMessagesService} from "angular2-flash-messages";
 import {Router} from "@angular/router";
-
-
-
-
 
 
 function passwordMatcher(c: AbstractControl): {[key: string]: boolean} | null {
@@ -49,7 +45,6 @@ export class SignUpComponent implements OnInit,AfterViewInit {
   private sub: Subscription;
 
   private formValidator: FormValidator ;
-  busy : Subscription;
   displayeErrorMessage: {[key: string]: string } = {};
   private validationMessage: {[key: string]: {[key: string]: string}};
 
@@ -163,7 +158,7 @@ console.log(this.signUpForm);
   startLoading(){
     this._loadingSvc.setValue(true);
   }
-stopLoading(){
+  stopLoading(){
     this._loadingSvc.setValue(false);
 }
 

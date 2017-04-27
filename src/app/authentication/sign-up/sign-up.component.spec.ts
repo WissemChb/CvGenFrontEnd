@@ -132,7 +132,7 @@ describe('SignUpComponent', () => {
      it('form should be valid when it has no errors',() => {
        let signup = component.signUpForm;
         signup.get('firstName').setValue('BEN CHAABEN');
-        signup.get('secondName').setValue('wissem');
+        signup.get('secondName').setValue('Wissem');
         signup.get('username').setValue('wiss013');
         signup.get('email').setValue('xz@gmail.com');
         signup.get('passwordMatch').get('password').setValue('wissem');

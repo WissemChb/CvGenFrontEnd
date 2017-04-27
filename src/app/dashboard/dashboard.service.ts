@@ -1,19 +1,22 @@
 import { Injectable } from '@angular/core';
+import {Response, RequestOptions, Headers, Http} from "@angular/http";
+import {Observable} from "rxjs";
+import {Customer} from "../shared/classes/customer";
 
 
 
 @Injectable()
 export class DashboardService {
+  user : Customer;
+  constructor(private http : Http) { }
 
-  constructor() { }
+  url : string = "http://localhost:5000/user/user";
 
-  /*url : string = "http://localhost:5000/user/user";
-  getUser (){
-    this.loadToken();
+  saveCV (){
+
     let headers = new Headers({ 'Content-Type': 'application/json' });
-    headers.append('Authorization',this.authToken);
     let options = new RequestOptions({ headers: headers });
-    return this.http.get(this.url,options)
+    return this.http.post(this.url,this.user,options)
       .map(this.extractResponseData)
       .do(data => console.log('Add user : ' + JSON.stringify(data)))
       .catch(this.handleError);
@@ -26,10 +29,5 @@ export class DashboardService {
     console.log(body.success);
     return body || {};
   }
-
-  loadToken(){
-    const token = localStorage.getItem('id_token');
-    this.authToken = token;
-  }*/
 
 }

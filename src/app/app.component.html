@@ -129,13 +129,12 @@
                 <a class="dropdown-toggle hvr-bounce-to-bottom" data-hover="Pages" data-toggle="dropdown" aria-expanded="false">Language <b class="caret"></b></a>
                 <ul class="dropdown-menu">
                   <li><a href="#">English</a></li>
-
                   <li><a href="#">Frensh</a></li>
                 </ul>
               </li>
 
               <li><a [routerLink] = "['/about']">About us </a></li>
-              <li *ngIf="!key"><a [routerLink]="['/login']" class="button special">Login </a></li>
+              <li *ngIf="!key"><a [routerLink]="['/login']" class="button special">Login</a></li>
               <li *ngIf="!key"><a [routerLink]="['/signup']" class="button special">Sign Up</a></li>
               <li *ngIf=" key && user.username"> <a disabled>Welcome {{user.username}}</a> </li>
               <li *ngIf="key"><a class="button special" (click)="logout()" >Logout</a></li>

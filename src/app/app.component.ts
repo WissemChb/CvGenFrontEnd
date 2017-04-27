@@ -12,7 +12,7 @@ export class AppComponent {
   constructor( private router : Router){}
 
   key = localStorage.getItem('id_token');
-  user = JSON.parse(localStorage.getItem('user'));
+  user = JSON.parse(JSON.stringify(localStorage.getItem('user') || null));
 
   logout(){
     debugger

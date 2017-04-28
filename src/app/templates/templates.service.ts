@@ -4,35 +4,28 @@
  */
 
 import {Injectable} from "@angular/core";
-import {Headers, RequestOptions, Http, Response} from "@angular/http";
-import {Observable, Subscription} from "rxjs";
+import {Http, Response} from "@angular/http";
+import {Observable} from "rxjs";
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/throw'
+import {ImageTemplates} from "./TemplateImages";
 
 @Injectable()
 
 export  class TemplateService{
   constructor( private http : Http){}
 
-  url : string = "api/templates/templates.json";
-  getTemplates (){
-    let headers = new Headers({ 'Content-Type': 'application/json' });
-    let options = new RequestOptions({ headers: headers });
-    return this.http.get(this.url,options)
-      .map(this.extractResponseData)
-      .do(data => console.log('Add user : ' + JSON.stringify(data)))
-      .catch(this.handleError);
+  url : string = "src/api/templates/templates.json";
+  getTemplates ():Observable<ImageTemplates[]> {
+    debugger
+    return this.http.get(this.url)
+      .map((response : Response) => <ImageTemplates[]> response.json())
+      .do(data => console.log('Add Templates : ' + JSON.stringify(data)))
+      .catch(error => Observable.throw("Error in x service"));
   }
   private handleError(error: Response) {
     return Observable.throw(error.json().error || 'Server error');}
-
-  private extractResponseData(response: Response){
-    let body = response.json();
-    console.log(body.success);
-    return body || {};
-  }
-
 
 }

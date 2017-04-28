@@ -5,9 +5,8 @@
 import {Component, Input, ViewChild} from '@angular/core';
 import { ModalDirective } from 'ng2-bootstrap';
 import {Router} from "@angular/router";
-import {IdImage} from "../id-image";
 import {FlashMessagesService} from "angular2-flash-messages";
-import {TemplateService} from "../templates.service";
+import {ImageTemplates} from "../TemplateImages";
 
 
 
@@ -45,6 +44,7 @@ import {TemplateService} from "../templates.service";
 export class TemplateModalComponent {
   @ViewChild('childModal') public childModal:ModalDirective;
   @Input() title:string;
+  images : ImageTemplates = new ImageTemplates();
 
   constructor(private  router : Router, private flashmessage : FlashMessagesService){}
 
@@ -63,7 +63,7 @@ export class TemplateModalComponent {
 
   onclickTemp() {
     if(localStorage.getItem('id_token')){
-      this.router.navigate(['/dashboard', {outlets: {routertemp1: ['temp1']}}]);
+      this.router.navigate(['/dashboard', {outlets: {routertemp1: ['template',this.images.id ]}}]);
     }else{
       this.router.navigate(['/login']);
       this.flashmessage.show('You should login first', {cssClass : 'alert-info' , timeout : 3000});

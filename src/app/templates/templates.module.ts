@@ -10,11 +10,11 @@ import {TemplateService} from "./templates.service";
   imports: [
     CommonModule,
     ModalModule.forRoot(),
-   RouterModule.forRoot([
+    RouterModule.forRoot([
       {path : 'templates' , component : TemplatesComponent }
     ])
   ],
   declarations: [TemplatesComponent,TemplateModalComponent ],
-  directives : [TemplateService]
+  providers : [TemplateService]
 })
 export class TemplatesModule { }

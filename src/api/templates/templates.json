@@ -1,4 +1,34 @@
-[{
-  "id" : 1,
-  "url" : "https://drive.google.com/file/d/0B1RhyLt2_WjXYndjSm1SeEQtZms/view?usp=sharing"
-}]
+[
+  {
+    "id" : 1,
+    "url" : "assets/images/templates/template1.png"
+  },
+  {
+    "id" : 2,
+    "url" : "assets/images/templates/template2.png"
+  },
+  {
+    "id" : 3,
+    "url" : "assets/images/templates/template3.png"
+  },
+  {
+    "id" : 4,
+    "url" : "assets/images/templates/template4.PNG"
+  },
+  {
+    "id" : 5,
+    "url" : "assets/images/templates/template5.PNG"
+  },
+  {
+    "id" : 6,
+    "url" : "assets/images/templates/template6.PNG"
+  },
+  {
+    "id" : 7,
+    "url" : "assets/images/templates/template7.PNG"
+  },
+  {
+    "id" : 8,
+    "url" : "assets/images/templates/template8.PNG"
+  },
+]

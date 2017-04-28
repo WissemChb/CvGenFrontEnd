@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './dashboard.component';
 import {RouterModule} from "@angular/router";
-import {ProgressbarModule} from "ngx-bootstrap";
+import {ProgressbarModule, RatingModule} from "ngx-bootstrap";
 import {DashboardService} from "./dashboard.service";
 import {CreateModalComponent} from "./createModal/createModal.component";
 import {ModalModule} from "ng2-bootstrap";
@@ -25,9 +25,10 @@ import {ReactiveFormsModule, FormsModule} from "@angular/forms";
     FormsModule,
     ProgressbarModule.forRoot(),
     ModalModule.forRoot(),
+    RatingModule.forRoot(),
     RouterModule.forRoot([
       {path : 'dashboard' , component: DashboardComponent, children : [
-        {path : 'temp1' , component: Viewtemplate1Component, outlet : 'routertemp1'},
+        {path : 'template/:id' , component: Viewtemplate1Component, outlet : 'routertemp'},
         {path : 'education', component : EducationComponent , outlet : 'routerCV'},
         {path : 'skill', component : SkillComponent , outlet : 'routerCV'},
         {path : 'experience', component : ExperienceComponent , outlet : 'routerCV'},

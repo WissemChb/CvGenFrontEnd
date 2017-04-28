@@ -6,9 +6,18 @@
       <div class="w3layouts-main">
         <h2>Personal Skills </h2>
         <form (ngSubmit)="save()" [formGroup]="skillForm" >
-          <input type="text" placeholder="Skill " id="skillid1" required="" formControlName="skill">
+          <div class="row">
+            <div class="col-md-4">
+              <input type="text" placeholder="Skill " id="skillid1" required="" formControlName="skill">
+            </div>
+            <!--<div class="col-md-4">
+              <rating [(ngModel)]="rate" [max]="max" [readonly]="isReadonly"
+                      (onHover)="hoveringOver($event)" (onLeave)="resetStar()"
+                      [titles]="['one','two','three']"></rating>
+            </div>-->
+          </div>
 
-          <input type="text"  placeholder="description" id="skilldescriptionid" required="">
+          <input type="text"  placeholder="description" id="skilldescriptionid" required="" formControlName="description">
 
 
           <input type="submit" value="Save" name=""><input type="submit" value="Add more" name="">

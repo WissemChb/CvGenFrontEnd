@@ -7,9 +7,10 @@
   <br><br><br>
 
   <div class="row">
-    <div class="col-md-2">
-      <button (click)="Onclick($event)" id="but1"><img src="{{templateImage[0].url}}" class="img-responsive" id="temp1 "></button>
+    <div  *ngFor="let image of templateImages" class="col-md-2 col-12">
+      <button (click)="Onclick($event)" id="but1"><img src="{{image.url}}" class="img-responsive" id="temp{{image.id}}"></button>
     </div>
+  </div>
 </div>
 
 <common-modal  #childModal>

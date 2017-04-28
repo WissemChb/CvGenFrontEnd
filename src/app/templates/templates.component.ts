@@ -6,8 +6,6 @@
 
 import {Component, ViewChild, OnInit} from '@angular/core';
 import {TemplateModalComponent} from "./templateModal/templateModal.component";
-import {Router} from "@angular/router";
-import {IdImage} from "./id-image";
 import {TemplateService} from "./templates.service";
 import {ImageTemplates} from "./TemplateImages";
 
@@ -28,17 +26,15 @@ export class TemplatesComponent implements OnInit{
   value : any;
   idAttr : any;
   val : any;
-  templateImage : ImageTemplates[];
+  templateImages : ImageTemplates[];
+  error : any;
 
   ngOnInit(){
+     debugger
      this.tempService.getTemplates().subscribe(data => {
-       this.templateImage = data;
+       this.templateImages = data, error => this.error = error
      });
   }
-
-
-
-  //constructor( private viewContainerRef: ViewContainerRef) {}
 
   Onclick(event){
     var target = event.target || event.srcElement || event.currentTarget;

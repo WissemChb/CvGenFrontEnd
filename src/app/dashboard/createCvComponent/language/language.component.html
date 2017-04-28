@@ -1,11 +1,13 @@
 <div class="panel panel-default">
   <div class="panel-body">
-    <p>
-      Language Works
-    </p>
-  </div>
-  <div class="panel-footer">
-      <a class=" btn btn-primary"> Next</a>
-      <a class="btn btn-primary">Precedent</a>
+    <div class="w3layouts-main">
+      <h2> Language  </h2>
+      <form >
+        <input type="text" placeholder=" language" id="languageid1" >
+        <input type="text" placeholder="raiting" id="id1" >
+        <input type="submit" value="Save" name=""><input type="submit" value="Add more" name="">
+        <a  [routerLink] ="['/dashboard', {outlets : {routerCV :['leisure']}}]"><input type="submit" value="Previous" name="login"></a>
+      </form>
+    </div>
   </div>
 </div>

@@ -15,7 +15,7 @@ export class AppComponent {
   user = JSON.parse(JSON.stringify(localStorage.getItem('user') || null));
 
   logout(){
-    debugger
+    //debugger
     localStorage.setItem('id_token',null);
     localStorage.setItem('user',null);
     localStorage.clear();

@@ -1,13 +1,20 @@
 <div class="panel panel-default">
   <div class="panel-body">
-    <p>
-      Leisure work
-    </p>
-  </div>
-  <div class="panel-footer">
-      <a class=" btn btn-primary"> Next</a>
+    <div class="w3layouts-main">
+      <h2>Leisure  </h2>
+      <form >
+        <input type="text" placeholder=" " id="skillid1" >
 
-      <a class="btn btn-primary">Precedent</a>
 
+
+        <input type="submit" value="Save" name=""><input type="submit" value="Add more" name="">
+
+        <a  [routerLink] ="['/dashboard', {outlets : {routerCV :['skill']}}]"><input type="submit" value="Previous" name="login"></a>
+
+        <a [routerLink] ="['/dashboard', {outlets : {routerCV :['language']}}]"><input type="submit" value="Next" name="login"></a>
+
+      </form>
+    </div>
   </div>
+
 </div>

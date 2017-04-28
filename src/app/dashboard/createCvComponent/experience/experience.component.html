@@ -1,42 +1,56 @@
 <div class="panel panel-default">
+  <!--  Content here -->
   <div class="panel-body">
-    <form>
-      <div class="form-group">
-        <label for="expid">Experience Type</label>
-        <input type="text" class="form-control" id="expid">
-      </div>
-
-      <div class="form-group">
-        <label for="functionid">Task</label>
-        <input type="text" class="form-control" id="functionid">
-      </div>
-
-      <div class="form-group">
-        <label for="companyid">Company</label>
-        <input type="text" class="form-control" id="companyid">
-      </div>
-
-      <p>Period Time</p>
+    <div class="w3layouts-main">
+      <h2>Professional Experience </h2>
+      <form >
+        <input type="text" placeholder="Experience Type" id="expid1" required="">
+        <input type="text"  placeholder="task" id="functionid" required="">
+        <input type="text"  placeholder="Company" id="companyid" required="">
 
 
-      <div class="form-group">
-        <div class="col-xs-2">
-          <label for="ex3">From</label>
-          <input class="form-control" id="ex3" type="text">
-        </div>
-        <div class="col-xs-3">
-          <label for="ex4">To</label>
-          <input class="form-control" id="ex4" type="text">
-        </div>
-      </div>
+        <input type="submit" value="Save" name=""><input type="submit" value="Add more" name="">
 
+        <a  [routerLink] ="['/dashboard', {outlets : {routerCV :['education']}}]"><input type="submit" value="Previous" name="login"></a>
 
-    </form>
+        <a [routerLink] ="['/dashboard', {outlets : {routerCV :['skill']}}]"><input type="submit" value="Next" name="login"></a>
+
+      </form>
   </div>
-  <div class="panel-footer">
 
-      <a class=" btn btn-primary" [routerLink] ="['/dashboard', {outlets : {routerCV :['skill']}}]">Precedent</a>
 
-      <a class="btn btn-primary">Next</a>
   </div>
 </div>
+
+
+<!--
+
+<div class="form-group">
+  <label for="expid">Experience Type</label>
+  <input type="text" class="form-control" id="expid">
+</div>
+
+<div class="form-group">
+  <label for="functionid">Task</label>
+  <input type="text" class="form-control" id="functionid">
+</div>
+
+<div class="form-group">
+  <label for="companyid">Company</label>
+  <input type="text" class="form-control" id="companyid">
+</div>
+
+<p>Period Time</p>
+
+
+<div class="form-group">
+  <div class="col-xs-2">
+    <label for="ex3">From</label>
+    <input class="form-control" id="ex3" type="text">
+  </div>
+  <div class="col-xs-3">
+    <label for="ex4">To</label>
+    <input class="form-control" id="ex4" type="text">
+  </div>
+</div>
+-->

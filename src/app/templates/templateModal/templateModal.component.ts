@@ -7,6 +7,7 @@ import { ModalDirective } from 'ng2-bootstrap';
 import {Router} from "@angular/router";
 import {IdImage} from "../id-image";
 import {FlashMessagesService} from "angular2-flash-messages";
+import {TemplateService} from "../templates.service";
 
 
 

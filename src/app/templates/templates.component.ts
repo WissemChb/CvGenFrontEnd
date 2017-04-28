@@ -4,10 +4,12 @@
 
 //import { Component} from '@angular/core';
 
-import {Component, ViewChild} from '@angular/core';
+import {Component, ViewChild, OnInit} from '@angular/core';
 import {TemplateModalComponent} from "./templateModal/templateModal.component";
 import {Router} from "@angular/router";
 import {IdImage} from "./id-image";
+import {TemplateService} from "./templates.service";
+import {ImageTemplates} from "./TemplateImages";
 
 
 @Component({
@@ -16,17 +18,24 @@ import {IdImage} from "./id-image";
   styleUrls : ['templates.component.css'],
 })
 
-export class TemplatesComponent{
+export class TemplatesComponent implements OnInit{
 
   @ViewChild('childModal') childModal :TemplateModalComponent;
 
-  constructor(private  router : Router){}
+  constructor( private  tempService : TemplateService){}
 
   pageTitle : string = 'Templates';
   value : any;
   idAttr : any;
   val : any;
-  idImage : IdImage;
+  templateImage : ImageTemplates[];
+
+  ngOnInit(){
+     this.tempService.getTemplates().subscribe(data => {
+       this.templateImage = data;
+     });
+  }
+
 
 
   //constructor( private viewContainerRef: ViewContainerRef) {}
@@ -36,9 +45,8 @@ export class TemplatesComponent{
     this.idAttr = target.attributes.id.value;
     this.value = document.getElementById(this.idAttr).getAttribute('src');
     this.childModal.show();
-    this.idImage = new IdImage(this.idAttr);
-
   }
+
 
 }
 

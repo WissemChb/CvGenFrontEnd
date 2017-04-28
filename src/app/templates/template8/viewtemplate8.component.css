@@ -1,6 +1,5 @@
 .container{
   width: 100%;
-
 }
 html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video {
   border:0;
@@ -15,7 +14,7 @@ article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
   display:block;
 }
 
-html, body {background: #181818; font-family: 'Lato', helvetica, arial, sans-serif; font-size: 16px; color: #222;}
+html, body { /*background: rgba(80, 63, 64, 0.32) */; font-family: 'Lato', helvetica, arial, sans-serif; font-size: 16px; color: #222;}
 
 .clear {clear: both;}
 
@@ -29,14 +28,15 @@ p {
 #cv {
   width: 90%;
   max-width: 800px;
-  background: #f3f3f3;
+  /*background: #f3f3f3; */
+
   margin: 30px auto;
 }
 
 .mainDetails {
   padding: 25px 35px;
   border-bottom: 2px solid #cf8a05;
-  background: #ededed;
+  /*background: #ededed; */
 }
 
 #name h1 {
@@ -369,7 +369,7 @@ article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
   display:block;
 }
 
-html, body {background: #181818; font-family: 'Lato', helvetica, arial, sans-serif; font-size: 16px; color: #222;}
+html, body { /*  background: #181818 */; font-family: 'Lato', helvetica, arial, sans-serif; font-size: 16px; color: #222;}
 
 .clear {clear: both;}
 
@@ -383,14 +383,14 @@ p {
 #cv {
   width: 90%;
   max-width: 800px;
-  background: #f3f3f3;
+  /* background: #f3f3f3; */
   margin: 30px auto;
 }
 
 .mainDetails {
   padding: 25px 35px;
   border-bottom: 2px solid #cf8a05;
-  background: #ededed;
+ /* background: #ededed; */
 }
 
 #name h1 {

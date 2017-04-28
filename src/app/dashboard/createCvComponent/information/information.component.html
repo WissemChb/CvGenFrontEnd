@@ -2,13 +2,13 @@
   <div class="panel-body">
     <div class="w3layouts-main">
       <h2>Personal Profile  </h2>
-    <form>
-      <input type="text" placeholder="First Name" id="nameid" >
-      <input type="text" placeholder="Last Name" id="lastnameid" >
-      <input type="text"  placeholder="Country" id="paysid">
-      <input type="text" placeholder="Phone number" id="phoneid">
-      <input type="text"   placeholder="email" id="emailid" >
-      <input type="text"   placeholder="Website" id="webid" >
+    <form (ngSubmit)="save()" [formGroup]="informationForm">
+      <input type="text" placeholder="First Name" id="nameid" formControlName="firstName">
+      <input type="text" placeholder="Last Name" id="lastnameid" formControlName="lastName" >
+      <input type="text"  placeholder="Country" id="paysid" formControlName="country">
+      <input type="text" placeholder="Phone number" id="phoneid" formControlName="phoneNumber">
+      <input type="text"   placeholder="email" id="emailid" formControlName="email">
+      <input type="text"   placeholder="Website" id="webid" formControlName="website">
       <textarea placeholder="describe your self " id="description "></textarea>
 
 

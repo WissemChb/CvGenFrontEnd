@@ -5,8 +5,8 @@
     <div class="panel-body">
       <div class="w3layouts-main">
         <h2>Personal Skills </h2>
-        <form >
-          <input type="text" placeholder="Skill " id="skillid1" required="">
+        <form (ngSubmit)="save()" [formGroup]="skillForm" >
+          <input type="text" placeholder="Skill " id="skillid1" required="" formControlName="skill">
 
           <input type="text"  placeholder="description" id="skilldescriptionid" required="">
 

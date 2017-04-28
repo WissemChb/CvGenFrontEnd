@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Customer} from "../../../shared/classes/customer";
+import {FormGroup, FormBuilder, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-education',
@@ -7,11 +8,26 @@ import {Customer} from "../../../shared/classes/customer";
   styleUrls: ['./education.component.css']
 })
 export class EducationComponent implements OnInit {
+  educationForm : FormGroup;
 user : Customer = new Customer();
-  constructor() { }
+  constructor(private fb  : FormBuilder) { }
 
-  ngOnInit() {
+  ngOnInit(): void{
+
+    this.educationForm = this.fb.group({
+      college : ['',Validators.required],
+      from : ['',Validators.required],
+      to : ['',Validators.required]
+
+    });
+
   }
+
+  save(){
+    console.log(this.educationForm);
+    console.log('saved:'+JSON.stringify(this.educationForm));
+  }
+
 
   addEducation(){
 

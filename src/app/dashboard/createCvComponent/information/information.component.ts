@@ -9,25 +9,25 @@ import {FormGroup , FormBuilder , Validators} from '@angular/forms';
 export class InformationComponent implements OnInit {
 
 
-  personForm : FormGroup;
+  informationForm : FormGroup;
 
   constructor(private fb : FormBuilder) { }
 
   ngOnInit() : void {
-    this.personForm=this.fb.group({
+    this.informationForm=this.fb.group({
       firstName:['',Validators.required],
       lastName : ['',Validators.required],
-      city:'',
-      zip:'',
-      pays:'',
-      phone:''
+      phoneNumber :['',Validators.required],
+      country : ['',Validators.required],
+      email: ['',Validators.required],
+      website:['',Validators.required],
     });
 
 
   }
 
   save(){
-    console.log(this.personForm);
-    console.log('saved:'+JSON.stringify(this.personForm));
+    console.log(this.informationForm);
+    console.log('saved:'+JSON.stringify(this.informationForm));
   }
 }

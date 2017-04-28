@@ -2,8 +2,8 @@
   <div class="panel-body">
     <div class="w3layouts-main">
       <h2>Leisure  </h2>
-      <form >
-        <input type="text" placeholder=" " id="skillid1" >
+      <form (ngSubmit)="save()" [formGroup]="leisureForm" >
+        <input type="text" placeholder=" " id="skillid1" formControlName="leisure">
 
 
 

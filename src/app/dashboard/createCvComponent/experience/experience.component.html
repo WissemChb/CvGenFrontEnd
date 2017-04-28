@@ -3,10 +3,12 @@
   <div class="panel-body">
     <div class="w3layouts-main">
       <h2>Professional Experience </h2>
-      <form >
-        <input type="text" placeholder="Experience Type" id="expid1" required="">
-        <input type="text"  placeholder="task" id="functionid" required="">
-        <input type="text"  placeholder="Company" id="companyid" required="">
+      <form (ngSubmit)="save()" [formGroup]="experienceForm" >
+        <input type="text" placeholder="Experience Type" id="expid1" required="" formControlName="experience">
+        <input type="text"  placeholder="task" id="functionid" required="" formControlName="task">
+        <input type="text"  placeholder="Company" id="companyid" required="" formControlName="company">
+        <input type="text"  placeholder="Period Time" id="periodid" required="" formControlName="period">
+
 
 
         <input type="submit" value="Save" name=""><input type="submit" value="Add more" name="">

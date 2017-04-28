@@ -2,9 +2,9 @@
   <div class="panel-body">
     <div class="w3layouts-main">
       <h2> Language  </h2>
-      <form >
-        <input type="text" placeholder=" language" id="languageid1" >
-        <input type="text" placeholder="raiting" id="id1" >
+      <form (ngSubmit)="save()" [formGroup]="languageForm" >
+        <input type="text" placeholder=" language" id="languageid1" formControlName=" language">
+        <input type="text" placeholder="raiting" id="id1" formControlName=" raiting" >
         <input type="submit" value="Save" name=""><input type="submit" value="Add more" name="">
         <a  [routerLink] ="['/dashboard', {outlets : {routerCV :['leisure']}}]"><input type="submit" value="Previous" name="login"></a>
       </form>

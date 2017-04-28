@@ -15,11 +15,14 @@ import { SkillComponent } from './createCvComponent/skill/skill.component';
 import { InformationComponent } from './createCvComponent/information/information.component';
 import { LeisureComponent } from './createCvComponent/leisure/leisure.component';
 import { LanguageComponent } from './createCvComponent/language/language.component';
+import {ReactiveFormsModule, FormsModule} from "@angular/forms";
 
 @NgModule({
   imports: [
     CommonModule,
     BrowserModule,
+    ReactiveFormsModule,
+    FormsModule,
     ProgressbarModule.forRoot(),
     ModalModule.forRoot(),
     RouterModule.forRoot([

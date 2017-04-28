@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {FormGroup , FormBuilder } from '@angular/forms';
+import {FormGroup , FormBuilder, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-skill',
@@ -7,13 +8,20 @@ import {FormGroup , FormBuilder } from '@angular/forms';
   styleUrls: ['./skill.component.css']
 })
 export class SkillComponent implements OnInit {
-
+  skillForm : FormGroup;
   constructor(private fb : FormBuilder) { }
 
-  ngOnInit()  {
+  ngOnInit() : void {
+    this. skillForm=this.fb.group({
+      skill:['',Validators.required]
+
+    });
+
 
   }
 
-
-
+  save(){
+    console.log(this. skillForm);
+    console.log('saved:'+JSON.stringify(this. skillForm));
+  }
 }

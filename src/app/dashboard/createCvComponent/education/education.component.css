@@ -95,7 +95,7 @@ h1.logo-w3  {
   padding: 42px 35px 10px;
   float:right;
 }
-input[type="text"], input[type="email"], input[type="password"] {
+input[type="text"], input[type="email"], input[type="password"],textarea {
   width: 82%;
   padding: 15px 50px 15px 15px;
   outline: none;

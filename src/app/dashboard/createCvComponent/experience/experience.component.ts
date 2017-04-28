@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {FormGroup, FormBuilder, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-experience',
@@ -6,10 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./experience.component.css']
 })
 export class ExperienceComponent implements OnInit {
+  experienceForm : FormGroup;
+  constructor(private fb  : FormBuilder) { }
 
-  constructor() { }
+  ngOnInit(): void{
 
-  ngOnInit() {
+    this.experienceForm = this.fb.group({
+      experience : ['',Validators.required],
+      task : ['',Validators.required],
+      company: ['',Validators.required],
+      period: ['',Validators.required]
+
+    });
+
   }
-
 }

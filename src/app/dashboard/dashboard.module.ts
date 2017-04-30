@@ -19,6 +19,7 @@ import {ReactiveFormsModule, FormsModule} from "@angular/forms";
 import {SharedModule} from "../shared/shared.module";
 import {HttpModule} from "@angular/http";
 import {InformationService} from "./createCvComponent/information/information.service";
+import {EducationService} from "./createCvComponent/education/education.service";
 
 @NgModule({
   imports: [
@@ -46,6 +47,6 @@ import {InformationService} from "./createCvComponent/information/information.se
   declarations: [DashboardComponent,CreateModalComponent,Viewtemplate1Component, Viewtemplate2Component,
     EducationComponent, ExperienceComponent, SkillComponent, InformationComponent,
     LeisureComponent, LanguageComponent],
-  providers:[DashboardService, InformationService]
+  providers:[DashboardService, InformationService, EducationService]
 })
 export class DashboardModule { }

@@ -19,15 +19,14 @@
     <div class="clear"></div>
   </div>
 
-  <div id="mainArea" class="quickFade delayFive" *ngIf="infos">
-    <section>
-      <article>
+  <div id="mainArea" class="quickFade delayFive">
+    <section *ngIf="infos">
+      <article *ngIf="infos.description">
         <div class="sectionTitle">
           <h1>Personal Profile</h1>
         </div>
-
         <div class="sectionContent">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dolor metus, interdum at scelerisque in, porta at lacus. Maecenas dapibus luctus cursus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultricies massa et erat luctus hendrerit. Curabitur non consequat enim. Vestibulum bibendum mattis dignissim. Proin id sapien quis libero interdum porttitor.</p>
+          <p>{{infos.description}}.</p>
         </div>
       </article>
       <div class="clear"></div>
@@ -83,7 +82,7 @@
     </section>
 
 
-    <section>
+    <section *ngIf="education">
       <div class="sectionTitle">
         <h1>Education</h1>
       </div>

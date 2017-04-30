@@ -1,5 +1,4 @@
 <div class="panel panel-default">
-  <div class="panel-body">
 
     <!--  Content here -->
     <div class="panel-body">
@@ -10,11 +9,9 @@
             <div class="col-md-4">
               <input type="text" placeholder="Skill " id="skillid1" required="" formControlName="skill">
             </div>
-            <!--<div class="col-md-4">
-              <rating [(ngModel)]="rate" [max]="max" [readonly]="isReadonly"
-                      (onHover)="hoveringOver($event)" (onLeave)="resetStar()"
-                      [titles]="['one','two','three']"></rating>
-            </div>-->
+            <div class="col-md-4">
+              <!--<app-rating></app-rating>-->
+            </div>
           </div>
 
           <input type="text"  placeholder="description" id="skilldescriptionid" required="" formControlName="description">
@@ -23,58 +20,12 @@
           <input type="submit" value="Save" name=""><input type="submit" value="Add more" name="">
 
           <a  [routerLink] ="['/dashboard', {outlets : {routerCV :['experience']}}]"><input type="submit" value="Previous" name="login"></a>
-
           <a [routerLink] ="['/dashboard', {outlets : {routerCV :['leisure']}}]"><input type="submit" value="Next" name="login"></a>
 
         </form>
       </div>
 
 
-
-
-
-
-
   </div>
 </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <div class="panel-footer">
-
-    <a class=" btn btn-primary">Precedent</a>
-    <a class="btn btn-primary"> Next</a>
-
-  </div>

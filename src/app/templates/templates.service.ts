@@ -4,7 +4,7 @@
  */
 
 import {Injectable} from "@angular/core";
-import {Http, Response} from "@angular/http";
+import {Http, Response, Headers, RequestOptions} from "@angular/http";
 import {Observable} from "rxjs";
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/catch';
@@ -23,7 +23,7 @@ export  class TemplateService{
     return this.http.get(this.url)
       .map((response : Response) => <ImageTemplates[]> response.json())
       .do(data => console.log('Add Templates : ' + JSON.stringify(data)))
-      .catch(error => Observable.throw("Error in x service"));
+      .catch(this.handleError);
   }
   private handleError(error: Response) {
     return Observable.throw(error.json().error || 'Server error');}

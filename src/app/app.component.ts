@@ -10,12 +10,12 @@ export class AppComponent implements OnInit{
   pageTitle = 'My CV';
 
   constructor( private router : Router){}
-  user : Object;
+  user : any;
   key : String;
   ngOnInit(): void {
+    debugger
     this.key = localStorage.getItem('id_token');
-    this.user = JSON.parse(JSON.stringify(localStorage.getItem('user')) || null);
-    console.log(this.user);
+    this.user = JSON.parse(localStorage.getItem('user'));
   }
 
   logout(){

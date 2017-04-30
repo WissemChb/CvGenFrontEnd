@@ -2,7 +2,7 @@
  * Created by wissem on 4/22/17.
  */
 
-import {Component, Input, ViewChild} from '@angular/core';
+import {Component, Input, ViewChild, OnInit} from '@angular/core';
 import { ModalDirective } from 'ng2-bootstrap';
 import {Router} from "@angular/router";
 import {FlashMessagesService} from "angular2-flash-messages";
@@ -41,17 +41,12 @@ import {ImageTemplates} from "../TemplateImages";
 
   styleUrls : ['modal.component.css']
 })
-export class TemplateModalComponent {
+export class TemplateModalComponent{
   @ViewChild('childModal') public childModal:ModalDirective;
   @Input() title:string;
   images : ImageTemplates = new ImageTemplates();
 
   constructor(private  router : Router, private flashmessage : FlashMessagesService){}
-
-
-
-
-
 
 
   show(){
@@ -63,7 +58,8 @@ export class TemplateModalComponent {
 
   onclickTemp() {
     if(localStorage.getItem('id_token')){
-      this.router.navigate(['/dashboard', {outlets: {routertemp1: ['template',this.images.id ]}}]);
+      debugger
+      this.router.navigate(['/dashboard', {outlets: {routertemp: ['template1']}}]);
     }else{
       this.router.navigate(['/login']);
       this.flashmessage.show('You should login first', {cssClass : 'alert-info' , timeout : 3000});

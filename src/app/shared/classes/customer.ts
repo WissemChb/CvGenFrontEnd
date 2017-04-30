@@ -1,3 +1,9 @@
+import {Information} from "./information";
+import {Education} from "./education";
+import {Experience} from "./experience";
+import {Skill} from "./skill";
+import {Leisure} from "./leisure";
+import {Language} from "./language";
 export class Customer {
 
   firstName : string;
@@ -6,46 +12,12 @@ export class Customer {
   email : string;
   password : string;
   confirmPassword : string;
+  skills :  Skill[];
+  educations : Education[];
+  experiences : Experience[];
+  infos : Information;
+  leisure : Leisure[];
+  language : Language[];
 
-  skills :  [{
-      domain : String,
-      skill : String,
-      rate : Number ,
-      description  : String,
-
-  }];
-  educations : [{
-    title : String,
-    establishment : String,
-    description : String,
-    dateEduc : {
-      startDate : Date,
-      finishDate : Date
-    }
-  }];
-
-  experiences : [{
-    post : String,
-    dateExperience : {
-      startDate : Date,
-      finishDate : Date
-    },
-    entreprise : {
-      logo : String,
-      description : String,
-      webSite : String
-    },
-    description : String
-  }];
-
-  infos : {
-    photo : String,
-    birthDate : String,
-    address : [{
-      street : String,
-      city : String,
-      code : Number
-    }];
-  }
 }
 

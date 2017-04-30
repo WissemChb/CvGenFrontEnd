@@ -1,5 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import {FormGroup , FormBuilder , Validators} from '@angular/forms';
+import {Component, OnInit, Output} from '@angular/core';
+import {FormGroup, FormBuilder, Validators, FormArray} from '@angular/forms';
+import {Customer} from "../../../shared/classes/customer";
+import {Router} from "@angular/router";
+import {Information} from "../../../shared/classes/information";
+import {InformationService} from "./information.service";
 
 @Component({
   selector: 'app-information',
@@ -7,27 +11,47 @@ import {FormGroup , FormBuilder , Validators} from '@angular/forms';
   styleUrls: ['./information.component.css']
 })
 export class InformationComponent implements OnInit {
-
+@Output('AddInfos') infos : Information = new Information();
 
   informationForm : FormGroup;
+  phoneArray : FormArray;
+  user : any;
 
-  constructor(private fb : FormBuilder) { }
+  constructor(private fb : FormBuilder, private router : Router,
+              private informationService : InformationService) { }
+
+  get phoneNumbers(): FormArray{
+    return <FormArray> this.informationForm.get('phoneNumbers');
+  }
 
   ngOnInit() : void {
     this.informationForm=this.fb.group({
-      firstName:['',Validators.required],
-      lastName : ['',Validators.required],
-      phoneNumber :['',Validators.required],
-      country : ['',Validators.required],
-      email: ['',Validators.required],
-      website:['',Validators.required],
+      photo:'',
+      birthDate : '',
+      phoneNumbers : this.fb.array([this.buildPhoneNumber()]),
+      skype : '',
+      country : '',
+      webSite:'',
+      description : ''
     });
+    this.informationService.clearData();
+  }
 
+  buildPhoneNumber(): FormGroup{
+     return this.fb.group({
+       phone : '',
+     })
+  }
 
+  addPhoneNumber(){
+    this.phoneNumbers.push(this.buildPhoneNumber());
   }
 
   save(){
-    console.log(this.informationForm);
-    console.log('saved:'+JSON.stringify(this.informationForm));
+    let infos = Object.assign({}, this.infos, this.informationForm.value);
+    this.informationService.sendData(infos);
+    console.log(infos);
+    this.router.navigate(['/dashboard', {outlets : {routerCV: ['education']}}]);
+
   }
 }

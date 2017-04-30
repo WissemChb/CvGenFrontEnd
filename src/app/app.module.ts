@@ -15,6 +15,7 @@ import {DashboardModule} from "./dashboard/dashboard.module";
 import { CreateCVComponent } from './CreateCV/create-cv.component';
 import {CreateCVModule} from "./CreateCV/create-cv.module";
 import {TemplatesModule} from "./templates/templates.module";
+import {LocalStorageModule} from "angular-2-local-storage";
 
 
 @NgModule({
@@ -35,7 +36,11 @@ import {TemplatesModule} from "./templates/templates.module";
     AboutModule,
     FlashMessagesModule,
     DashboardModule,
-    TemplatesModule
+    TemplatesModule,
+    LocalStorageModule.withConfig({
+      prefix : 'app-login',
+      storageType : 'localStorage'
+    })
   ],
   providers: [FlashMessagesService],
   bootstrap: [AppComponent]

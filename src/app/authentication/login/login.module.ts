@@ -6,7 +6,8 @@ import {ReactiveFormsModule, FormsModule, FormBuilder} from "@angular/forms";
 import {BrowserModule} from "@angular/platform-browser";
 import {LoginService} from "./login.service";
 import {FlashMessagesModule} from "angular2-flash-messages";
-import {Http, RequestOptions, HttpModule, ConnectionBackend} from "@angular/http";
+import { HttpModule} from "@angular/http";
+import {LocalStorageModule} from "angular-2-local-storage";
 
 @NgModule({
   imports: [

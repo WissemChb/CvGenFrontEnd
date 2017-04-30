@@ -16,6 +16,9 @@ import { InformationComponent } from './createCvComponent/information/informatio
 import { LeisureComponent } from './createCvComponent/leisure/leisure.component';
 import { LanguageComponent } from './createCvComponent/language/language.component';
 import {ReactiveFormsModule, FormsModule} from "@angular/forms";
+import {SharedModule} from "../shared/shared.module";
+import {HttpModule} from "@angular/http";
+import {InformationService} from "./createCvComponent/information/information.service";
 
 @NgModule({
   imports: [
@@ -25,10 +28,12 @@ import {ReactiveFormsModule, FormsModule} from "@angular/forms";
     FormsModule,
     ProgressbarModule.forRoot(),
     ModalModule.forRoot(),
-    RatingModule.forRoot(),
+    SharedModule,
+    HttpModule,
     RouterModule.forRoot([
       {path : 'dashboard' , component: DashboardComponent, children : [
-        {path : 'template/:id' , component: Viewtemplate1Component, outlet : 'routertemp'},
+        {path : 'template1' , component: Viewtemplate1Component, outlet : 'routertemp'},
+        {path : 'template2' , component: Viewtemplate2Component, outlet : 'routertemp'},
         {path : 'education', component : EducationComponent , outlet : 'routerCV'},
         {path : 'skill', component : SkillComponent , outlet : 'routerCV'},
         {path : 'experience', component : ExperienceComponent , outlet : 'routerCV'},
@@ -41,6 +46,6 @@ import {ReactiveFormsModule, FormsModule} from "@angular/forms";
   declarations: [DashboardComponent,CreateModalComponent,Viewtemplate1Component, Viewtemplate2Component,
     EducationComponent, ExperienceComponent, SkillComponent, InformationComponent,
     LeisureComponent, LanguageComponent],
-  providers:[DashboardService]
+  providers:[DashboardService, InformationService]
 })
 export class DashboardModule { }

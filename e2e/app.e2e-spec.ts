@@ -7,8 +7,7 @@ describe('frond-end App', () => {
     page = new FrondEndPage();
   });
 
-  it('should display message saying app works', () => {
+  it('should go to home page after reloading', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('app works!');
   });
 });

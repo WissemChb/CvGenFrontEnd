@@ -11,7 +11,8 @@ import {TemplateService} from "./templates.service";
     CommonModule,
     ModalModule.forRoot(),
     RouterModule.forRoot([
-      {path : 'templates' , component : TemplatesComponent }
+      {path : 'templates' , component : TemplatesComponent },
+      {path : 'template/:id' , component : TemplateModalComponent}
     ])
   ],
   declarations: [TemplatesComponent,TemplateModalComponent ],

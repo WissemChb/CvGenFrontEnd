@@ -12,8 +12,9 @@ import {Router} from "@angular/router";
 import {Customer} from "../../shared/classes/customer";
 
 
+
 @Component({
-    //moduleId : module.id,
+    selector : 'login-app',
     templateUrl:'login.component.html',
     styleUrls : ['login.component.css']
 })
@@ -52,7 +53,7 @@ export class LoginComponent implements OnInit{
           this._flashMessage.show('welcome to My CV Generator App', {cssClass : 'alert-success',timeout: 5000});
           this.loginService.saveLocalAuthentication(data.token, data.user)
           this.router.navigate(['/templates']);
-          location.reload()
+          location.reload();
         }else {
           this._flashMessage.show(data.msg, {cssClass : 'alert-danger', timeout : 5000});
           this.router.navigate(['/login']);
@@ -61,5 +62,6 @@ export class LoginComponent implements OnInit{
       (error: any) => this.errorMessage = <any>error);
     this.modalMessage = this.errorMessage
   }
+
 
 }

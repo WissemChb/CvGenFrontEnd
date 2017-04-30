@@ -28,18 +28,15 @@ export class TemplatesComponent implements OnInit{
   val : any;
   templateImages : ImageTemplates[];
   error : any;
+  user : any
 
   ngOnInit(){
-     debugger
-     this.tempService.getTemplates().subscribe(data => {
-       this.templateImages = data, error => this.error = error
-     });
+     this.tempService.getTemplates().subscribe(data => this.templateImages = data, error => this.error = error);
   }
-
   Onclick(event){
     var target = event.target || event.srcElement || event.currentTarget;
     this.idAttr = target.attributes.id.value;
-    this.value = document.getElementById(this.idAttr).getAttribute('src');
+    this.value =document.getElementById(this.idAttr).getAttribute('src');
     this.childModal.show();
   }
 

@@ -15,7 +15,7 @@ export class LoginService {
     let options = new RequestOptions({ headers: headers });
     return this.http.post(this.url,user,options)
       .map(this.extractResponseData)
-      .do(data => console.log('Add user : ' + JSON.stringify(data)))
+      .do(data => console.log('***********Add user : ' + JSON.stringify(data)))
       .catch(this.handleError);
   }
   private handleError(error: Response) {

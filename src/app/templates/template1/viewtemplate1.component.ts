@@ -19,12 +19,12 @@ import {Education} from "../../shared/classes/education";
 export class Viewtemplate1Component implements OnInit, OnDestroy, OnChanges{
   user : any;
   infos : Information;
-  education : Education;
+  education : Education[];
   subscription : Subscription;
   constructor(private informationService : InformationService, private educationService : EducationService){
     debugger
     this.subscription = this.informationService.getData().subscribe(data => this.infos= data);
-    this.subscription = this.educationService.getData().subscribe(data => this.education= data);
+    this.subscription = this.educationService.getData().subscribe(data => this.education = data);
   }
   ngOnInit(){
     debugger

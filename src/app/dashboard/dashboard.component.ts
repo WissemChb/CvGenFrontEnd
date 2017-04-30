@@ -2,6 +2,8 @@ import {Component, OnInit, ViewChild, ViewContainerRef, Directive} from '@angula
 import {DashboardService} from "./dashboard.service";
 import {Router} from "@angular/router";
 import {CreateModalComponent} from "./createModal/createModal.component";
+import {InformationService} from "./createCvComponent/information/information.service";
+import {Information} from "../shared/classes/information";
 
 @Component({
   selector: 'app-dashboard',
@@ -10,7 +12,8 @@ import {CreateModalComponent} from "./createModal/createModal.component";
 })
 export class DashboardComponent implements OnInit {
   @ViewChild('childModal') childModal : CreateModalComponent;
-  constructor(private dashService : DashboardService , private router : Router, private viewContainer : ViewContainerRef) { }
+  constructor(private dashService : DashboardService , private router : Router,
+              private viewContainer : ViewContainerRef) { }
   user: Object;
   idAttr : string;
 

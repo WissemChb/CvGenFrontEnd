@@ -24,13 +24,15 @@ export class EducationComponent implements OnInit {
       to : ['',Validators.required],
       description : ['']
     });
-
+     this.educationService.clearData();
   }
 
   save(){
     let ed = Object.assign({}, this.education, this.educationForm.value);
-    this.educationService.sendData(ed);
-    console.log(ed);
+    this.education.push(ed)
+    this.educationService.sendData(this.education);
+    debugger
+    console.log(this.education);
     this.educationForm.reset()
   }
   addmore(){

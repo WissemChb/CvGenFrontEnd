@@ -13,7 +13,7 @@ export class EducationService {
   clearData(){
     this.subject.next();
   }
-  getData(): Observable<Education>{
+  getData(): Observable<Education[]>{
     return this.subject.asObservable()
   }
 }

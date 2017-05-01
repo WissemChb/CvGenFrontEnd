@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormBuilder, Validators} from "@angular/forms";
 import {Education} from "../../../shared/classes/education";
-import {Router} from "@angular/router";
 import {EducationService} from "./education.service";
 
 @Component({
@@ -11,7 +10,7 @@ import {EducationService} from "./education.service";
 })
 export class EducationComponent implements OnInit {
   educationForm : FormGroup;
-  education : Education [];
+  education : Education []  = new Array<Education>();
   constructor(private fb  : FormBuilder,
               private educationService : EducationService) { }
 

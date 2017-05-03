@@ -11,9 +11,8 @@ export class DashboardService {
   constructor(private http : Http) { }
 
   url : string = "http://localhost:5000/user/user";
-  this.user = JSON.parse(localStorage.getItem('user') || '');
-  this.user
-)
+
+
   saveCV (){
 
     let headers = new Headers({ 'Content-Type': 'application/json' });

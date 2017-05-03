@@ -1,9 +1,4 @@
-import {Information} from "./information";
-import {Education} from "./education";
-import {Experience} from "./experience";
-import {Skill} from "./skill";
-import {Leisure} from "./leisure";
-import {Language} from "./language";
+
 export class Customer {
 
   firstName : string;
@@ -12,12 +7,12 @@ export class Customer {
   email : string;
   password : string;
   confirmPassword : string;
-  skills :  Skill[];
-  educations : Education[];
-  experiences : Experience[];
-  infos : Information;
-  leisure : Leisure[];
-  language : Language[];
+  skills :  Object[];
+  educations : Object[];
+  experiences : Object[];
+  infos : any;
+  leisure : Object[];
+  language : Object[];
 
 }
 

@@ -12,8 +12,7 @@ import {Information} from "../shared/classes/information";
 })
 export class DashboardComponent implements OnInit {
   @ViewChild('childModal') childModal : CreateModalComponent;
-  constructor(private dashService : DashboardService , private router : Router,
-              private viewContainer : ViewContainerRef) { }
+  constructor(private dashService : DashboardService , private router : Router) { }
   user: Object;
   idAttr : string;
 

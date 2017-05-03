@@ -13,13 +13,14 @@
       <ul>
         <li *ngIf="user.email">Email: <a href="{{user.email}}" target="_blank">{{user.email}}</a></li>
         <li *ngIf="infos.webSite">WebSite: <a href="{{infos.webSite}}">{{infos.webSite}}</a></li>
-        <li *ngFor="let phone of infos.phoneNumbers">Phone: {{phone.phone}} </li>
+        <li *ngFor="let phone of infos.phoneNumbers"><ul>Phone : <li>{{phone.phone}}</li></ul>  </li>
       </ul>
     </div>
     <div class="clear"></div>
   </div>
 
   <div id="mainArea" class="quickFade delayFive">
+
     <section *ngIf="infos">
       <article *ngIf="infos.description">
         <div class="sectionTitle">
@@ -32,67 +33,69 @@
       <div class="clear"></div>
     </section>
 
-
-    <section>
-      <div class="sectionTitle">
+    <section *ngIf="experience">
+      <div class="sectionTitle" *ngIf="experience.length">
         <h1>Work Experience</h1>
       </div>
-
       <div class="sectionContent">
-        <article>
-          <h2>Job Title at Company</h2>
-          <p class="subDetails">April 2011 - Present</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultricies massa et erat luctus hendrerit. Curabitur non consequat enim. Vestibulum bibendum mattis dignissim. Proin id sapien quis libero interdum porttitor.</p>
-        </article>
-
-        <article>
-          <h2>Job Title at Company</h2>
-          <p class="subDetails">Janruary 2007 - March 2011</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultricies massa et erat luctus hendrerit. Curabitur non consequat enim. Vestibulum bibendum mattis dignissim. Proin id sapien quis libero interdum porttitor.</p>
-        </article>
-
-        <article>
-          <h2>Job Title at Company</h2>
-          <p class="subDetails">October 2004 - December 2006</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultricies massa et erat luctus hendrerit. Curabitur non consequat enim. Vestibulum bibendum mattis dignissim. Proin id sapien quis libero interdum porttitor.</p>
+        <article *ngFor="let exp of experience">
+          <h2>{{exp.post}} in {{exp.entreprise}}<span><img src="{{exp.logo}}" class="img-responsive"></span></h2>
+          <p class="subDetails">{{exp.startDate}} - {{exp.finishDate}}</p>
+          <p>{{exp.description}}</p>
         </article>
       </div>
       <div class="clear"></div>
     </section>
 
-
-    <section>
-      <div class="sectionTitle">
-        <h1>Key Skills</h1>
+    <section *ngIf="skills">
+      <div class="sectionTitle" *ngIf="skills.length">
+        <h1>Skills</h1>
       </div>
-
-      <div class="sectionContent">
-        <ul class="keySkills">
-          <li>A Key Skill</li>
-          <li>A Key Skill</li>
-          <li>A Key Skill</li>
-          <li>A Key Skill</li>
-          <li>A Key Skill</li>
-          <li>A Key Skill</li>
-          <li>A Key Skill</li>
-          <li>A Key Skill</li>
+      <div class="sectionContent" *ngFor="let skill of skills">
+        <h4>{{skill.domain}}</h4>
+        <ul class="keySkills" *ngFor="let dom of skill.skills">
+          <li>{{dom.skill}}<span><rating [(ngModel)]="dom.starRate" [max]="max" [readonly]="isReadonly"></rating></span></li>
         </ul>
+
       </div>
       <div class="clear"></div>
     </section>
-
 
     <section *ngIf="education">
-      <div class="sectionTitle">
+      <div class="sectionTitle" *ngIf="education.length">
         <h1>Education</h1>
       </div>
-
-      <div class="sectionContent" *ngFor="let ed of education ">
+      <div class="sectionContent" *ngFor="let ed of education">
         <article>
-          <h2>{{ed.establishment}}</h2>
-          <p>{{ed.title}}</p>
-          <p class="subDetails">{{ed.from}} to {{ed.to}} </p>
+          <h2>{{ed.title}}</h2>
+          <h3>{{ed.establishment}}</h3>
+          <p class="subDetails">{{ed.startDate}} - {{ed.finishDate}}</p>
         </article>
+      </div>
+      <div class="clear"></div>
+    </section>
+
+    <section *ngIf="languages">
+      <div class="sectionTitle" *ngIf="languages.length">
+        <h1>Languages</h1>
+      </div>
+      <div class="sectionContent" *ngFor="let lang of languages">
+        <ul class="keySkills">
+          <li>{{lang.language}}<span><rating [(ngModel)]="lang.starRate" [max]="max" [readonly]="isReadonly"></rating></span></li>
+        </ul>
+
+      </div>
+      <div class="clear"></div>
+    </section>
+
+    <section *ngIf="leisures">
+      <div class="sectionTitle" *ngIf="leisures.length">
+        <h1>Leisures</h1>
+      </div>
+      <div class="sectionContent" *ngFor="let l of leisures">
+        <ul class="keySkills">
+          <li>{{l.leisure}}</li>
+        </ul>
       </div>
       <div class="clear"></div>
     </section>

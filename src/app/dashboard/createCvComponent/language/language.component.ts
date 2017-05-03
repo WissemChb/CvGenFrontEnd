@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup , FormBuilder , Validators} from '@angular/forms';
+import {LanguageService} from "./language.service";
 
 @Component({
   selector: 'app-language',
@@ -8,19 +9,22 @@ import {FormGroup , FormBuilder , Validators} from '@angular/forms';
 })
 export class LanguageComponent implements OnInit {
   languageForm : FormGroup;
-  constructor(private fb : FormBuilder) { }
+  constructor(private fb : FormBuilder, private languageService : LanguageService) { }
 
   ngOnInit() : void {
     this. languageForm=this.fb.group({
       language:['',Validators.required],
-       raiting:['',Validators.required]
+      starRate: 0
     });
-
+ this.languageService.clearData();
 
   }
 
-  save(){
-    console.log(this. languageForm);
-    console.log('saved:'+JSON.stringify(this. languageForm));
+  save(event : any){
+    debugger
+    event.preventDefault();
+    this.languageService.sendData(JSON.parse(JSON.stringify(this.languageForm.value)));
+    console.log(this.languageForm.value);
+    this.languageForm.reset();
   }
 }

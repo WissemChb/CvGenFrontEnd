@@ -15,27 +15,22 @@ export class EducationComponent implements OnInit {
               private educationService : EducationService) { }
 
   ngOnInit(): void{
-
     this.educationForm = this.fb.group({
       title : ['',Validators.required],
       establishment : ['',Validators.required],
-      from : ['',Validators.required],
-      to : ['',Validators.required],
+      startDate : ['',Validators.required],
+      finishDate : ['',Validators.required],
       description : ['']
     });
      this.educationService.clearData();
   }
 
   save(){
-    let ed = Object.assign({}, this.education, this.educationForm.value);
-    this.education.push(ed)
-    this.educationService.sendData(this.education);
+    this.educationService.sendData(JSON.parse(JSON.stringify(this.educationForm.value)));
     debugger
     console.log(this.education);
     this.educationForm.reset()
   }
-  addmore(){
-    this.education.push(this.educationForm.value)
-  }
+
 
 }

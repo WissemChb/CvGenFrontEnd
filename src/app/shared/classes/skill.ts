@@ -1,9 +1,5 @@
+import {DomainSkill} from "./domain-skill";
 export class Skill {
-
-  domain : string;
-  skill : string;
-  rating : number ;
-  description  : string;
-
-
+  domain :String;
+  skills : DomainSkill[] = new Array<DomainSkill>();
 }

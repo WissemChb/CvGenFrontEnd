@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup , FormBuilder , Validators} from '@angular/forms';
+import {LeisureService} from "./leisure.service";
 
 
 @Component({
@@ -9,19 +10,24 @@ import {FormGroup , FormBuilder , Validators} from '@angular/forms';
 })
 export class LeisureComponent implements OnInit {
   leisureForm : FormGroup;
-  constructor(private fb : FormBuilder) { }
+  constructor(private fb : FormBuilder, private leisureService : LeisureService) { }
 
   ngOnInit() : void {
     this.leisureForm=this.fb.group({
-      leisure:['',Validators.required]
-
+      leisure:['',Validators.required],
     });
 
+   this.leisureService.clearData();
 
   }
 
-  save(){
-    console.log(this.leisureForm);
-    console.log('saved:'+JSON.stringify(this.leisureForm));
+  save(event : any){
+    debugger
+    event.preventDefault();
+    this.leisureService.sendData(JSON.parse(JSON.stringify(this.leisureForm.value)));
+    console.log(this.leisureForm.value);
+    this.leisureForm.reset();
+
   }
 }
+

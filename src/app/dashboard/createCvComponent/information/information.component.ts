@@ -48,9 +48,7 @@ export class InformationComponent implements OnInit {
   }
 
   save(){
-    let infos = Object.assign({}, this.infos, this.informationForm.value);
-    this.informationService.sendData(infos);
-    console.log(infos);
+    this.informationService.sendData(JSON.parse(JSON.stringify(this.informationForm.value)));
     this.router.navigate(['/dashboard', {outlets : {routerCV: ['education']}}]);
 
   }

@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import {Observable, Subject} from "rxjs";
-import {Education} from "../../../shared/classes/education";
 
 @Injectable()
-export class EducationService {
+export class LeisureService {
 
   subject : Subject<any> = new Subject<any>();
 
@@ -13,7 +12,7 @@ export class EducationService {
   clearData(){
     this.subject.next();
   }
-  getData(): Observable<any[]>{
+  getData(): Observable<any>{
     return this.subject.asObservable()
   }
 }

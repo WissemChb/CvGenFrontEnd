@@ -4,15 +4,16 @@
     <div class="panel-body">
       <div class="w3layouts-main">
         <h2>Personal Skills </h2>
-        <form (ngSubmit)="save()" [formGroup]="skillForm" >
+        <form (ngSubmit)="save($event)" [formGroup]="skillForm" >
           <div style="display: inline-block">
-            <input type="text" placeholder="Domain" id="domain"  formControlName="domain"><button type="button" class="btn btn-primary" (click)="addSkill()">add</button>
+            <input type="text" placeholder="Domain" id="domain"  formControlName="domain">
+            <button type="button" class="btn btn-primary" (click)="addSkill()">add</button>
+            <button type="button" class="btn btn-primary" (click)="RemoveSkill()">remove</button>
           </div>
           <div formArrayName="skills"  *ngFor="let skill of skills.controls;let i=index">
             <div [formGroupName]="i">
               <input type="text" placeholder="Skill " id="{{'skillid'+i}}" formControlName="skill">
-              <!--<app-rating formControlName="rating"></app-rating>-->
-              <input type="text"  placeholder="description" id="{{'skilldescriptionid'+i}}" formControlName="description">
+              <app-rating (rating)="skillForm.controls.skills.controls[i].get('starRate').setValue($event)" [rateForm]="skillForm.controls.skills.controls[i].get('starRate')"></app-rating>
             </div>
           </div>
           <input type="submit" value="Save" name="save">

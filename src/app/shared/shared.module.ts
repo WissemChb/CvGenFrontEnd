@@ -4,7 +4,6 @@ import {Angular2FontawesomeModule} from "angular2-fontawesome";
 import {ReactiveFormsModule, FormsModule} from "@angular/forms";
 import {BrowserModule} from "@angular/platform-browser";
 import {HttpModule} from "@angular/http";
-import { RatingComponent } from './rating/rating.component';
 import {RatingModule} from "ngx-bootstrap";
 
 
@@ -20,6 +19,6 @@ import {RatingModule} from "ngx-bootstrap";
     RatingModule.forRoot()
 
   ],
-  declarations: [RatingComponent]
+  declarations: []
 })
 export class SharedModule {}

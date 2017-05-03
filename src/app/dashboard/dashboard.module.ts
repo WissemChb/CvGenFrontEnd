@@ -20,6 +20,11 @@ import {SharedModule} from "../shared/shared.module";
 import {HttpModule} from "@angular/http";
 import {InformationService} from "./createCvComponent/information/information.service";
 import {EducationService} from "./createCvComponent/education/education.service";
+import {RatingComponent} from "./createCvComponent/rating/rating.component";
+import {SkillService} from "./createCvComponent/skill/skill.service";
+import {ExperienceService} from "./createCvComponent/experience/experience.service";
+import {LeisureService} from "./createCvComponent/leisure/leisure.service";
+import {LanguageService} from "./createCvComponent/language/language.service";
 
 @NgModule({
   imports: [
@@ -31,6 +36,7 @@ import {EducationService} from "./createCvComponent/education/education.service"
     ModalModule.forRoot(),
     SharedModule,
     HttpModule,
+    RatingModule.forRoot(),
     RouterModule.forRoot([
       {path : 'dashboard' , component: DashboardComponent, children : [
         {path : 'template1' , component: Viewtemplate1Component, outlet : 'routertemp'},
@@ -46,7 +52,8 @@ import {EducationService} from "./createCvComponent/education/education.service"
   ],
   declarations: [DashboardComponent,CreateModalComponent,Viewtemplate1Component, Viewtemplate2Component,
     EducationComponent, ExperienceComponent, SkillComponent, InformationComponent,
-    LeisureComponent, LanguageComponent],
-  providers:[DashboardService, InformationService, EducationService]
+    LeisureComponent, LanguageComponent, RatingComponent],
+  providers:[DashboardService,
+    InformationService, EducationService,SkillService,ExperienceService, LeisureService,LanguageService]
 })
 export class DashboardModule { }

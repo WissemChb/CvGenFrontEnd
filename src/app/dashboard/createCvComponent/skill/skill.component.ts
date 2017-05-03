@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import {FormGroup, FormBuilder, Validators, FormControl, FormArray} from '@angular/forms';
-
+import {Component, OnInit, Input} from '@angular/core';
+import {FormGroup, FormBuilder, Validators, FormArray} from '@angular/forms';
+import {Skill} from "../../../shared/classes/skill";
+import {SkillService} from "./skill.service";
 
 @Component({
   selector: 'app-skill',
@@ -9,7 +10,9 @@ import {FormGroup, FormBuilder, Validators, FormControl, FormArray} from '@angul
 })
 export class SkillComponent implements OnInit {
   skillForm : FormGroup;
-  constructor(private fb : FormBuilder) { }
+  skill : Object[] = new Array<Skill>();
+
+  constructor(private fb : FormBuilder, private skillService : SkillService) { }
 
   get skills(): FormArray{
     return <FormArray> this.skillForm.get('skills');
@@ -20,22 +23,27 @@ export class SkillComponent implements OnInit {
         domain : ['', Validators.required],
         skills : this.fb.array([this.buildSkill()])
     });
-
+    this.skillService.clearData();
   }
 
   buildSkill(){
+    debugger
     return this.fb.group({
       skill :['', Validators.required],
-      rating : ['', Validators.required],
-      description : ['']
-    })
+      starRate : 0
+    });
+
   }
 
   addSkill(){
     this.skills.push(this.buildSkill());
   }
-  save(){
-    console.log(this. skillForm);
-    console.log('saved:'+JSON.stringify(this. skillForm));
+  save(event : any){
+    debugger
+    event.preventDefault();
+    this.skillService.sendData(JSON.parse(JSON.stringify(this.skillForm.value)));
+    console.log(this.skillForm.value);
+    this.skillForm.reset();
+
   }
 }

@@ -12,7 +12,7 @@ export class InformationService {
   clearData(){
     this.subject.next();
   }
-  getData(): Observable<Information>{
+  getData(): Observable<any>{
     return this.subject.asObservable()
   }
 

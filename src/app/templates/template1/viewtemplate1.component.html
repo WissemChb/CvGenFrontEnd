@@ -1,7 +1,7 @@
-<div id="cv" class="instaFade">
-  <div class="mainDetails" *ngIf=" user && infos">
+<div id="cv" class="instaFade" *ngIf="user">
+  <div class="mainDetails" *ngIf="user.cv.infos">
     <div id="headshot" class="quickFade">
-      <img *ngIf="infos.photo" src="{{infos.photo}}" alt="{{user.username}}" />
+      <img *ngIf="user.cv.infos.photo" src="{{user.cv.infos.photo}}" alt="{{user.username}}" />
     </div>
 
     <div id="name" *ngIf="user.firstName && user.secondName">
@@ -11,9 +11,9 @@
 
     <div id="contactDetails" class="quickFade delayFour">
       <ul>
-        <li *ngIf="user.email">Email: <a href="{{user.email}}" target="_blank">{{user.email}}</a></li>
-        <li *ngIf="infos.webSite">WebSite: <a href="{{infos.webSite}}">{{infos.webSite}}</a></li>
-        <li *ngFor="let phone of infos.phoneNumbers"><ul>Phone : <li>{{phone.phone}}</li></ul>  </li>
+        <ul> Email : <li *ngFor="let cont of user.cv.infos.contact">{{cont.email}}</li></ul>
+        <ul> Phone : <li *ngFor="let cont of user.cv.infos.contact">{{cont.phone}}</li></ul>
+        <li *ngIf="user.cv.infos.webSite">WebSite: <a href="{{user.cv.infos.webSite}}">{{user.cv.infos.webSite}}</a></li>
       </ul>
     </div>
     <div class="clear"></div>
@@ -21,24 +21,24 @@
 
   <div id="mainArea" class="quickFade delayFive">
 
-    <section *ngIf="infos">
-      <article *ngIf="infos.description">
+    <section *ngIf="user.cv.infos">
+      <article *ngIf="user.cv.infos.description">
         <div class="sectionTitle">
           <h1>Personal Profile</h1>
         </div>
         <div class="sectionContent">
-          <p>{{infos.description}}.</p>
+          <p>{{user.cv.infos.description}}.</p>
         </div>
       </article>
       <div class="clear"></div>
     </section>
 
-    <section *ngIf="experience">
-      <div class="sectionTitle" *ngIf="experience.length">
+    <section *ngIf="user.cv.experiences">
+      <div class="sectionTitle" *ngIf="user.cv.experiences.length">
         <h1>Work Experience</h1>
       </div>
       <div class="sectionContent">
-        <article *ngFor="let exp of experience">
+        <article *ngFor="let exp of user.cv.experiences">
           <h2>{{exp.post}} in {{exp.entreprise}}<span><img src="{{exp.logo}}" class="img-responsive"></span></h2>
           <p class="subDetails">{{exp.startDate}} - {{exp.finishDate}}</p>
           <p>{{exp.description}}</p>
@@ -47,22 +47,22 @@
       <div class="clear"></div>
     </section>
 
-    <section *ngIf="skills">
-      <div class="sectionTitle" *ngIf="skills.length">
+    <section *ngIf="user.cv.skills">
+      <div class="sectionTitle" *ngIf="user.cv.skills.length">
         <h1>Skills</h1>
       </div>
-      <div class="sectionContent" *ngFor="let skill of skills">
+      <div class="sectionContent" *ngFor="let skill of user.cv.skills">
         <h4>{{skill.domain}}</h4>
-        <ul class="keySkills" *ngFor="let dom of skill.skills">
-          <li>{{dom.skill}}<span><rating [(ngModel)]="dom.starRate" [max]="max" [readonly]="isReadonly"></rating></span></li>
+        <ul class="keySkills">
+          <li *ngFor="let dom of skill.skills">{{dom.skill}}<span><rating [(ngModel)]="dom.starRate" [max]="max" [readonly]="isReadonly"></rating></span></li>
         </ul>
 
       </div>
       <div class="clear"></div>
     </section>
 
-    <section *ngIf="education">
-      <div class="sectionTitle" *ngIf="education.length">
+    <section *ngIf="user.cv.educations">
+      <div class="sectionTitle" *ngIf="user.cv.educations.length">
         <h1>Education</h1>
       </div>
       <div class="sectionContent" *ngFor="let ed of education">
@@ -75,26 +75,25 @@
       <div class="clear"></div>
     </section>
 
-    <section *ngIf="languages">
-      <div class="sectionTitle" *ngIf="languages.length">
+    <section *ngIf="user.cv.language">
+      <div class="sectionTitle" *ngIf="user.cv.language.length">
         <h1>Languages</h1>
       </div>
-      <div class="sectionContent" *ngFor="let lang of languages">
+      <div class="sectionContent">
         <ul class="keySkills">
-          <li>{{lang.language}}<span><rating [(ngModel)]="lang.starRate" [max]="max" [readonly]="isReadonly"></rating></span></li>
+          <li *ngFor="let lang of user.cv.language">{{lang.language}}<span><rating [(ngModel)]="lang.starRate" [max]="max" [readonly]="isReadonly"></rating></span></li>
         </ul>
-
       </div>
       <div class="clear"></div>
     </section>
 
-    <section *ngIf="leisures">
-      <div class="sectionTitle" *ngIf="leisures.length">
+    <section *ngIf="user.cv.leisure">
+      <div class="sectionTitle" *ngIf="user.cv.leisure.length">
         <h1>Leisures</h1>
       </div>
-      <div class="sectionContent" *ngFor="let l of leisures">
+      <div class="sectionContent">
         <ul class="keySkills">
-          <li>{{l.leisure}}</li>
+          <li *ngFor="let l of user.cv.leisure">{{l.leisure}}</li>
         </ul>
       </div>
       <div class="clear"></div>

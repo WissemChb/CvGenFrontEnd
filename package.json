@@ -24,6 +24,7 @@
     "angular2-busy": "^2.0.0",
     "angular2-flash-messages": "^1.0.8",
     "angular2-fontawesome": "^0.8.0",
+    "angular2-jwt": "^0.2.3",
     "angular2-text-equality-validator": "^2.0.0",
     "bootstrap": "^3.3.7",
     "bower": "^1.8.0",

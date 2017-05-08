@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import {Subject, Observable} from "rxjs";
-import {Information} from "../../../shared/classes/information";
 
 @Injectable()
 export class InformationService {

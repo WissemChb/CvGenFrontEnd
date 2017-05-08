@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormBuilder, Validators} from "@angular/forms";
-import {Education} from "../../../shared/classes/education";
 import {EducationService} from "./education.service";
 
 @Component({
@@ -10,7 +9,7 @@ import {EducationService} from "./education.service";
 })
 export class EducationComponent implements OnInit {
   educationForm : FormGroup;
-  education : Education []  = new Array<Education>();
+  education : any;
   constructor(private fb  : FormBuilder,
               private educationService : EducationService) { }
 
@@ -26,9 +25,8 @@ export class EducationComponent implements OnInit {
   }
 
   save(){
-    this.educationService.sendData(JSON.parse(JSON.stringify(this.educationForm.value)));
     debugger
-    console.log(this.education);
+    this.educationService.sendData(JSON.parse(JSON.stringify(this.educationForm.value)));
     this.educationForm.reset()
   }
 

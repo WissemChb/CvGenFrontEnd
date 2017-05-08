@@ -123,7 +123,7 @@
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
             <ul class="nav navbar-nav">
-              <li class="active"><a [routerLink] = "['/home']" >Home</a></li>
+              <li [routerLinkActive]="['active']"><a [routerLink] = "['/home']"  >Home</a></li>
               <li class="current"><a [routerLink] = "['/templates']">Templates </a></li>
               <li class="dropdown">
                 <a class="dropdown-toggle hvr-bounce-to-bottom" data-hover="Pages" data-toggle="dropdown" aria-expanded="false">Language <b class="caret"></b></a>
@@ -134,10 +134,10 @@
               </li>
 
               <li><a [routerLink] = "['/about']">About us </a></li>
-              <li *ngIf="!key"><a [routerLink]="['/login']" class="button special">Login</a></li>
-              <li *ngIf="!key"><a [routerLink]="['/signup']" class="button special">Sign Up</a></li>
-              <li *ngIf=" key && user.username"> <a>Welcome {{user.username}}</a> </li>
-              <li *ngIf="key"><a class="button special" (click)="logout()" >Logout</a></li>
+              <li *ngIf="!loginService.loggidIn()"><a [routerLink]="['/login']" class="button special">Login</a></li>
+              <li *ngIf="!loginService.loggidIn()"><a [routerLink]="['/signup']" class="button special">Sign Up</a></li>
+              <li *ngIf="loginService.loggidIn() && user"> <a>Welcome {{user.username}}</a> </li>
+              <li *ngIf="loginService.loggidIn()"><a class="button special" (click)="logout()" >Logout</a></li>
 
             </ul>
           </div>

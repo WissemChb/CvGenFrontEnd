@@ -57,14 +57,7 @@ export class TemplateModalComponent{
   }
 
   onclickTemp() {
-    if(localStorage.getItem('id_token')){
-      debugger
       this.router.navigate(['/dashboard', {outlets: {routertemp: ['template1']}}]);
-    }else{
-      this.router.navigate(['/login']);
-      this.flashmessage.show('You should login first', {cssClass : 'alert-info' , timeout : 3000});
-    }
-
 
   }
 }

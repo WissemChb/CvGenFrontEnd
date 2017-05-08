@@ -3,11 +3,13 @@ import {Http, Headers, RequestOptions, Response} from "@angular/http";
 import {Login} from "./Login";
 import {Observable} from "rxjs";
 import {Customer} from "../../shared/classes/customer";
+import {tokenNotExpired} from "angular2-jwt";
+
 
 @Injectable()
 export class LoginService {
   constructor(private http : Http){}
-  user : Customer;
+  user : any;
   authToken : any;
   url : string = "http://localhost:5000/auth/login";
   login (user : Customer){
@@ -15,7 +17,7 @@ export class LoginService {
     let options = new RequestOptions({ headers: headers });
     return this.http.post(this.url,user,options)
       .map(this.extractResponseData)
-      .do(data => console.log('***********Add user : ' + JSON.stringify(data)))
+      .do(data => console.log('Add user : ' + JSON.stringify(data)))
       .catch(this.handleError);
   }
   private handleError(error: Response) {
@@ -35,9 +37,26 @@ export class LoginService {
     this.user = user;
 
   }
+
   logout(){
-    this.authToken = null;
-    this.user = null;
+    localStorage.setItem('id_token',null);
+    localStorage.setItem('user',null);
     localStorage.clear();
   }
+
+  loadToken(){
+    const token = localStorage.getItem('id_token');
+    this.authToken = token;
+  }
+
+
+  loggidIn(){
+    return tokenNotExpired('id_token');
+  }
+  getUser(){
+    debugger
+    const customer = localStorage.getItem('user');
+    return JSON.parse(customer);
+  }
 }
+

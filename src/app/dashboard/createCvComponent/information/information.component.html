@@ -5,24 +5,21 @@
     <form  [formGroup]="informationForm" (ngSubmit)="save()">
 
       <input type="text" placeholder="Url photo" id="nameid" formControlName="photo">
-      <input type="text" placeholder="Birth Date" id="lastnameid" formControlName="birthDate" >
-      <div class="row">
-        <div formArrayName="phoneNumbers" class="col-md-8"
-             *ngFor="let phoneNumber of phoneNumbers.controls; let i=index ">
+      <input type="date" placeholder="yyyy-MM-dd"    id="lastnameid" formControlName="birthDate" >
+
+      <div formArrayName="contact"
+             *ngFor="let phoneNumber of contact.controls; let i=index ">
           <div [formGroupName]="i">
             <input type="text" placeholder="Phone number" id="{{'phone'+i}}" formControlName="phone">
+            <input type="text" placeholder="Email" id="{{'email'+i}}" formControlName="email">
           </div>
         </div>
-        <!--<div class="col-md-2">
-          <button class="btn btn-default" type="button" (click)="addPhoneNumber()"><i class="fa fa-plus-square"></i></button>
-        </div>-->
-      </div>
-
+      <button  type="button" (click)="addContact()"><i class="fa fa-plus"></i>Add More</button>
       <input type="text"   placeholder="Skype" id="emailid" formControlName="skype">
       <input type="text"  placeholder="Country" id="paysid" formControlName="country">
       <input type="text"   placeholder="Website" id="webid" formControlName="webSite">
-      <textarea placeholder="Describe your self " id="description "></textarea>
-
+      <textarea placeholder="Describe your self " id="description" formControlName="description"></textarea>
+      <br>
       <input type="submit" value="Next" name="next">
 
     </form>

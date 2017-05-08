@@ -25,6 +25,8 @@ import {SkillService} from "./createCvComponent/skill/skill.service";
 import {ExperienceService} from "./createCvComponent/experience/experience.service";
 import {LeisureService} from "./createCvComponent/leisure/leisure.service";
 import {LanguageService} from "./createCvComponent/language/language.service";
+import {FlashMessagesService, FlashMessagesModule} from "angular2-flash-messages";
+import {AuthGardGuard} from "../Guards/auth-gard.guard";
 
 @NgModule({
   imports: [
@@ -36,9 +38,10 @@ import {LanguageService} from "./createCvComponent/language/language.service";
     ModalModule.forRoot(),
     SharedModule,
     HttpModule,
+    FlashMessagesModule,
     RatingModule.forRoot(),
     RouterModule.forRoot([
-      {path : 'dashboard' , component: DashboardComponent, children : [
+      {path : 'dashboard' , component: DashboardComponent,canActivate : [AuthGardGuard], children : [
         {path : 'template1' , component: Viewtemplate1Component, outlet : 'routertemp'},
         {path : 'template2' , component: Viewtemplate2Component, outlet : 'routertemp'},
         {path : 'education', component : EducationComponent , outlet : 'routerCV'},
@@ -54,6 +57,7 @@ import {LanguageService} from "./createCvComponent/language/language.service";
     EducationComponent, ExperienceComponent, SkillComponent, InformationComponent,
     LeisureComponent, LanguageComponent, RatingComponent],
   providers:[DashboardService,
-    InformationService, EducationService,SkillService,ExperienceService, LeisureService,LanguageService]
+    InformationService, EducationService,SkillService,ExperienceService,
+    LeisureService,LanguageService, FlashMessagesService, AuthGardGuard]
 })
 export class DashboardModule { }

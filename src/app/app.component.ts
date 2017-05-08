@@ -1,30 +1,33 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
+import {tokenNotExpired} from "angular2-jwt";
+import {LoginService} from "./authentication/login/login.service";
 
 @Component({
   selector : 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.css'],
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
   pageTitle = 'My CV';
 
-  constructor( private router : Router){}
-  user : any;
-  key : String;
+  constructor(private router: Router, private loginService: LoginService) {
+  }
+
+  user: any;
+  key: String;
+
+
   ngOnInit(): void {
     debugger
-    this.key = localStorage.getItem('id_token');
-    this.user = JSON.parse(localStorage.getItem('user') || '');
+     this.user = this.loginService.getUser();
+    // this.key = localStorage.getItem('id_token');
+    // this.user = JSON.parse(localStorage.getItem('user') || '');
   }
 
-  logout(){
-    //debugger
-    localStorage.setItem('id_token',null);
-    localStorage.setItem('user',null);
-    localStorage.clear();
+  logout() {
+    this.loginService.logout();
     this.router.navigate(['/home']);
-    location.reload();
-
   }
 }
+

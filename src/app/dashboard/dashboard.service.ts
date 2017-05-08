@@ -7,17 +7,16 @@ import {Customer} from "../shared/classes/customer";
 
 @Injectable()
 export class DashboardService {
-  user : Customer ;
   constructor(private http : Http) { }
 
-  url : string = "http://localhost:5000/user/user";
+  url : string = "http://localhost:5000/cv/user";
 
 
-  saveCV (){
-
+  saveCV (user : Customer){
+    debugger;
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
-    return this.http.put(this.url,this.user,options)
+    return this.http.put(this.url,user,options)
       .map(this.extractResponseData)
       .do(data => console.log('Add user : ' + JSON.stringify(data)))
       .catch(this.handleError);

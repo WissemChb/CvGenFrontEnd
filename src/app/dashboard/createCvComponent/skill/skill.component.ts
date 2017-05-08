@@ -1,6 +1,5 @@
-import {Component, OnInit, Input} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormGroup, FormBuilder, Validators, FormArray} from '@angular/forms';
-import {Skill} from "../../../shared/classes/skill";
 import {SkillService} from "./skill.service";
 
 @Component({
@@ -10,8 +9,6 @@ import {SkillService} from "./skill.service";
 })
 export class SkillComponent implements OnInit {
   skillForm : FormGroup;
-  skill : Object[] = new Array<Skill>();
-
   constructor(private fb : FormBuilder, private skillService : SkillService) { }
 
   get skills(): FormArray{

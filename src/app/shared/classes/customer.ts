@@ -1,4 +1,5 @@
 
+import {CV} from "./CV";
 export class Customer {
 
   firstName : string;
@@ -7,12 +8,6 @@ export class Customer {
   email : string;
   password : string;
   confirmPassword : string;
-  skills :  Object[];
-  educations : Object[];
-  experiences : Object[];
-  infos : any;
-  leisure : Object[];
-  language : Object[];
-
+  cv : CV = new CV();
 }
 

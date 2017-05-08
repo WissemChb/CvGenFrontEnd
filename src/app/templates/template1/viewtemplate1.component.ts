@@ -3,7 +3,7 @@
  */
 
 
-import {Component, OnInit, OnChanges, OnDestroy} from "@angular/core";
+import {Component, OnInit, OnChanges, OnDestroy, Output, EventEmitter} from "@angular/core";
 import {InformationService} from "../../dashboard/createCvComponent/information/information.service";
 import {Subscription} from "rxjs";
 import {EducationService} from "../../dashboard/createCvComponent/education/education.service"
@@ -11,6 +11,9 @@ import {SkillService} from "../../dashboard/createCvComponent/skill/skill.servic
 import {ExperienceService} from "../../dashboard/createCvComponent/experience/experience.service";
 import {LeisureService} from "../../dashboard/createCvComponent/leisure/leisure.service";
 import {LanguageService} from "../../dashboard/createCvComponent/language/language.service";
+import {Customer} from "../../shared/classes/customer";
+import {CV} from "../../shared/classes/CV";
+
 
 
 @Component({
@@ -20,13 +23,14 @@ import {LanguageService} from "../../dashboard/createCvComponent/language/langua
 })
 
 export class Viewtemplate1Component implements OnInit, OnDestroy, OnChanges{
-  user : any;
-  infos : any;
-  education : Object[] = [];
+
+  user : Customer = new Customer();
+  cv : CV = new CV();
+  education: Object[] = [];
+  experience: Object[] = [];
   skills : Object[] = [];
-  experience : Object[] = [];
-  leisures : Object[] = [];
-  languages : Object[] = [];
+  leisure : Object[] = [];
+  language : Object[] = [];
   subscription : Subscription;
 
   public max: number = 5;
@@ -34,18 +38,26 @@ export class Viewtemplate1Component implements OnInit, OnDestroy, OnChanges{
   public isReadonly: boolean = true;
   constructor(private informationService : InformationService,
               private educationService : EducationService, private skillService : SkillService,
-  private experienceService : ExperienceService, private leisureService: LeisureService, private languageService : LanguageService){
-    this.subscription = this.informationService.getData().subscribe(data => this.infos= data);
+              private experienceService : ExperienceService,
+              private leisureService: LeisureService, private languageService : LanguageService){
+    this.subscription = this.informationService.getData().subscribe(data => {if(data){this.user.cv.infos = data}});
     this.subscription = this.educationService.getData().subscribe(data =>{if(data){this.education.push(data)}});
     this.subscription = this.skillService.getData().subscribe(data =>{if(data){this.skills.push(data)}});
     this.subscription = this.experienceService.getData().subscribe(data =>{if(data){this.experience.push(data)}});
-    this.subscription = this.leisureService.getData().subscribe(data =>{if(data){this.leisures.push(data)}});
-    this.subscription = this.languageService.getData().subscribe(data =>{if(data){this.languages.push(data)}});
+    this.subscription = this.leisureService.getData().subscribe(data =>{if(data){this.leisure.push(data)}});
+    this.subscription = this.languageService.getData().subscribe(data =>{if(data){this.language.push(data)}});
   }
   ngOnInit(){
     debugger
     this.user = JSON.parse(localStorage.getItem('user') || '');
-    console.log(this.experience);
+    this.cv.educations = this.education;
+    this.cv.experiences =this.experience;
+    this.cv.language = this.language;
+    this.cv.leisure = this.leisure;
+    this.cv.skills = this.skills;
+    this.user.cv = this.cv;
+    //this.templateService.sendData(JSON.parse(JSON.stringify(this.user) || ''));
+    console.log(this.user);
   }
 
   ngOnChanges(changes : any){
@@ -55,6 +67,9 @@ export class Viewtemplate1Component implements OnInit, OnDestroy, OnChanges{
   ngOnDestroy(){
     this.subscription.unsubscribe();
   }
+
+
+
 
 }
 

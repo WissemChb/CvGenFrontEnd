@@ -27,7 +27,7 @@ p {
 
 #cv {
   width: 80%;
-  height: 500px;
+  height: 1500px;
   max-width: 800px;
   background: #f3f3f3;
 
@@ -711,4 +711,12 @@ section:last-child {
   -webkit-animation-delay: 2.5s;
   -moz-animation-delay: 2.5s;
   animation-delay: 2.5s;
+}
+
+
+@media(max-height: 500px)
+{
+  #cv{
+    height: ;
+  }
 }

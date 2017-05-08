@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {Response, RequestOptions, Headers, Http} from "@angular/http";
 import {Observable} from "rxjs";
 import {Customer} from "../shared/classes/customer";
+import {CV} from "../shared/classes/CV";
 
 
 
@@ -19,6 +20,15 @@ export class DashboardService {
     return this.http.put(this.url,user,options)
       .map(this.extractResponseData)
       .do(data => console.log('Add user : ' + JSON.stringify(data)))
+      .catch(this.handleError);
+  }
+
+  getCv (id : String):Observable<CV> {
+    debugger
+    const url = `${this.url}/${id}`
+    return this.http.get(url)
+      .map((response : Response) => <CV> response.json())
+      .do(data => console.log('Add CV : ' + JSON.stringify(data)))
       .catch(this.handleError);
   }
   private handleError(error: Response) {

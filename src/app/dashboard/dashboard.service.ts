@@ -23,12 +23,12 @@ export class DashboardService {
       .catch(this.handleError);
   }
 
-  getCv (id : String):Observable<CV> {
+  getCv (id : String):Observable<any> {
     debugger
     const url = `${this.url}/${id}`
     return this.http.get(url)
-      .map((response : Response) => <CV> response.json())
-      .do(data => console.log('Add CV : ' + JSON.stringify(data)))
+      .map((response : Response) =>  <any>response.json())
+      .do(data => console.log('Add CV : ' +JSON.stringify(data)))
       .catch(this.handleError);
   }
   private handleError(error: Response) {

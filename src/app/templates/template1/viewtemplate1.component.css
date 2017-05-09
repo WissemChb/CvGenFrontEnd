@@ -713,10 +713,3 @@ section:last-child {
   animation-delay: 2.5s;
 }
 
-
-@media(max-height: 500px)
-{
-  #cv{
-    height: ;
-  }
-}

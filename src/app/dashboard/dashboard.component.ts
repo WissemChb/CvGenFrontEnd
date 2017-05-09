@@ -14,6 +14,7 @@ import {LanguageService} from "./createCvComponent/language/language.service";
 import {LeisureService} from "./createCvComponent/leisure/leisure.service";
 import {InformationService} from "./createCvComponent/information/information.service";
 import {CV} from "../shared/classes/CV";
+import {LoginService} from "../authentication/login/login.service";
 
 @Component({
   selector: 'app-dashboard',
@@ -22,6 +23,8 @@ import {CV} from "../shared/classes/CV";
 })
 export class DashboardComponent implements OnInit {
   @ViewChild('childModal') childModal : CreateModalComponent;
+  localUser : any;
+  error : any;
   user :Customer = new Customer();
   cv : CV = new CV();
   education: Object[] = [];
@@ -36,24 +39,41 @@ export class DashboardComponent implements OnInit {
   constructor(private dashService : DashboardService, private router : Router,private informationService : InformationService,private flashMessage : FlashMessagesService,
               private educationService : EducationService, private skillService : SkillService,
                private experienceService : ExperienceService,
-              private leisureService: LeisureService, private languageService : LanguageService){
-    this.subscription = this.informationService.getData().subscribe(data => {if(data){this.user.cv.infos = data}});
-    this.subscription = this.educationService.getData().subscribe(data =>{if(data){this.education.push(data)}});
-    this.subscription = this.skillService.getData().subscribe(data =>{if(data){this.skills.push(data)}});
-    this.subscription = this.experienceService.getData().subscribe(data =>{if(data){this.experience.push(data)}});
-    this.subscription = this.leisureService.getData().subscribe(data =>{if(data){this.leisure.push(data)}});
-    this.subscription = this.languageService.getData().subscribe(data =>{if(data){this.language.push(data)}});
+              private leisureService: LeisureService, private languageService : LanguageService, private loginService : LoginService){
+    this.subscription = this.informationService.getData().subscribe(data => {if(data){debugger;this.user.cv.infos = data}});
+    this.subscription = this.educationService.getData().subscribe(data =>{if(data){this.user.cv.educations.push(data)}});
+    this.subscription = this.skillService.getData().subscribe(data =>{if(data){this.user.cv.skills.push(data)}});
+    this.subscription = this.experienceService.getData().subscribe(data =>{if(data){this.user.cv.experiences.push(data)}});
+    this.subscription = this.leisureService.getData().subscribe(data =>{if(data){this.user.cv.leisure.push(data)}});
+    this.subscription = this.languageService.getData().subscribe(data =>{if(data){this.user.cv.language.push(data)}});
   }
   ngOnInit(){
     debugger;
-    this.user = JSON.parse(localStorage.getItem('user') || '');
-    this.cv.educations = this.education;
-    this.cv.experiences =this.experience;
-    this.cv.language = this.language;
-    this.cv.leisure = this.leisure;
-    this.cv.skills = this.skills;
-    this.user.cv = this.cv;
-    console.log(this.user);
+    this.localUser = this.loginService.getUser();
+    this.dashService.getCv(this.localUser.username).subscribe(data => {
+      debugger;
+      if(data.cv){
+        console.log(data.cv.educations);
+        this.user.cv.infos = data.cv.infos || null;
+        this.user.cv.educations = data.cv.educations || [];
+        this.user.cv.experiences = data.cv.experiences ||  [];
+        this.user.cv.leisure = data.cv.leisure || [];
+        this.user.cv.skills = data.cv.skills || [];
+        this.user.cv.language = data.cv.language  || [];
+      }
+      else{
+        this.user.cv.infos =  null;
+        this.user.cv.educations =  [];
+        this.user.cv.experiences =  [];
+        this.user.cv.leisure = [];
+        this.user.cv.skills = [];
+        this.user.cv.language = [];
+      }
+    }, error =>this.error=error);
+    //this.user.cv = this.cv;
+    debugger
+    this.user.username = this.localUser.username;
+    console.log(this.user.cv);
   }
 
   Onclick(event) {

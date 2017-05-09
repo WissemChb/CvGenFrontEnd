@@ -8,6 +8,11 @@ export class Customer {
   email : string;
   password : string;
   confirmPassword : string;
-  cv : CV = new CV();
+  cv : CV;
+  constructor(){
+    debugger
+    this.cv = new CV();
+  }
+
 }
 

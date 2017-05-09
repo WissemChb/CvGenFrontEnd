@@ -65,7 +65,7 @@
       <div class="sectionTitle" *ngIf="user.cv.educations.length">
         <h1>Education</h1>
       </div>
-      <div class="sectionContent" *ngFor="let ed of education">
+      <div class="sectionContent" *ngFor="let ed of user.cv.educations">
         <article>
           <h2>{{ed.title}}</h2>
           <h3>{{ed.establishment}}</h3>

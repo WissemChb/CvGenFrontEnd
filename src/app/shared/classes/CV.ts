@@ -3,15 +3,8 @@ export class CV {
   educations : Object[];
   experiences : Object[];
   infos : any;
-  leisure : Object[] ;
-  language : Object[];
-  /*constructor(){
-    debugger
-    this.infos = null;
-    this.educations = [];
-    this.experiences = [];
-    this.language = [];
-    this.leisure = [];
-    this.skills = [];
-  }*/
+  leisures : Object[] ;
+  languages : Object[];
+  projects : Object[];
+
 }

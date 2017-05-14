@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
-import {tokenNotExpired} from "angular2-jwt";
 import {LoginService} from "./authentication/login/login.service";
 
 @Component({

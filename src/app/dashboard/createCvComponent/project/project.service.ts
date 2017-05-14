@@ -1,19 +1,18 @@
 import { Injectable } from '@angular/core';
-import {Subject, Observable} from "rxjs";
-import {Customer} from "../shared/classes/customer";
+import {Observable, Subject} from "rxjs";
 
 @Injectable()
-export class TemplateService {
+export class ProjectService {
 
   subject : Subject<any> = new Subject<any>();
 
-  sendData(data : Customer){
+  sendData(data : any){
     this.subject.next(data)
   }
   clearData(){
     this.subject.next();
   }
-  getData(): Observable<Customer>{
+  getData(): Observable<any>{
     return this.subject.asObservable()
   }
 

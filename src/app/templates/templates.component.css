@@ -1,3 +1,5 @@
+
+
 .container{
   width: 100%;
   margin-top: 10%;
@@ -114,7 +116,7 @@ button{
 }
 
 #imgViewer{
-  height: 100%;
+  height:inherit;
   width: 100%;
 }
 button > img{
@@ -130,4 +132,8 @@ button > img[src*='template']:hover{
 
 #container{
   width: 80%;
+}
+.modal-body {
+  max-height: 420px;
+  overflow-y: auto;
 }

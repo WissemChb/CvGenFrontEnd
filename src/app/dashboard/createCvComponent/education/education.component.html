@@ -11,13 +11,13 @@
       <input placeholder="FROM" name="dat1" type="text"  formControlName="startDate" >
       <!--<span class="icons i1" style="margin-left: 21%; margin-top: 2%"><i class="fa fa-envelope-o" aria-hidden="true"></i></span>-->
       <input placeholder="TO" name="dat2" type="text" formControlName="finishDate" >
-      <input  type ="text" formControlName="description" placeholder="Description">
+      <textarea formControlName="description" placeholder="Description"></textarea>
       <input type="submit" value="Save" name="save">
-      <!--<input type="button" value="Add more" name="addMore" (click)="addmore()">-->
-      <!-- <span class="icons i2" style="margin-left: 21%; margin-top: 2.2%"><i class="fa fa-key" aria-hidden="true"></i></span>-->
     </form>
-    <a [routerLink] ="['/dashboard', {outlets : {routerCV :['experience']}}]"><!--<input type="submit" value="Next" name="login">-->Next</a>
-    <a  [routerLink] ="['/dashboard', {outlets : {routerCV :['infos']}}]"><!--<input type="submit" value="Previous" name="login">-->Previous</a>
   </div>
 </div>
+  <div class="panel-footer">
+    <a class="read pull-right" [routerLink] ="['/dashboard', {outlets : {routerCV :['experience']}}]">Next</a>
+    <a class="read pull-left"  [routerLink] ="['/dashboard', {outlets : {routerCV :['infos']}}]">Previous</a>
+  </div>
 </div>

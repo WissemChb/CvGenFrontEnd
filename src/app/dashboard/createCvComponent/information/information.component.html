@@ -1,30 +1,52 @@
 <div class="panel panel-default">
   <div class="panel-body">
     <div class="w3layouts-main">
-      <h2>Personal Profile  </h2>
-    <form  [formGroup]="informationForm" (ngSubmit)="save()">
+      <h2>Personal Profile  </h2><form  [formGroup]="informationForm" (ngSubmit)="save()">
 
       <input type="text" placeholder="Url photo" id="nameid" formControlName="photo">
       <input type="date" placeholder="yyyy-MM-dd"    id="lastnameid" formControlName="birthDate" >
+      <div class="input-group">
+        <div formArrayName="phones"
+             *ngFor="let phoneNumber of phones.controls; let i=index ">
 
-      <div formArrayName="contact"
-             *ngFor="let phoneNumber of contact.controls; let i=index ">
           <div [formGroupName]="i">
-            <input type="text" placeholder="Phone number" id="{{'phone'+i}}" formControlName="phone">
-            <input type="text" placeholder="Email" id="{{'email'+i}}" formControlName="email">
+            <input type="text" placeholder="Phone number" id="{{'phone'+i}}" formControlName="phone" style="margin-left: 16px">
           </div>
         </div>
-      <button  type="button" (click)="addContact()"><i class="fa fa-plus"></i>Add More</button>
+        <div class="input-group-btn">
+          <button class="btn btn-primary" type="button" (click)="addPhone()"><span class="glyphicon glyphicon-plus"></span></button>
+          <button  class="btn btn-danger" type="button" (click)="removePhone()"><span class="glyphicon glyphicon-minus"></span></button>
+        </div>
+
+      </div>
+
+
+      <div class="input-group">
+
+        <div formArrayName="emails"
+             *ngFor="let emailAddress of emails.controls; let i=index ">
+          <div [formGroupName]="i">
+            <input type="text" placeholder="Email" id="{{'email'+i}}" formControlName="email" style="margin-left: 16px">
+          </div>
+        </div>
+        <div class="input-group-btn">
+          <button  class="btn btn-primary" type="button" (click)="addEmail()"><span class="glyphicon glyphicon-plus"></span></button>
+          <button  class="btn btn-danger" type="button" (click)="removeEmail()"><span class="glyphicon glyphicon-minus"></span></button>
+        </div>
+
+      </div>
+
       <input type="text"   placeholder="Skype" id="emailid" formControlName="skype">
       <input type="text"  placeholder="Country" id="paysid" formControlName="country">
       <input type="text"   placeholder="Website" id="webid" formControlName="webSite">
       <textarea placeholder="Describe your self " id="description" formControlName="description"></textarea>
       <br>
-      <input type="submit" value="Next" name="next">
-
+      <input type="submit" value="Save">
     </form>
     </div>
-
+    <div class="panel-footer">
+      <a class="read pull-right" [routerLink]="['/dashboard', {outlets : {routerCV: ['education']}}]">Next</a>
+    </div>
   </div>
 
 </div>

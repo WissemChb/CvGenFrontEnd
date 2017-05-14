@@ -1,0 +1,14 @@
+{
+  "name": "jspdf.min",
+  "_cacheHeaders": {
+    "ETag": "\"28444300a8858d07038fa62dd43c85ef3cd9a8d9\"",
+    "Content-Length": "74428",
+    "Content-Type": "text/plain; charset=utf-8"
+  },
+  "_release": "e-tag:28444300a",
+  "main": "index.js",
+  "_source": "https://raw.githubusercontent.com/MrRio/jsPDF/master/dist/jspdf.min.js",
+  "_target": "*",
+  "_originalSource": "https://raw.githubusercontent.com/MrRio/jsPDF/master/dist/jspdf.min.js",
+  "_direct": true
+}

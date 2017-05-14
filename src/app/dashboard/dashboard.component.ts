@@ -1,29 +1,26 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild, OnDestroy} from '@angular/core';
 import {DashboardService} from "./dashboard.service";
 import {Router} from "@angular/router";
 import {CreateModalComponent} from "./createModal/createModal.component";
-
 import {Customer} from "../shared/classes/customer";
 import {FlashMessagesService} from "angular2-flash-messages";
 import {Subscription} from "rxjs";
-
-import {EducationService} from "./createCvComponent/education/education.service";
-import {SkillService} from "./createCvComponent/skill/skill.service";
-import {ExperienceService} from "./createCvComponent/experience/experience.service";
-import {LanguageService} from "./createCvComponent/language/language.service";
-import {LeisureService} from "./createCvComponent/leisure/leisure.service";
-import {InformationService} from "./createCvComponent/information/information.service";
 import {CV} from "../shared/classes/CV";
-import {LoginService} from "../authentication/login/login.service";
+import {TemplateService} from "./template.service";
+import * as jsPDF  from "jspdf";
+
+
+
+
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: 'dashboard.component.html',
   styleUrls: ['dashboard.component.css']
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent implements OnInit,OnDestroy {
   @ViewChild('childModal') childModal : CreateModalComponent;
-  localUser : any;
+  pdfDoc :jsPDF;
   error : any;
   user :Customer = new Customer();
   cv : CV = new CV();
@@ -36,46 +33,16 @@ export class DashboardComponent implements OnInit {
   idAttr : string;
 
 
-  constructor(private dashService : DashboardService, private router : Router,private informationService : InformationService,private flashMessage : FlashMessagesService,
-              private educationService : EducationService, private skillService : SkillService,
-               private experienceService : ExperienceService,
-              private leisureService: LeisureService, private languageService : LanguageService, private loginService : LoginService){
-    this.subscription = this.informationService.getData().subscribe(data => {if(data){debugger;this.user.cv.infos = data}});
-    this.subscription = this.educationService.getData().subscribe(data =>{if(data){this.user.cv.educations.push(data)}});
-    this.subscription = this.skillService.getData().subscribe(data =>{if(data){this.user.cv.skills.push(data)}});
-    this.subscription = this.experienceService.getData().subscribe(data =>{if(data){this.user.cv.experiences.push(data)}});
-    this.subscription = this.leisureService.getData().subscribe(data =>{if(data){this.user.cv.leisure.push(data)}});
-    this.subscription = this.languageService.getData().subscribe(data =>{if(data){this.user.cv.language.push(data)}});
+  constructor(private dashService : DashboardService, private router : Router,private flashMessage : FlashMessagesService,
+              private  templateService : TemplateService){
+    this.subscription = this.templateService.getData().subscribe(data => {if(data){debugger;this.user = data}});
   }
   ngOnInit(){
-    debugger;
-    this.localUser = this.loginService.getUser();
-    this.dashService.getCv(this.localUser.username).subscribe(data => {
-      debugger;
-      if(data.cv){
-        console.log(data.cv.educations);
-        this.user.cv.infos = data.cv.infos || null;
-        this.user.cv.educations = data.cv.educations || [];
-        this.user.cv.experiences = data.cv.experiences ||  [];
-        this.user.cv.leisure = data.cv.leisure || [];
-        this.user.cv.skills = data.cv.skills || [];
-        this.user.cv.language = data.cv.language  || [];
-      }
-      else{
-        this.user.cv.infos =  null;
-        this.user.cv.educations =  [];
-        this.user.cv.experiences =  [];
-        this.user.cv.leisure = [];
-        this.user.cv.skills = [];
-        this.user.cv.language = [];
-      }
-    }, error =>this.error=error);
-    //this.user.cv = this.cv;
-    debugger
-    this.user.username = this.localUser.username;
-    console.log(this.user.cv);
+      this.pdfDoc = new jsPDF('p','pt','a4');
   }
-
+  ngOnDestroy(){
+    this.subscription.unsubscribe()
+  }
   Onclick(event) {
     let target = event.target || event.srcElement || event.currentTarget;
     this.idAttr = target.attributes.id.value;
@@ -97,6 +64,9 @@ export class DashboardComponent implements OnInit {
     if(this.idAttr === 'language'){
       this.router.navigate(['/dashboard', {outlets: {routerCV: ['language']}}]);
     }
+    if(this.idAttr === 'project'){
+      this.router.navigate(['/dashboard', {outlets: {routerCV: ['project']}}]);
+    }
     this.childModal.show();
   }
 
@@ -110,7 +80,20 @@ export class DashboardComponent implements OnInit {
       if(data.success){
         this.flashMessage.show(data.msg,{cssClass : 'alert-success', timeout : 5000});
       }
+    });
+  }
+
+  downloadPdf(){
+
+    var source = document.getElementById("cv");
+   // html2canvas(source)
+    this.pdfDoc.addHTML(source,()=>{
+      this.pdfDoc.output("dataurlnewwindow");
     })
+    /*this.pdfDoc.fromHTML(source, 15, 15);
+    this.pdfDoc.output("dataurlnewwindow");*/
+
+    //this.pdfDoc.save(this.user.firstName+this.user.secondName+'_CV.pdf');
   }
 
 

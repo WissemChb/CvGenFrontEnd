@@ -22,12 +22,7 @@ import { ModalDirective } from 'ng2-bootstrap';
       </div>
 
       <div class="modal-footer">
-        <div class="pull-left">
-          <input type="button" value="Cancel" name="cancel">
-        </div>
-        <div class="pull-rigth">
-           <input type="button" value="Save" name="save">
-        </div>
+        
       </div>
     </div>
   </div>

@@ -33,6 +33,7 @@ export class LoginService {
     debugger
     localStorage.setItem('id_token',token);
     localStorage.setItem('user',JSON.stringify(user));
+
     this.authToken = token;
     this.user = user;
 

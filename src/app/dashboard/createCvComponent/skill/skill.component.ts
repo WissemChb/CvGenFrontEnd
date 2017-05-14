@@ -35,6 +35,9 @@ export class SkillComponent implements OnInit {
   addSkill(){
     this.skills.push(this.buildSkill());
   }
+  removeSkill(){
+    this.skills.removeAt(this.skills.length-1);
+  }
   save(event : any){
     debugger
     event.preventDefault();

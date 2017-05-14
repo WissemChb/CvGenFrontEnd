@@ -3,13 +3,13 @@
     <div class="w3layouts-main">
       <h2> Language  </h2>
       <form (ngSubmit)="save($event)" [formGroup]="languageForm" >
-        <input type="text" placeholder=" Language" id="languageid1" formControlName="language">
+        <input type="text" placeholder=" Language" id="languageid1" formControlName="language" style="width: 63%">
         <app-rating (rating)="languageForm.get('starRate').setValue($event)" [rateForm]="languageForm.get('starRate')"></app-rating>
         <input type="submit" value="Save" name="">
       </form>
-
-      <a  [routerLink] ="['/dashboard', {outlets : {routerCV :['leisure']}}]">Previous</a>
-
     </div>
+  </div>
+  <div class="panel-footer">
+    <a class="read pull-left" [routerLink] ="['/dashboard', {outlets : {routerCV :['leisure']}}]">Previous</a>
   </div>
 </div>

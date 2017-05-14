@@ -1,0 +1,20 @@
+
+<div class="panel panel-default">
+  <div class="panel-body">
+    <!--  Content here -->
+    <div class="w3layouts-main">
+      <h2>Projects</h2>
+      <form [formGroup]= "projectForm" (ngSubmit)="save()" >
+        <input placeholder="Title" name="title" type="text"  formControlName="title">
+        <input placeholder="FROM" name="dat1" type="text"  formControlName="startDate" >
+        <input placeholder="TO" name="dat2" type="text" formControlName="finishDate" >
+        <textarea formControlName="description" placeholder="Description"></textarea>
+        <input type="submit" value="Save" name="save">
+      </form>
+    </div>
+  </div>
+  <div class="panel-footer">
+    <a class="read pull-right" [routerLink] ="['/dashboard', {outlets : {routerCV :['skill']}}]">Next</a>
+    <a class="read pull-left"  [routerLink] ="['/dashboard', {outlets : {routerCV :['experience']}}]">Previous</a>
+  </div>
+</div>

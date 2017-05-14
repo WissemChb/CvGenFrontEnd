@@ -27,6 +27,10 @@ import {LeisureService} from "./createCvComponent/leisure/leisure.service";
 import {LanguageService} from "./createCvComponent/language/language.service";
 import {FlashMessagesService, FlashMessagesModule} from "angular2-flash-messages";
 import {AuthGardGuard} from "../Guards/auth-gard.guard";
+import {TemplateService} from "./template.service";
+import { ProjectComponent } from './createCvComponent/project/project.component';
+import {ProjectService} from "./createCvComponent/project/project.service";
+
 
 @NgModule({
   imports: [
@@ -50,14 +54,15 @@ import {AuthGardGuard} from "../Guards/auth-gard.guard";
         {path : 'leisure', component : LeisureComponent, outlet : 'routerCV'},
         {path : 'infos', component : InformationComponent , outlet : 'routerCV'},
         {path : 'language', component : LanguageComponent , outlet : 'routerCV'},
+        {path : 'project', component : ProjectComponent , outlet : 'routerCV'}
       ]}
     ]),
   ],
   declarations: [DashboardComponent,CreateModalComponent,Viewtemplate1Component, Viewtemplate2Component,
     EducationComponent, ExperienceComponent, SkillComponent, InformationComponent,
-    LeisureComponent, LanguageComponent, RatingComponent],
+    LeisureComponent, LanguageComponent, RatingComponent, ProjectComponent, RatingComponent],
   providers:[DashboardService,
     InformationService, EducationService,SkillService,ExperienceService,
-    LeisureService,LanguageService, FlashMessagesService, AuthGardGuard]
+    LeisureService,LanguageService, FlashMessagesService, AuthGardGuard,TemplateService,ProjectService]
 })
 export class DashboardModule { }

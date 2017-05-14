@@ -51,7 +51,7 @@ describe('LoginComponent Tests :', () => {
     expect(signupLink).toBe('/signup',  'this link should go to signup page ');
   });
 
-  it('should click navigation links in tamplate',() => {
+  /*it('should click navigation links in tamplate',() => {
     const signupLinkDe = linkDes[0];
     const signupLink = links[0];
     expect(signupLink.navigatedTo).toBeNull('Signup link should not have navigated yet');
@@ -75,7 +75,7 @@ describe('LoginComponent Tests :', () => {
       let errors = username.errors || {}
       expect(errors['required']).toBeTruthy(' should be required');
     });
-  });
+  });*/
 
   describe('password Test: ', () => {
     it(' password field  validity  ', () => {

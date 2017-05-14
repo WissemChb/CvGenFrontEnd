@@ -5,7 +5,7 @@
   <div id =menu>
     <button onclick="openNav2()" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Create new</button>
     <button><i class="fa fa-pencil-square" aria-hidden="true"></i>Update CV</button>
-    <button><i class="fa fa-fw fa-clipboard"></i>Templates</button>
+    <button><i class="fa fa-fw fa-clipboard"></i>Delete</button>
   </div>
 </div>
 
@@ -15,6 +15,8 @@
     <button (click) ="Onclick($event)" id="infos"><i class="fa fa-info-circle" aria-hidden="true"></i>Information</button>
     <button (click) ="Onclick($event)" id="education"><i class="fa fa-graduation-cap" aria-hidden="true"></i>Education</button>
     <button (click) ="Onclick($event)" id="experience"><i class="fa fa-signal" aria-hidden="true"></i>Experience</button>
+    <button (click) ="Onclick($event)" id="project"><i class="fa fa-product-hunt" aria-hidden="true"></i>Project</button>
+    <br>
     <button (click) ="Onclick($event)" id="skill"><i class="fa fa-certificate" aria-hidden="true"></i>Skill</button>
     <br>
     <button (click) ="Onclick($event)" id="leisure"><i class="fa fa-child" aria-hidden="true"></i>Leisure</button>
@@ -31,12 +33,9 @@
       <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
     </div>
 
-    <div class="col-sm-4">
+    <!--<div class="col-sm-4">
       <progressbar value="55" type="success">55% Completed</progressbar>
-    </div>
-    <div class="col-md-2">
-      <button class="btn btn-primary"  (click)="save()">Save</button>
-    </div>
+    </div>-->
   </div>
 
   <common-modal  #childModal>
@@ -45,6 +44,11 @@
     </div>
   </common-modal>
   <div class="container">
+    <div class="text-center">
+      <a type="button" class="read"  (click)="save()" >Save</a>
+      <a type="button" class="read"  (click)="downloadPdf()" >PDF</a>
+    </div>
+
     <router-outlet name="routertemp"></router-outlet>
   </div>
 

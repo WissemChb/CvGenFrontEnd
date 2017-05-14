@@ -1,25 +1,25 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LeisureComponent } from './leisure.component';
-import {ReactiveFormsModule, FormsModule} from "@angular/forms";
+import { ProjectComponent } from './project.component';
 import {RouterTestingModule} from "@angular/router/testing";
-import {LeisureService} from "./leisure.service";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {ProjectService} from "./project.service";
 
-describe('LeisureComponent', () => {
-  let component: LeisureComponent;
-  let fixture: ComponentFixture<LeisureComponent>;
+describe('ProjectComponent', () => {
+  let component: ProjectComponent;
+  let fixture: ComponentFixture<ProjectComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports : [ReactiveFormsModule, FormsModule, RouterTestingModule],
-      declarations: [ LeisureComponent ],
-      providers : [LeisureService]
+      declarations: [ ProjectComponent ],
+      providers :[ProjectService]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LeisureComponent);
+    fixture = TestBed.createComponent(ProjectComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -24,8 +24,7 @@ export class DashboardService {
   }
 
   getCv (id : String):Observable<any> {
-    debugger
-    const url = `${this.url}/${id}`
+    const url = `${this.url}/${id}`;
     return this.http.get(url)
       .map((response : Response) =>  <any>response.json())
       .do(data => console.log('Add CV : ' +JSON.stringify(data)))

@@ -1,0 +1,7 @@
+.modal-body {
+  max-height: 500px;
+  overflow-y: auto;
+  background: image('../../../assets/images/cv.jpg') no-repeat;
+  background-size: cover;
+}
+

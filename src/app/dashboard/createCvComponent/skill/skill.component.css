@@ -1,6 +1,4 @@
-
-@import "/../../../../Styles/css/font-awesome.css";
-
+@import "../../../../Styles/css/font-awesome.css";
 /* reset */
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,dl,dt,dd,ol,nav ul,nav li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline;}
 article, aside, details, figcaption, figure,footer, header, hgroup, menu, nav, section {display: block;}
@@ -96,9 +94,9 @@ h1.logo-w3  {
   padding: 42px 35px 10px;
   float:right;
 }
-input[type="text"], input[type="email"], input[type="password"],textarea {
-  width: 82%;
-  padding: 15px 50px 15px 15px;
+input[type="text"], input[type="email"], input[type="password"],textarea{
+  width: 80%;
+  padding: 10px 50px 10px 15px;
   outline: none;
   font-size: 13px;
   color: #fff;
@@ -107,6 +105,36 @@ input[type="text"], input[type="email"], input[type="password"],textarea {
   border: 1px solid #fff;
   background: rgba(0, 0, 0, 0.55);
   letter-spacing: 1px;
+}
+
+input[type="date"]{
+  width: 80%;
+  padding: 4px 50px 4px 15px;
+  outline: none;
+  font-size: 13px;
+  color: #fff;
+  margin: 14px 0px;
+  font-family: 'Raleway', sans-serif;
+  border: 1px solid #fff;
+  background: rgba(0, 0, 0, 0.55);
+  letter-spacing: 1px;
+}
+
+button[type="button"]{
+  padding: 10px 10px 10px 10px;
+  /*outline: none;*/
+  font-size: 13px;
+  color: #fff;
+  margin: 0px 0px 0px 0px;
+  font-family: 'Raleway', sans-serif;
+  /*border: 1px solid #fff;*/
+  letter-spacing: 1px;
+}
+button[type="button"].btn-danger:hover{
+  background: red;
+}
+button[type="button"].btn-primary:hover{
+  background:blue;
 }
 .w3layouts-main h6 {
   font-size: 16px;
@@ -130,14 +158,13 @@ input[type="text"], input[type="email"], input[type="password"],textarea {
   -moz-transition:0.5s all;
   -ms-transition:0.5s all;
 }
-input[type="submit"] {
+input[type="submit"]{
   padding: 11px 0px;
   font-size: 1.1em;
   border-radius: 4%;
-  width: 37%;
+  width: 30%;
   text-transform: uppercase;
   letter-spacing: 1px;
-//background: rgb(118, 4, 3);
   background: #001f5f;
   color: #fff;
   border: none;
@@ -151,7 +178,7 @@ input[type="submit"] {
   -moz-transition: 0.5s all;
   -ms-transition: 0.5s all;
 }
-.w3layouts-main2 input[type="submit"] {
+.w3layouts-main2 input[type="submit"]{
   margin: 27px auto 31px;
 }
 input[type="submit"]:hover {
@@ -254,7 +281,7 @@ ul.top-links li a i.fa {
     width: 65%;
     left: 19%;
   }
-  input[type="text"], input[type="email"], input[type="password"] {
+  input[type="text"], input[type="email"], input[type="password"],input[type="date"]{
     width: 81%;
   }
   .form-group {
@@ -312,11 +339,11 @@ ul.top-links li a i.fa {
   canvas#myCanvas {
     height: 732px;
   }
-  input[type="text"], input[type="email"], input[type="password"] {
+  input[type="text"], input[type="email"], input[type="password"],input[type="date"] {
     width: 80%;
   }
   .w3layouts-main h2, .w3layouts-main2 h3,w3layouts-main label {
-    font-size: 27px;
+    font-size: 20px;
   }
   .w3layouts-main {
     padding: 35px 35px 25px;
@@ -348,7 +375,7 @@ ul.top-links li a i.fa {
     font-size: 2.6em;
   }
   .w3layouts-main h2, .w3layouts-main2 h3 {
-    font-size: 26px;
+    font-size: 20px;
   }
   .footer-w3l p {
     margin: 5em 0em 0em;
@@ -359,7 +386,7 @@ ul.top-links li a i.fa {
     font-size: 2.5em;
   }
   .w3layouts-main h2, .w3layouts-main2 h3 {
-    font-size: 25px;
+    font-size: 20px;
   }
   .main-w3l {
     width: 87%;
@@ -378,7 +405,7 @@ ul.top-links li a i.fa {
     font-size: 2.4em;
     letter-spacing: 2px;
   }
-  input[type="text"], input[type="email"], input[type="password"],textarea {
+  input[type="text"], input[type="email"], input[type="password"],textarea,input[type="date"] {
     padding: 14px 50px 14px 14px;
     margin: 13px 0px;
     width: 76%;
@@ -389,7 +416,7 @@ ul.top-links li a i.fa {
   .w3layouts-main2 {
     padding: 30px 30px 2px;
   }
-  input[type="submit"] {
+  input[type="submit"],input[type="button"] ,button{
     font-size: 1em;
     width: 39%;
   }
@@ -397,7 +424,7 @@ ul.top-links li a i.fa {
     height: 34px;
     line-height: 36px;
   }
-  .w3layouts-main2 input[type="submit"] {
+  .w3layouts-main2 input[type="submit"],input[type="button"] ,button{
     margin: 27px auto 28px;
   }
   canvas#myCanvas {
@@ -461,9 +488,9 @@ ul.top-links li a i.fa {
     left: 4%;
   }
   .w3layouts-main h2, .w3layouts-main2 h3 {
-    font-size: 24px;
+    font-size: 18px;
   }
-  .w3layouts-main2 input[type="submit"] {
+  .w3layouts-main2 input[type="submit"],input[type="button"] ,button {
     margin: 28px auto 31px;
   }
   .footer-w3l p {
@@ -472,7 +499,7 @@ ul.top-links li a i.fa {
   canvas#myCanvas {
     height: 666px;
   }
-  input[type="text"], input[type="email"], input[type="password"],textarea {
+  input[type="text"], input[type="email"], input[type="password"],textarea,input[type="date"] {
     padding: 13px 50px 13px 13px;
     width: 75%;
   }
@@ -517,12 +544,12 @@ ul.top-links li a i.fa {
     letter-spacing: 1px;
   }
   .w3layouts-main h2, .w3layouts-main2 h3 {
-    font-size: 23px;
+    font-size: 17px;
   }
   span.icons.i1 {
     top: 14%;
   }
-  input[type="text"], input[type="email"], input[type="password"],textarea {
+  input[type="text"], input[type="email"], input[type="password"],textarea,input[type="date"] {
     width: 80%;
   }
   .i1, .i2, .i3, .i4, .i5, .i6 {
@@ -601,10 +628,10 @@ ul.top-links li a i.fa {
     left: 8%;
   }
   .w3layouts-main h2, .w3layouts-main2 h3 {
-    font-size: 20px;
+    font-size: 16px;
     letter-spacing: 1px;
   }
-  input[type="submit"] {
+  input[type="submit"],input[type="button"] ,button {
     font-size: 0.95em;
   }
   span.icons.i1 {
@@ -649,7 +676,7 @@ ul.top-links li a i.fa {
   .main-w3l {
     top: 1.5%;
   }
-  input[type="text"], input[type="email"], input[type="password"],textarea {
+  input[type="text"], input[type="email"], input[type="password"],textarea,input[type="date"] {
     width: 76%;
   }
   .w3layouts-main h6 {
@@ -661,7 +688,7 @@ ul.top-links li a i.fa {
     width: 32px;
     font-size: 14px;
   }
-  input[type="submit"] {
+  input[type="submit"],input[type="button"] ,button {
     font-size: 0.85em;
     letter-spacing: 0px;
   }
@@ -689,7 +716,7 @@ ul.top-links li a i.fa {
   span.icons.i6 {
     top: 76.7%;
   }
-  input[type="text"], input[type="email"], input[type="password"],textarea {
+  input[type="text"], input[type="email"], input[type="password"],textarea,input[type="date"] {
     letter-spacing: 0px;
   }
   .main-w3l {
@@ -698,7 +725,7 @@ ul.top-links li a i.fa {
   }
 }
 @media(max-width: 384px){
-  input[type="text"], input[type="email"], input[type="password"],textarea {
+  input[type="text"], input[type="email"], input[type="password"],textarea,input[type="date"] {
     width: 74%;
   }
 }
@@ -706,7 +733,7 @@ ul.top-links li a i.fa {
   h1.logo-w3 {
     font-size: 1.7em;
   }
-  input[type="text"], input[type="email"], input[type="password"] {
+  input[type="text"], input[type="email"], input[type="password"],input[type="date"] {
     width: 73%;
   }
   .i1, .i2, .i3, .i4, .i5, .i6 {
@@ -723,14 +750,14 @@ ul.top-links li a i.fa {
     font-size: 1.55em;
   }
   .w3layouts-main h2, .w3layouts-main2 h3 {
-    font-size: 19px;
+    font-size: 15px;
     letter-spacing: 0px;
   }
   .main-w3l {
     width: 92%;
     left: 4.5%;
   }
-  input[type="text"], input[type="email"], input[type="password"],textarea {
+  input[type="text"], input[type="email"], input[type="password"],textarea,input[type="date"] {
     width: 77%;
     padding: 11px 35px 11px 11px;
     margin: 11px 0px;
@@ -741,7 +768,7 @@ ul.top-links li a i.fa {
   .w3layouts-main {
     width: 84%;
   }
-  input[type="submit"] {
+  input[type="submit"],input[type="button"] ,button {
     font-size: 0.8em;
     width: 48%;
     margin: 17px auto;
@@ -750,7 +777,7 @@ ul.top-links li a i.fa {
     font-size: 14px;
     margin-top: 0px;
   }
-  input[type="submit"] {
+  input[type="submit"],input[type="button"],button {
     width: 46%;
     margin: 20px auto;
   }
@@ -767,7 +794,7 @@ ul.top-links li a i.fa {
     width: 84%;
     padding: 22px 20px 2px;
   }
-  .w3layouts-main2 input[type="submit"] {
+  .w3layouts-main2 input[type="submit"],input[type="button"] ,button {
     margin: 18px auto 20px;
   }
   .footer-w3l p {
@@ -803,4 +830,30 @@ ul.top-links li a i.fa {
 }
 
 
+a.read {
+  border: none;
+  outline: none;
+  background: #00acee;
+  padding: 0.7em 1.5em 0.7em 1.5em;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9em;
+  transition: .5s ease-in;
+  -webkit-transition: .5s ease-in;
+  -moz-transition: .5s ease-in;
+  -o-transition: .5s ease-in;
+  -ms-transition: .5s ease-in;
+  border-radius: 25px;
+  -webkit-border-radius: 25px;
+  -o-border-radius: 25px;
+  -moz-border-radius: 25px;
+}
+a.read:hover {
+  text-decoration: none;
+  background: #2baf2b;
+}
+
 /*--//responsive--*/
+
+

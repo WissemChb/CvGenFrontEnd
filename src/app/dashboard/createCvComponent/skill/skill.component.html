@@ -5,24 +5,33 @@
       <div class="w3layouts-main">
         <h2>Personal Skills </h2>
         <form (ngSubmit)="save($event)" [formGroup]="skillForm" >
-          <div style="display: inline-block">
+          <div class="input-group">
             <input type="text" placeholder="Domain" id="domain"  formControlName="domain">
-            <button type="button" class="btn btn-primary" (click)="addSkill()">add</button>
-            <button type="button" class="btn btn-primary" (click)="RemoveSkill()">remove</button>
+            <span class="input-group-btn">
+              <button type="button" class="btn btn-primary" (click)="addSkill()"><span class="glyphicon glyphicon-plus"></span></button>
+              <button type="button" class="btn btn-danger" (click)="removeSkill()"><span class="glyphicon glyphicon-minus"></span></button>
+            </span>
+
           </div>
           <div formArrayName="skills"  *ngFor="let skill of skills.controls;let i=index">
             <div [formGroupName]="i">
-              <input type="text" placeholder="Skill " id="{{'skillid'+i}}" formControlName="skill">
+              <input type="text" placeholder="Skill " id="{{'skillid'+i}}" formControlName="skill" style="width: 63%">
               <app-rating (rating)="skillForm.controls.skills.controls[i].get('starRate').setValue($event)" [rateForm]="skillForm.controls.skills.controls[i].get('starRate')"></app-rating>
             </div>
           </div>
           <input type="submit" value="Save" name="save">
         </form>
-        <a  [routerLink] ="['/dashboard', {outlets : {routerCV :['experience']}}]">Previous</a>
-        <a [routerLink] ="['/dashboard', {outlets : {routerCV :['leisure']}}]">Next</a>
       </div>
 
 
   </div>
+  <div class="panel-footer">
+    <a class="read pull-left" [routerLink] ="['/dashboard', {outlets : {routerCV :['experience']}}]">Previous</a>
+    <a  class =" read pull-right"  [routerLink] ="['/dashboard', {outlets : {routerCV :['leisure']}}]">Next</a>
+  </div>
+
 </div>
+
+
+
 

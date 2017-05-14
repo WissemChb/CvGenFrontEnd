@@ -1,5 +1,4 @@
-@import "/../../../../Styles/css/font-awesome.css";
-
+@import "../../../../Styles/css/font-awesome.css";
 /* reset */
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,dl,dt,dd,ol,nav ul,nav li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline;}
 article, aside, details, figcaption, figure,footer, header, hgroup, menu, nav, section {display: block;}
@@ -95,9 +94,9 @@ h1.logo-w3  {
   padding: 42px 35px 10px;
   float:right;
 }
-input[type="text"], input[type="email"], input[type="password"],textarea,input[type="date"] {
-  width: 50%;
-  padding: 15px 50px 15px 15px;
+input[type="text"], input[type="email"], input[type="password"],textarea{
+  width: 80%;
+  padding: 10px 50px 10px 15px;
   outline: none;
   font-size: 13px;
   color: #fff;
@@ -106,6 +105,36 @@ input[type="text"], input[type="email"], input[type="password"],textarea,input[t
   border: 1px solid #fff;
   background: rgba(0, 0, 0, 0.55);
   letter-spacing: 1px;
+}
+
+input[type="date"]{
+  width: 80%;
+  padding: 4px 50px 4px 15px;
+  outline: none;
+  font-size: 13px;
+  color: #fff;
+  margin: 14px 0px;
+  font-family: 'Raleway', sans-serif;
+  border: 1px solid #fff;
+  background: rgba(0, 0, 0, 0.55);
+  letter-spacing: 1px;
+}
+
+button[type="button"]{
+  padding: 10px 10px 10px 10px;
+  /*outline: none;*/
+  font-size: 13px;
+  color: #fff;
+  margin: 0px 0px 0px 0px;
+  font-family: 'Raleway', sans-serif;
+  /*border: 1px solid #fff;*/
+  letter-spacing: 1px;
+}
+button[type="button"].btn-danger:hover{
+  background: red;
+}
+button[type="button"].btn-primary:hover{
+  background:blue;
 }
 .w3layouts-main h6 {
   font-size: 16px;
@@ -129,14 +158,13 @@ input[type="text"], input[type="email"], input[type="password"],textarea,input[t
   -moz-transition:0.5s all;
   -ms-transition:0.5s all;
 }
-input[type="submit"],input[type="button"],button  {
+input[type="submit"]{
   padding: 11px 0px;
   font-size: 1.1em;
   border-radius: 4%;
-  width: 37%;
+  width: 30%;
   text-transform: uppercase;
   letter-spacing: 1px;
-//background: rgb(118, 4, 3);
   background: #001f5f;
   color: #fff;
   border: none;
@@ -150,10 +178,10 @@ input[type="submit"],input[type="button"],button  {
   -moz-transition: 0.5s all;
   -ms-transition: 0.5s all;
 }
-.w3layouts-main2 input[type="submit"],input[type="button"],button  {
+.w3layouts-main2 input[type="submit"]{
   margin: 27px auto 31px;
 }
-input[type="submit"],input[type="button"],button :hover {
+input[type="submit"]:hover {
   background:#c0a16b ;
   transition:0.5s all;
   -webkit-transition:0.5s all;
@@ -802,4 +830,30 @@ ul.top-links li a i.fa {
 }
 
 
+a.read {
+  border: none;
+  outline: none;
+  background: #00acee;
+  padding: 0.7em 1.5em 0.7em 1.5em;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9em;
+  transition: .5s ease-in;
+  -webkit-transition: .5s ease-in;
+  -moz-transition: .5s ease-in;
+  -o-transition: .5s ease-in;
+  -ms-transition: .5s ease-in;
+  border-radius: 25px;
+  -webkit-border-radius: 25px;
+  -o-border-radius: 25px;
+  -moz-border-radius: 25px;
+}
+a.read:hover {
+  text-decoration: none;
+  background: #2baf2b;
+}
+
 /*--//responsive--*/
+
+

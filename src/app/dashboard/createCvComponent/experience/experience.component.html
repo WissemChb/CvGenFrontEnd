@@ -13,14 +13,15 @@
 
         <input type="submit" value="Save" name="save">
       </form>
-      <a  [routerLink] ="['/dashboard', {outlets : {routerCV :['education']}}]">Previous</a>
-
-      <a [routerLink] ="['/dashboard', {outlets : {routerCV :['skill']}}]">Next</a>
-
     </div>
 
+  </div>
+  <div class="panel-footer">
+    <a  class="read pull-left" [routerLink] ="['/dashboard', {outlets : {routerCV :['education']}}]">Previous</a>
+    <a  class="read pull-right" [routerLink] ="['/dashboard', {outlets : {routerCV :['project']}}]">Next</a>
 
   </div>
+
 </div>
 
 

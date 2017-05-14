@@ -6,7 +6,7 @@
   z-index: 1;
   top: 15.5%;
   left: 0;
-  background-color: #111;
+  background-color: #9d9d9d;
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 60px;
@@ -197,6 +197,29 @@ body {
   color: white;
 }
 
+a.read {
+  border: none;
+  outline: none;
+  background: #00acee;
+  padding: 0.7em 1.5em 0.7em 1.5em;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9em;
+  transition: .5s ease-in;
+  -webkit-transition: .5s ease-in;
+  -moz-transition: .5s ease-in;
+  -o-transition: .5s ease-in;
+  -ms-transition: .5s ease-in;
+  border-radius: 25px;
+  -webkit-border-radius: 25px;
+  -o-border-radius: 25px;
+  -moz-border-radius: 25px;
+}
+a.read:hover {
+  text-decoration: none;
+  background: #2baf2b;
+}
 
 
 

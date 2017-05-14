@@ -13,19 +13,22 @@ export class InformationComponent implements OnInit {
 
   informationForm : FormGroup;
   user : any;
-
   constructor(private fb : FormBuilder, private router : Router,
               private informationService : InformationService) { }
 
-  get contact(): FormArray{
-    return <FormArray> this.informationForm.get('contact');
+  get phones(): FormArray{
+    return <FormArray> this.informationForm.get('phones');
   }
 
+  get emails(): FormArray{
+    return <FormArray> this.informationForm.get('emails');
+  }
   ngOnInit() : void {
     this.informationForm=this.fb.group({
       photo:'',
       birthDate : '',
-      contact : this.fb.array([this.buildContact()]),
+      phones : this.fb.array([this.buildPhone()]),
+      emails : this.fb.array([this.buildEmail()]),
       skype : '',
       country : '',
       webSite:'',
@@ -34,21 +37,32 @@ export class InformationComponent implements OnInit {
     this.informationService.clearData();
   }
 
-  buildContact(): FormGroup{
+  buildPhone(): FormGroup{
      return this.fb.group({
        phone : '',
-       email : ''
-     })
+     });
+  }
+  buildEmail(): FormGroup{
+    return this.fb.group({
+      email : ''
+    });
   }
 
-  addContact(){
-    this.contact.push(this.buildContact());
+  addPhone(){
+    this.phones.push(this.buildPhone());
   }
-
+  addEmail(){
+    this.emails.push(this.buildEmail());
+  }
+  removeEmail(){
+    this.emails.removeAt(this.emails.length-1);
+  }
+  removePhone(){
+    this.phones.removeAt(this.phones.length-1);
+  }
   save(){
     debugger;
     this.informationService.sendData(JSON.parse(JSON.stringify(this.informationForm.value)));
-    this.router.navigate(['/dashboard', {outlets : {routerCV: ['education']}}]);
 
   }
 }

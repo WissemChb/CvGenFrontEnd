@@ -17,7 +17,6 @@ p{
 }
 h1,h2,h3,h4,h5,h6{
    font-family: 'Open Sans',sans-serif ;
-
    margin:0;
 }
 ul,label{
@@ -91,7 +90,6 @@ input[type="submit"],.w3l_header_left ul li a,.related-post-right h4 a,.comments
     font-size: 2em;
     text-align: center;
     text-transform: uppercase;
-    letter-spacing: 1px;
 	color:#0c0d0d;
 }
 .modal-dialog {
@@ -445,7 +443,7 @@ p.s-log {
 .baner-info h3 {
        text-align: center;
     font-size: 3.5em;
-    color: #fff;
+    color: white;
     font-weight: 300;
     letter-spacing: 4px;
 }
@@ -455,10 +453,9 @@ p.s-log {
 .baner-info h4{
         text-align: center;
     font-size: 1em;
-    color: #fff;
+    color: white;
     margin: 2em 0 4em 0;
     font-weight: 300;
-    letter-spacing: 10px;
 }
 span.simply-word {
     font-size:18px;
@@ -572,7 +569,7 @@ h3.tittle.two {
     font-size: 2em;
     margin: 0 0 0 0;
     position: relative;
-    letter-spacing: 3px;
+
 }
 .agileits-special-info h4:after{
     content: '';
@@ -595,7 +592,7 @@ h3.tittle.two {
     font-size: 1.8em;
     margin: 3.5em 0 0 0;
     font-weight: 300;
-    letter-spacing: 7px;
+
 }
 /*-- Effect 1--*/
 .w3ls-special-text:after {
@@ -685,7 +682,7 @@ a.read:hover {
     font-size: 1.3em;
     margin: 1em 0 0.5em 0;
        color: #00acee;
-    letter-spacing: 3px;
+
 }
 .spa-agile {
     text-align: center;
@@ -772,7 +769,7 @@ ul.w3l-sider-list li {
 h4.side-t-w3l-agile {
     color: #0c0d0d;
     font-size: 1.4em;
-    letter-spacing: 1px;
+
     text-transform: uppercase;
     font-weight: 400;
     margin: 0em 0 0.7em 0;
@@ -835,7 +832,6 @@ h4.side-t-w3l-agile {
    font-size: 1.3em;
     margin: 1em 0 0.5em 0;
     color: #e83f3f;
-    letter-spacing: 3px;
     font-weight: 300;
 }
 .welcome-grid:hover span.glyphicon {
@@ -1295,7 +1291,7 @@ h3.agileits-icons-title {
 .con-grid-w3l-leftr h4{
 	font-size: 1.2em;
     color: #fff;
-    letter-spacing: 3px;
+    letter-spacing: 1px;
     margin-bottom: .5em;
 }
 .con-grid-w3l-leftr p{
@@ -1613,7 +1609,7 @@ ul.top-links li a i.fa:hover {
     color: #fff;
     margin: .5em 0;
     font-weight: 300;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
 }
 .team-grids h6 {
     font-size: 1.1em;
@@ -1997,8 +1993,8 @@ ul.top-links li a i.fa:hover {
   text-align: center;
   background: rgba(10, 10, 10, 0.4);
   opacity:1;
-  padding: 1em 0;
-  length : 50%;
+  padding: 2.82em 0;
+  length : 80%;
   width: 100%;
 }
 
@@ -2257,7 +2253,7 @@ a.icon.gp {
 /*-- /responsive --*/
 @media (max-width:1440px){
 	.baner-info h3 {
-		font-size: 3.3em;
+		font-size: 5em;
 		letter-spacing: 4px;
 	}
 	.baner-info {
@@ -2289,10 +2285,10 @@ a.icon.gp {
 		right: 0;
 	}
 	.baner-info h4 {
-		font-size: 1em;
+		font-size: 10em;
 		color: #fff;
 		margin: 2em 0 3em 0;
-		letter-spacing: 8px;
+		letter-spacing: 1px;
 	}
 }
 @media (max-width:1280px){
@@ -2301,10 +2297,10 @@ a.icon.gp {
 		letter-spacing: 4px;
 	}
 	.baner-info h4 {
-		font-size: 0.9em;
+		font-size: 10em;
 		color: #fff;
 		margin: 2em 0 3em 0;
-		letter-spacing: 8px;
+		letter-spacing: 1px;
 	}
 	h3.tittle, h2.w3l-inner-h-title, h3.w3l-inner-h-title {
 		font-size: 2.3em;
@@ -2353,7 +2349,7 @@ a.icon.gp {
 	.welcome-agileinfo h4 {
 		font-size: 1.2em;
 		margin: 1em 0 0.5em 0;
-		letter-spacing: 3px;
+		letter-spacing: 1px;
 		font-weight: 300;
 	}
 	.price-gd-top h4 {
@@ -2478,7 +2474,7 @@ a.icon.gp {
 		font-size: 1.5em;
 		margin: 0;
 		font-weight: 300;
-		letter-spacing: 7px;
+		letter-spacing: 1px;
 		padding-top: 4em;
 	}
 	.section-grid-wthree {
@@ -2910,7 +2906,7 @@ a.icon.gp {
 	.welcome-agileinfo h4 {
 		font-size: 1em;
 		margin: 0.5em 0 0.5em 0;
-		letter-spacing: 3px;
+		letter-spacing: 1px;
 		font-weight: 300;
 	}
 	.welcome-grid {

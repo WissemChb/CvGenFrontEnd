@@ -1,6 +1,12 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LanguageComponent } from './language.component';
+import {ReactiveFormsModule, FormsModule} from "@angular/forms";
+import {RouterTestingModule} from "@angular/router/testing";
+import {LanguageService} from "./language.service";
+import {RatingComponent} from "../rating/rating.component";
+import {RatingModule} from "ngx-bootstrap";
+
 
 describe('LanguageComponent', () => {
   let component: LanguageComponent;
@@ -8,7 +14,9 @@ describe('LanguageComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LanguageComponent ]
+      imports : [ReactiveFormsModule, FormsModule, RouterTestingModule, RatingModule.forRoot()],
+      declarations: [ LanguageComponent, RatingComponent ],
+      providers : [LanguageService]
     })
     .compileComponents();
   }));

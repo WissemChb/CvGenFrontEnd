@@ -15,6 +15,8 @@ import {Customer} from "../../shared/classes/customer";
 import {CV} from "../../shared/classes/CV";
 import {DashboardService} from "../../dashboard/dashboard.service";
 import {LoginService} from "../../authentication/login/login.service";
+import {TemplateService} from "../../dashboard/template.service";
+import {ProjectService} from "../../dashboard/createCvComponent/project/project.service";
 
 
 
@@ -30,13 +32,10 @@ export class Viewtemplate1Component implements OnInit, OnDestroy, OnChanges{
   localUser : any;
   user : Customer = new Customer();
   cv : CV;
-  infos : any;
-  education: Object[] = [];
-  experience: Object[] = [];
-  skills : Object[] = [];
-  leisure : Object[] = [];
-  language : Object[] = [];
   subscription : Subscription;
+  hiddenButton : string;
+
+
 
   public max: number = 5;
   //public rate: number  = 3;
@@ -44,14 +43,52 @@ export class Viewtemplate1Component implements OnInit, OnDestroy, OnChanges{
   constructor(private informationService : InformationService,
               private educationService : EducationService, private skillService : SkillService,
               private experienceService : ExperienceService,private dashboardService : DashboardService,
-              private leisureService: LeisureService, private languageService : LanguageService, private loginService : LoginService){
+              private leisureService: LeisureService, private languageService : LanguageService,
+              private loginService : LoginService, private templateService : TemplateService,
+              private projecService : ProjectService){
     debugger;
-    this.subscription = this.informationService.getData().subscribe(data => {if(data){this.user.cv.infos = data}});
-    this.subscription = this.educationService.getData().subscribe(data =>{if(data){this.user.cv.educations.push(data)}});
-    this.subscription = this.skillService.getData().subscribe(data =>{if(data){this.user.cv.skills.push(data)}});
-    this.subscription = this.experienceService.getData().subscribe(data =>{if(data){this.user.cv.experiences.push(data)}});
-    this.subscription = this.leisureService.getData().subscribe(data =>{if(data){this.user.cv.leisure.push(data)}});
-    this.subscription = this.languageService.getData().subscribe(data =>{if(data){this.user.cv.language.push(data)}});
+    this.subscription = this.informationService.getData().subscribe(data => {
+      if(data){
+      this.user.cv.infos = data;
+      this.templateService.sendData(this.user);
+    }
+    });
+    this.subscription = this.educationService.getData().subscribe(data =>{
+      if(data){
+      this.user.cv.educations.push(data);
+      this.templateService.sendData(this.user);
+      }
+    });
+    this.subscription = this.skillService.getData().subscribe(data =>{
+      if(data){
+        this.user.cv.skills.push(data);
+        this.templateService.sendData(this.user);
+      }
+    });
+    this.subscription = this.experienceService.getData().subscribe(data =>{
+      if(data){
+        this.user.cv.experiences.push(data);
+        this.templateService.sendData(this.user);
+    }
+    });
+    this.subscription = this.leisureService.getData().subscribe(data =>{if(data)
+    {
+      this.user.cv.leisures.push(data);
+      this.templateService.sendData(this.user);
+    }
+    });
+    this.subscription = this.languageService.getData().subscribe(data =>{
+      if(data) {
+        this.user.cv.languages.push(data);
+        this.templateService.sendData(this.user);
+      }
+    });
+    this.subscription = this.projecService.getData().subscribe(data =>{
+      if(data) {
+        this.user.cv.projects.push(data);
+        this.templateService.sendData(this.user);
+      }
+    });
   }
   ngOnInit(){
     debugger;
@@ -60,21 +97,24 @@ export class Viewtemplate1Component implements OnInit, OnDestroy, OnChanges{
       debugger;
 
       if(data.cv){
-        console.log(data.cv.educations);
         this.user.cv.infos = data.cv.infos || null;
         this.user.cv.educations = data.cv.educations || [];
         this.user.cv.experiences = data.cv.experiences ||  [];
-        this.user.cv.leisure = data.cv.leisure || [];
+        this.user.cv.leisures = data.cv.leisures || [];
         this.user.cv.skills = data.cv.skills || [];
-        this.user.cv.language = data.cv.language  || [];
+        this.user.cv.languages = data.cv.languages  || [];
+        this.user.cv.projects = data.cv.projects  || [];
+        this.templateService.sendData(this.user);
       }
       else{
         this.user.cv.infos =  null;
         this.user.cv.educations =  [];
         this.user.cv.experiences =  [];
-        this.user.cv.leisure = [];
+        this.user.cv.leisures = [];
         this.user.cv.skills = [];
-        this.user.cv.language = [];
+        this.user.cv.languages = [];
+        this.user.cv.projects = [];
+        this.templateService.sendData(this.user);
       }
 
     }, error =>this.error=error);
@@ -82,11 +122,9 @@ export class Viewtemplate1Component implements OnInit, OnDestroy, OnChanges{
     debugger
     this.user.firstName = this.localUser.firstName;
     this.user.secondName = this.localUser.secondName;
-    console.log(this.user.cv);
-
-
+    this.user.username = this.localUser.username;
+    console.log(this.user);
     //this.templateService.sendData(JSON.parse(JSON.stringify(this.user) || ''));
-
   }
 
   ngOnChanges(changes : any){
@@ -97,6 +135,14 @@ export class Viewtemplate1Component implements OnInit, OnDestroy, OnChanges{
     this.subscription.unsubscribe();
   }
 
+  OnHover(event : any){
+    debugger
+    var target = event.target || event.srcElement || event.currentTarget;
+    this.hiddenButton = target.attributes.id.value;
+  }
+onShow(){
+    this.hiddenButton = '';
+}
 
 
 

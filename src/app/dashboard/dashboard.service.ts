@@ -30,6 +30,15 @@ export class DashboardService {
       .do(data => console.log('Add CV : ' +JSON.stringify(data)))
       .catch(this.handleError);
   }
+
+  deleteCV(id: string){
+    const url = `${this.url}/${id}`;
+    return this.http.delete(url)
+      .map((response : Response) =>  <any>response.json())
+      .do(data => console.log('delete CV : ' +JSON.stringify(data)))
+      .catch(this.handleError);
+  }
+
   private handleError(error: Response) {
     return Observable.throw(error.json().error || 'Server error');}
 

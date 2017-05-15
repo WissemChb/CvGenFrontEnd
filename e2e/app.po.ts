@@ -1,5 +1,5 @@
 import { browser, element, by } from 'protractor';
-import {AfterViewInit, asNativeElements} from "@angular/core";
+import {AfterViewInit} from "@angular/core";
 
 export class FrondEndPage {
   navigateToHome() {

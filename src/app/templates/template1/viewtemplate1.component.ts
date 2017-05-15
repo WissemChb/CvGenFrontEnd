@@ -89,6 +89,12 @@ export class Viewtemplate1Component implements OnInit, OnDestroy, OnChanges{
         this.templateService.sendData(this.user);
       }
     });
+
+    this.subscription = this.templateService.getData().subscribe(data =>{
+      if(data) {
+        this.user.cv = data.cv;
+      }
+    });
   }
   ngOnInit(){
     debugger;

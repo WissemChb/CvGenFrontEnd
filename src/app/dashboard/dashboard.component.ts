@@ -7,7 +7,8 @@ import {FlashMessagesService} from "angular2-flash-messages";
 import {Subscription} from "rxjs";
 import {CV} from "../shared/classes/CV";
 import {TemplateService} from "./template.service";
-import * as jsPDF  from "jspdf";
+import * as JsPDF  from "jspdf";
+
 
 
 
@@ -20,7 +21,7 @@ import * as jsPDF  from "jspdf";
 })
 export class DashboardComponent implements OnInit,OnDestroy {
   @ViewChild('childModal') childModal : CreateModalComponent;
-  pdfDoc :jsPDF;
+  pdfDoc :JsPDF;
   error : any;
   user :Customer = new Customer();
   cv : CV = new CV();
@@ -38,7 +39,7 @@ export class DashboardComponent implements OnInit,OnDestroy {
     this.subscription = this.templateService.getData().subscribe(data => {if(data){debugger;this.user = data}});
   }
   ngOnInit(){
-      this.pdfDoc = new jsPDF('p','pt','a4');
+      this.pdfDoc = new JsPDF('p','pt','a4');
   }
   ngOnDestroy(){
     this.subscription.unsubscribe()
@@ -83,13 +84,24 @@ export class DashboardComponent implements OnInit,OnDestroy {
     });
   }
 
+  delete(){
+    this.deleteCV(this.user.username)
+  }
+  deleteCV(id : string){
+    this.dashService.deleteCV(id).subscribe(data => {
+        if(data.success){
+          location.reload();
+        }
+    })
+  }
+
   downloadPdf(){
 
-    var source = document.getElementById("cv");
+    let source = document.getElementById("cv");
    // html2canvas(source)
     this.pdfDoc.addHTML(source,()=>{
       this.pdfDoc.output("dataurlnewwindow");
-    })
+    });
     /*this.pdfDoc.fromHTML(source, 15, 15);
     this.pdfDoc.output("dataurlnewwindow");*/
 

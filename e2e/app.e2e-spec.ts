@@ -1,14 +1,11 @@
+///<reference path="../node_modules/protractor/built/browser.d.ts"/>
 import { FrondEndPage } from './app.po';
-import {browser, element} from "protractor";
-let httpBackend =  require('httpbackend');
+
+
 
 describe('frond-end App', () => {
   let page: FrondEndPage;
-  let httpbackend : any;
-  let responseSignup = {
-    success : true,
-    msg : 'Welcome : you are now registred',
-  }
+
 
   beforeEach(() => {
     page = new FrondEndPage();
@@ -48,11 +45,8 @@ describe('frond-end App', () => {
   describe('E2E SIGNUP TEST : ',() => {
    beforeEach(() =>{
      page.navigateToSignup();
-     httpbackend = new httpBackend(browser);
    });
-   afterEach(()=>{
-     httpbackend.clear();
-   });
+
    it('should get a returned message when submit a button',() => {
       page.getFirstNameElement().sendKeys('ben chaaben');
       page.getSecondNameElement().sendKeys('wissem');
@@ -61,9 +55,8 @@ describe('frond-end App', () => {
       page.getPasswordElement().sendKeys('wissem');
       page.getConfirmPasswordElement().sendKeys('wissem');
       page.getSubmitButton().click();
-      httpbackend.whenPOST('/user/signup/').respond(responseSignup.msg)
       page.navigateToLogin();
-      expect(page.getResponseMessage()).toEqual('Welcome : you are now registred')
+      expect(page.getResponseMessage()).toHaveBeenCalled();
       });
 
 

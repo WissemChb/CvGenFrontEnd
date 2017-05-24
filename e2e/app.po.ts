@@ -2,6 +2,9 @@ import { browser, element, by } from 'protractor';
 import {AfterViewInit} from "@angular/core";
 
 export class FrondEndPage {
+  constructor(){
+    browser.useAllAngular2AppRoots;
+  }
   navigateToHome() {
     return browser.get('/home');
   }
@@ -30,26 +33,9 @@ export class FrondEndPage {
   getLink(){
     return element(by.css('a'));
   }
-  getFirstNameElement(){
-    return browser.driver.findElement(by.name('Name'));
-  }
-  getSecondNameElement(){
-    return browser.driver.findElement(by.name('SecondName'));
-  }
-  getUsernameElement(){
-   return browser.driver.findElement(by.name('username'));
-  }
-  getEmailElement(){
-   return browser.driver.findElement(by.name('Email'));
-  }
-  getPasswordElement(){
-    return browser.driver.findElement(by.name('Password'));
-  }
-  getConfirmPasswordElement(){
-    return browser.driver.findElement(by.name('ConfirmPassword'));
-  }
+
   getInputELements(){
-    return browser.driver.findElement(by.css('input[type = "text"],input[type = "email"],input[type = "password"]'));
+    return element.all(by.css('input[type = "text"],input[type = "email"],input[type = "password"]'));
   }
   getFlashMessage(){
     return element(by.css('flash-messages')).getText()

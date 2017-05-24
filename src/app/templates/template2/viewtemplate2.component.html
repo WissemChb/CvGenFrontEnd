@@ -1,105 +1,161 @@
-<div id="cv" class="instaFade">
-  <div class="mainDetails">
+<div id="cv" class="instaFade" *ngIf="user">
+  <div class="mainDetails" *ngIf="user.cv.infos" (mouseleave)="onShow()">
+    <div class="input-group-btn" *ngIf="hiddenButton === 'infos'">
+      <button class="btn btn-success"><span class="glyphicon glyphicon-plus"></span></button>
+      <button class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span></button>
+      <button class="btn btn-danger"><span class="glyphicon glyphicon-minus"></span></button>
+    </div>
     <div id="headshot" class="quickFade">
-      <img src="headshot.jpg" alt="Alan Smith" />
+      <img *ngIf="user.cv.infos.photo" src="{{user.cv.infos.photo}}" alt="{{user.username}}" />
     </div>
 
-    <div id="name">
-      <h1 class="quickFade delayTwo">Joe Bloggs</h1>
-      <h2 class="quickFade delayThree">Job Title</h2>
+    <div id="name" *ngIf="user.firstName && user.secondName">
+      <h2 class="quickFade delayThree">Curriculum Vitao</h2>
+      <h1 class="quickFade delayTwo" (mouseover)= "OnHover($event)" id="infos">{{user.secondName}} {{user.firstName}}</h1>
     </div>
 
     <div id="contactDetails" class="quickFade delayFour">
       <ul>
-        <li>e: <a href="mailto:joe@bloggs.com" target="_blank">joe@bloggs.com</a></li>
-        <li>w: <a href="http://www.bloggs.com">www.bloggs.com</a></li>
-        <li>m: 01234567890</li>
+        <ul> Email : <li *ngFor="let cont of user.cv.infos.contact">{{cont.email}}</li></ul>
+        <ul> Phone : <li *ngFor="let cont of user.cv.infos.contact">{{cont.phone}}</li></ul>
+        <li *ngIf="user.cv.infos.webSite">WebSite: <a href="{{user.cv.infos.webSite}}">{{user.cv.infos.webSite}}</a></li>
       </ul>
     </div>
     <div class="clear"></div>
   </div>
 
   <div id="mainArea" class="quickFade delayFive">
-    <section>
-      <article>
+
+    <section *ngIf="user.cv.infos" (mouseleave)="onShow()">
+      <div class="input-group-btn" *ngIf="hiddenButton === 'desc'">
+        <button class="btn btn-success"><span class="glyphicon glyphicon-pencil"></span></button>
+        <button class="btn btn-danger"><span class="glyphicon glyphicon-minus"></span></button>
+      </div>
+      <article *ngIf="user.cv.infos.description">
         <div class="sectionTitle">
           <h1>Personal Profile</h1>
         </div>
-
         <div class="sectionContent">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dolor metus, interdum at scelerisque in, porta at lacus. Maecenas dapibus luctus cursus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultricies massa et erat luctus hendrerit. Curabitur non consequat enim. Vestibulum bibendum mattis dignissim. Proin id sapien quis libero interdum porttitor.</p>
+          <p (mouseover)= "OnHover($event)" id="desc">{{user.cv.infos.description}}.</p>
         </div>
       </article>
       <div class="clear"></div>
     </section>
 
-
-    <section>
-      <div class="sectionTitle">
+    <section *ngIf="user.cv.experiences">
+      <div class="sectionTitle" *ngIf="user.cv.experiences.length">
         <h1>Work Experience</h1>
       </div>
-
       <div class="sectionContent">
-        <article>
-          <h2>Job Title at Company</h2>
-          <p class="subDetails">April 2011 - Present</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultricies massa et erat luctus hendrerit. Curabitur non consequat enim. Vestibulum bibendum mattis dignissim. Proin id sapien quis libero interdum porttitor.</p>
+        <article *ngFor="let exp of user.cv.experiences ; let i= index" (mouseleave)="onShow()">
+          <div class="input-group-btn" *ngIf="hiddenButton === 'expr'+i ">
+            <button class="btn btn-success"><span class="glyphicon glyphicon-plus"></span></button>
+            <button class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span></button>
+            <button class="btn btn-danger"><span class="glyphicon glyphicon-minus"></span></button>
+          </div>
+          <h2 (mouseover)= "OnHover($event)" id="expr{{i}}">{{exp.post}} in {{exp.entreprise}}<span><img src="{{exp.logo}}" class="img-responsive"></span></h2>
+          <p class="subDetails">{{exp.startDate}} - {{exp.finishDate}}</p>
+          <p>{{exp.description}}</p>
         </article>
 
-        <article>
-          <h2>Job Title at Company</h2>
-          <p class="subDetails">Janruary 2007 - March 2011</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultricies massa et erat luctus hendrerit. Curabitur non consequat enim. Vestibulum bibendum mattis dignissim. Proin id sapien quis libero interdum porttitor.</p>
-        </article>
 
-        <article>
-          <h2>Job Title at Company</h2>
-          <p class="subDetails">October 2004 - December 2006</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultricies massa et erat luctus hendrerit. Curabitur non consequat enim. Vestibulum bibendum mattis dignissim. Proin id sapien quis libero interdum porttitor.</p>
-        </article>
       </div>
       <div class="clear"></div>
     </section>
 
-
-    <section>
-      <div class="sectionTitle">
-        <h1>Key Skills</h1>
-      </div>
-
-      <div class="sectionContent">
-        <ul class="keySkills">
-          <li>A Key Skill</li>
-          <li>A Key Skill</li>
-          <li>A Key Skill</li>
-          <li>A Key Skill</li>
-          <li>A Key Skill</li>
-          <li>A Key Skill</li>
-          <li>A Key Skill</li>
-          <li>A Key Skill</li>
-        </ul>
-      </div>
-      <div class="clear"></div>
-    </section>
-
-
-    <section>
-      <div class="sectionTitle">
+    <section *ngIf="user.cv.educations">
+      <div class="sectionTitle" *ngIf="user.cv.educations.length">
         <h1>Education</h1>
       </div>
+      <div class="sectionContent" *ngFor="let ed of user.cv.educations;  let i = index"  (mouseleave)="onShow()" >
+        <div class="input-group-btn" *ngIf="hiddenButton === 'educ'+i ">
+          <button class="btn btn-success"><span class="glyphicon glyphicon-plus"></span></button>
+          <button class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span></button>
+          <button class="btn btn-danger"><span class="glyphicon glyphicon-minus"></span></button>
+        </div>
+        <article>
+          <h2 (mouseover)= "OnHover($event)" id="educ{{i}}">{{ed.title}}</h2>
+          <h3>{{ed.establishment}}</h3>
+          <p class="subDetails">{{ed.startDate}} - {{ed.finishDate}}</p>
+        </article>
+      </div>
+      <div class="clear"></div>
+    </section>
 
+    <section *ngIf="user.cv.skills">
+      <div class="sectionTitle" *ngIf="user.cv.skills.length">
+        <h1>Skills</h1>
+      </div>
+      <div class="sectionContent" *ngFor="let skill of user.cv.skills ; let i=index" (mouseleave)="onShow()">
+        <div class="input-group-btn" *ngIf="hiddenButton === 'skill'+i ">
+          <button class="btn btn-success"><span class="glyphicon glyphicon-plus"></span></button>
+          <button class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span></button>
+          <button class="btn btn-danger"><span class="glyphicon glyphicon-minus"></span></button>
+        </div>
+        <h2 (mouseover)= "OnHover($event)" id="skill{{i}}">{{skill.domain}}</h2>
+        <ul class="keySkills">
+          <li *ngFor="let dom of skill.skills">{{dom.skill}}<span><rating [(ngModel)]="dom.starRate" [max]="max" [readonly]="isReadonly"></rating></span></li>
+        </ul>
+
+      </div>
+      <div class="clear"></div>
+    </section>
+
+
+    <section *ngIf="user.cv.projects">
+      <div class="sectionTitle" *ngIf="user.cv.projects.length">
+        <h1>Projects</h1>
+      </div>
+      <div class="sectionContent" *ngFor="let p of user.cv.projects; let i =index" (mouseleave)="onShow()" >
+        <div class="input-group-btn" *ngIf="hiddenButton === 'pr'+i ">
+          <button class="btn btn-success"><span class="glyphicon glyphicon-plus"></span></button>
+          <button class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span></button>
+          <button class="btn btn-danger"><span class="glyphicon glyphicon-minus"></span></button>
+        </div>
+        <article>
+          <h2 (mouseover)= "OnHover($event)" id="pr{{i}}">{{p.title}}</h2>
+          <p class="subDetails">{{p.startDate}} - {{p.finishDate}}</p>
+          <small class="subDetails">{{p.description}}</small>
+        </article>
+      </div>
+      <div class="clear"></div>
+    </section>
+
+    <section *ngIf="user.cv.languages" (mouseleave)="onShow()">
+      <div class="sectionTitle" *ngIf="user.cv.languages.length">
+        <h1 (mouseover)= "OnHover($event)" id="lang" >Languages</h1>
+      </div>
+      <div class="sectionContent" >
+        <button class="btn btn-success" *ngIf="hiddenButton === 'lang' "><span class="glyphicon glyphicon-plus"></span></button>
+        <div *ngFor="let lang of user.cv.languages ; let i=index">
+          <div class="input-group-btn" *ngIf="hiddenButton === 'lang'+i ">
+            <button class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span></button>
+            <button class="btn btn-danger"><span class="glyphicon glyphicon-minus"></span></button>
+          </div>
+          <ul class="keySkills" >
+            <li   (mouseover)= "OnHover($event)" id="lang{{i}}">{{lang.language}}<span><rating [(ngModel)]="lang.starRate" [max]="max" [readonly]="isReadonly"></rating></span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="clear"></div>
+    </section>
+
+    <section *ngIf="user.cv.leisures" (mouseleave)="onShow()">
+      <div class="sectionTitle" *ngIf="user.cv.leisures.length">
+        <h1 (mouseover)= "OnHover($event)" id="leis" >Leisures</h1>
+      </div>
       <div class="sectionContent">
-        <article>
-          <h2>College/University</h2>
-          <p class="subDetails">Qualification</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultricies massa et erat luctus hendrerit. Curabitur non consequat enim.</p>
-        </article>
+        <button class="btn btn-success" *ngIf="hiddenButton === 'leis' "><span class="glyphicon glyphicon-plus"></span></button>
+        <div *ngFor="let l of user.cv.leisures; let i=index" id="btnContainer">
+          <div class="input-group-btn" *ngIf="hiddenButton === 'leis'+i ">
+            <button class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span></button>
+            <button class="btn btn-danger"><span class="glyphicon glyphicon-minus"></span></button>
+          </div>
+          <ul class="keySkills">
+            <li (mouseover)= "OnHover($event)" id="leis{{i}}">{{l.leisure}}</li>
+          </ul>
+        </div>
 
-        <article>
-          <h2>College/University</h2>
-          <p class="subDetails">Qualification</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultricies massa et erat luctus hendrerit. Curabitur non consequat enim.</p>
-        </article>
       </div>
       <div class="clear"></div>
     </section>

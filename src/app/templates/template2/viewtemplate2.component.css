@@ -14,7 +14,7 @@ article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
   display:block;
 }
 
-html, body {background: rgba(224, 194, 35, 0.32); font-family: 'Lato', helvetica, arial, sans-serif; font-size: 16px; color: #222;}
+html, body { background: rgba(80, 63, 64, 0.32) ; font-family: 'Lato', helvetica, arial, sans-serif; font-size: 16px; color: #222;}
 
 .clear {clear: both;}
 
@@ -26,17 +26,19 @@ p {
 }
 
 #cv {
-  width: 90%;
+  width: 595px;
+  height: auto;
+  min-height: 800px;
   max-width: 800px;
-  background: rgba(224, 194, 35, 0.32);
+  background: #fdfffd;
 
   margin: 30px auto;
 }
 
 .mainDetails {
   padding: 25px 35px;
-  border-bottom: 2px solid #331431;
-  background: rgba(224, 194, 35, 0.32);
+  border-bottom: 2px solid #cf8a05;
+  background: #ededed;
 }
 
 #name h1 {
@@ -99,13 +101,12 @@ p {
 }
 
 #contactDetails ul li a:hover {
-  color: #331431;
+  color: #cf8a05;
 }
 
 
 section {
-  /* border-top: 1px solid #dedede; */
-  border-top: 1px solid #331431;
+  border-top: 1px solid #03a9f4;
   padding: 20px 0 0;
 }
 
@@ -131,7 +132,7 @@ section:last-child {
   font-family: 'Rokkitt', Helvetica, Arial, sans-serif;
   font-style: italic;
   font-size: 1.5em;
-  color: #cf8a05;
+  color: #3c763d;
 }
 
 .sectionContent h2 {
@@ -330,33 +331,33 @@ section:last-child {
 }
 
 .delayOne {
-  -webkit-animation-delay: 0, .5s;
-  -moz-animation-delay: 0, .5s;
-  animation-delay: 0, .5s;
+  -webkit-animation-delay: 5s;
+  -moz-animation-delay: 5s;
+  animation-delay: 5s;
 }
 
 .delayTwo {
-  -webkit-animation-delay: 0, 1s;
-  -moz-animation-delay: 0, 1s;
-  animation-delay: 0, 1s;
+  -webkit-animation-delay: 1s;
+  -moz-animation-delay: 1s;
+  animation-delay: 1s;
 }
 
 .delayThree {
-  -webkit-animation-delay: 0, 1.5s;
-  -moz-animation-delay: 0, 1.5s;
-  animation-delay: 0, 1.5s;
+  -webkit-animation-delay: 1.5s;
+  -moz-animation-delay: 1.5s;
+  animation-delay: 1.5s;
 }
 
 .delayFour {
-  -webkit-animation-delay: 0, 2s;
-  -moz-animation-delay: 0, 2s;
-  animation-delay: 0, 2s;
+  -webkit-animation-delay: 2s;
+  -moz-animation-delay: 2s;
+  animation-delay: 2s;
 }
 
 .delayFive {
-  -webkit-animation-delay: 0, 2.5s;
-  -moz-animation-delay: 0, 2.5s;
-  animation-delay: 0, 2.5s;
+  -webkit-animation-delay: 2.5s;
+  -moz-animation-delay: 2.5s;
+  animation-delay: 2.5s;
 }html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video {
    border:0;
    font:inherit;
@@ -370,7 +371,7 @@ article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
   display:block;
 }
 
-html, body {background: rgba(224, 194, 35, 0.32) ; font-family: 'Lato', helvetica, arial, sans-serif; font-size: 16px; color: #222;}
+html, body {   background: #181818 ; font-family: 'Lato', helvetica, arial, sans-serif; font-size: 16px; color: #222;}
 
 .clear {clear: both;}
 
@@ -384,14 +385,14 @@ p {
 #cv {
   width: 90%;
   max-width: 800px;
-  background: rgba(224, 194, 35, 0.32);
+  background: #f3f3f3;
   margin: 30px auto;
 }
 
 .mainDetails {
   padding: 25px 35px;
   border-bottom: 2px solid #cf8a05;
-  background: rgba(224, 194, 35, 0.32);
+  background: #ededed;
 }
 
 #name h1 {
@@ -684,31 +685,47 @@ section:last-child {
 }
 
 .delayOne {
-  -webkit-animation-delay: 0, .5s;
-  -moz-animation-delay: 0, .5s;
-  animation-delay: 0, .5s;
+  -webkit-animation-delay: 0.5s;
+  -moz-animation-delay: 0.5s;
+  animation-delay: 0.5s;
 }
 
 .delayTwo {
-  -webkit-animation-delay: 0, 1s;
-  -moz-animation-delay: 0, 1s;
-  animation-delay: 0, 1s;
+  -webkit-animation-delay: 1s;
+  -moz-animation-delay: 1s;
+  animation-delay: 1s;
 }
 
 .delayThree {
-  -webkit-animation-delay: 0, 1.5s;
-  -moz-animation-delay: 0, 1.5s;
-  animation-delay: 0, 1.5s;
+  -webkit-animation-delay: 1.5s;
+  -moz-animation-delay: 1.5s;
+  animation-delay: 1.5s;
 }
 
 .delayFour {
-  -webkit-animation-delay: 0, 2s;
-  -moz-animation-delay: 0, 2s;
-  animation-delay: 0, 2s;
+  -webkit-animation-delay: 2s;
+  -moz-animation-delay: 2s;
+  animation-delay: 2s;
 }
 
 .delayFive {
-  -webkit-animation-delay: 0, 2.5s;
-  -moz-animation-delay: 0, 2.5s;
-  animation-delay: 0, 2.5s;
+  -webkit-animation-delay: 2.5s;
+  -moz-animation-delay: 2.5s;
+  animation-delay: 2.5s;
 }
+
+.input-group-btn{
+  margin-left: 80%;
+
+}
+button.btn.btn-success{
+  margin-left: 80%;
+}
+#btnContainer > .input-group-btn{
+  margin-left: 80%;
+}
+#btnContainer{
+  height: inherit;
+  width: inherit;
+}
+

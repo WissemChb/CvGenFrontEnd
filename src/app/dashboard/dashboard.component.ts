@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewChild, OnDestroy} from '@angular/core';
 import {DashboardService} from "./dashboard.service";
-import {Router} from "@angular/router";
+import {Router, ActivatedRoute} from "@angular/router";
 import {CreateModalComponent} from "./createModal/createModal.component";
 import {Customer} from "../shared/classes/customer";
 import {FlashMessagesService} from "angular2-flash-messages";
@@ -32,14 +32,16 @@ export class DashboardComponent implements OnInit,OnDestroy {
   language : Object[] = [];
   subscription : Subscription;
   idAttr : string;
+  idTemp : string;
 
 
   constructor(private dashService : DashboardService, private router : Router,private flashMessage : FlashMessagesService,
-              private  templateService : TemplateService){
+              private  templateService : TemplateService, private route : ActivatedRoute){
     this.subscription = this.templateService.getData().subscribe(data => {if(data){debugger;this.user = data}});
   }
   ngOnInit(){
       this.pdfDoc = new JsPDF('p','pt','a4');
+
   }
   ngOnDestroy(){
     this.subscription.unsubscribe()

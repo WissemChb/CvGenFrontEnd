@@ -197,7 +197,7 @@ body {
   color: white;
 }
 
-a.read {
+.read {
   border: none;
   outline: none;
   background: #00acee;
@@ -216,7 +216,7 @@ a.read {
   -o-border-radius: 25px;
   -moz-border-radius: 25px;
 }
-a.read:hover {
+.read:hover {
   text-decoration: none;
   background: #2baf2b;
 }

@@ -3,6 +3,8 @@ import { FrondEndPage } from './app.po';
 
 
 
+
+
 describe('frond-end App', () => {
   let page: FrondEndPage;
 
@@ -43,23 +45,22 @@ describe('frond-end App', () => {
   });
 
   describe('E2E SIGNUP TEST : ',() => {
-   beforeEach(() =>{
-     page.navigateToSignup();
-   });
+    beforeEach(() => {
+      page.navigateToSignup();
+    });
 
-   it('should get a returned message when submit a button',() => {
-      page.getFirstNameElement().sendKeys('ben chaaben');
-      page.getSecondNameElement().sendKeys('wissem');
-      page.getUsernameElement().sendKeys('wiss013');
-      page.getEmailElement().sendKeys('xy@gmail.com');
-      page.getPasswordElement().sendKeys('wissem');
-      page.getConfirmPasswordElement().sendKeys('wissem');
-      page.getSubmitButton().click();
-      page.navigateToLogin();
-      expect(page.getResponseMessage()).toHaveBeenCalled();
-      });
-
-
+    it(' it should get all the  6 input elements ', () => {
+      expect(page.getInputELements().count()).toEqual(6);
+    });
   });
 
+    describe('E2E LOGIN TEST : ', () => {
+      beforeEach(() => {
+        page.navigateToLogin();
+      });
+
+      it(' it should get all the  2 input elements ', () => {
+        expect(page.getInputELements().count()).toEqual(2);
+      });
+    });
 });

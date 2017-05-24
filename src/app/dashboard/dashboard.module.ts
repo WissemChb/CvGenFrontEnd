@@ -30,6 +30,7 @@ import {AuthGardGuard} from "../Guards/auth-gard.guard";
 import {TemplateService} from "./template.service";
 import { ProjectComponent } from './createCvComponent/project/project.component';
 import {ProjectService} from "./createCvComponent/project/project.service";
+import {Viewtemplate3Component} from "../templates/template3/viewtemplate3.component";
 
 
 @NgModule({
@@ -48,6 +49,7 @@ import {ProjectService} from "./createCvComponent/project/project.service";
       {path : 'dashboard' , component: DashboardComponent,canActivate : [AuthGardGuard], children : [
         {path : 'template1' , component: Viewtemplate1Component, outlet : 'routertemp'},
         {path : 'template2' , component: Viewtemplate2Component, outlet : 'routertemp'},
+        {path : 'template3' , component: Viewtemplate3Component, outlet : 'routertemp'},
         {path : 'education', component : EducationComponent , outlet : 'routerCV'},
         {path : 'skill', component : SkillComponent , outlet : 'routerCV'},
         {path : 'experience', component : ExperienceComponent , outlet : 'routerCV'},
@@ -58,7 +60,7 @@ import {ProjectService} from "./createCvComponent/project/project.service";
       ]}
     ]),
   ],
-  declarations: [DashboardComponent,CreateModalComponent,Viewtemplate1Component, Viewtemplate2Component,
+  declarations: [DashboardComponent,CreateModalComponent,Viewtemplate1Component, Viewtemplate2Component,Viewtemplate3Component,
     EducationComponent, ExperienceComponent, SkillComponent, InformationComponent,
     LeisureComponent, LanguageComponent, RatingComponent, ProjectComponent, RatingComponent],
   providers:[DashboardService,

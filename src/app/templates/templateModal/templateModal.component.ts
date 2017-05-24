@@ -2,11 +2,9 @@
  * Created by wissem on 4/22/17.
  */
 
-import {Component, Input, ViewChild, OnInit} from '@angular/core';
+import {Component, Input, ViewChild} from '@angular/core';
 import { ModalDirective } from 'ng2-bootstrap';
 import {Router} from "@angular/router";
-import {FlashMessagesService} from "angular2-flash-messages";
-import {ImageTemplates} from "../TemplateImages";
 
 
 
@@ -30,7 +28,7 @@ import {ImageTemplates} from "../TemplateImages";
           <a type="button" class="read" (click)="hide()">Cancel</a>
         </div>
         <div class="pull-right">
-           <a type="button" class="read"  [routerLink]="['/dashboard',{outlets: {routertemp: 'template1'}}]">Choose</a>
+           <button type="button" class="read"  (click)="onclickTemp()">Choose</button>
         </div>
       </div>
       </div>
@@ -42,10 +40,9 @@ import {ImageTemplates} from "../TemplateImages";
 })
 export class TemplateModalComponent{
   @ViewChild('childModal') public childModal:ModalDirective;
-  @Input() title:string;
-  images : ImageTemplates = new ImageTemplates();
+  @Input('idTemp') idTemplate :string;
 
-  constructor(private  router : Router, private flashmessage : FlashMessagesService){}
+  constructor(private  router : Router){}
 
 
   show(){
@@ -56,7 +53,8 @@ export class TemplateModalComponent{
   }
 
   onclickTemp() {
-      this.router.navigate(['/dashboard', {outlets: {routertemp: ['template1']}}]);
+    debugger
+      this.router.navigate(['/dashboard', {outlets: {routertemp: [`template${this.idTemplate}`]}}]);
 
   }
 }

@@ -34,7 +34,8 @@ export class TemplatesComponent implements OnInit{
      this.tempService.getTemplates().subscribe(data => this.templateImages = data, error => this.error = error);
   }
   Onclick(event){
-    var target = event.target || event.srcElement || event.currentTarget;
+    debugger;
+    let target = event.target || event.srcElement || event.currentTarget;
     this.idAttr = target.attributes.id.value;
     this.value =document.getElementById(this.idAttr).getAttribute('src');
     this.childModal.show();
